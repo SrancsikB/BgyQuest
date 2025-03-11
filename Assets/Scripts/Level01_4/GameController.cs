@@ -3,9 +3,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    public GameObject train;
-    public GameObject wagon;
-    //public GameObject stations;
+
 
     public float globalSwitchingTime;
     public int globalCoalQuantity;
@@ -13,7 +11,6 @@ public class GameController : MonoBehaviour
     public int coinQuantity;
 
 
-    private TrainControllerGrid trains;
 
     private void Start()
     {
@@ -25,11 +22,12 @@ public class GameController : MonoBehaviour
         }
 
         TrainControllerGrid[] trains = FindObjectsByType<TrainControllerGrid>(FindObjectsSortMode.None);
-        foreach (var train in trains)
+        trains[0].SelectTrain(); //Select 1st train by default
+        foreach (TrainControllerGrid train in trains)
         {
             train.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
         }
-        
+
         //wagon.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
 
         coinQuantity = startCoinQuantity;
@@ -45,7 +43,7 @@ public class GameController : MonoBehaviour
         ////Release movement
         //if (train.GetComponent<TrainControllerGrid>().stopMovement == true && Input.GetKeyDown(KeyCode.Space))
         //{
-            
+
         //    SetNextStation();
         //    train.GetComponent<TrainControllerGrid>().stopMovement = false;
         //    wagon.GetComponent<TrainControllerGrid>().stopMovement = false;
@@ -73,7 +71,7 @@ public class GameController : MonoBehaviour
     //    {
     //        int index = Random.Range(0, stations.transform.childCount);
     //        newRandomStation = stations.transform.GetChild(index).GetComponent<StationController>().stationName;
-            
+
     //    }
     //    train.GetComponent<TrainControllerGrid>().targetStation = newRandomStation;
     //    wagon.GetComponent<TrainControllerGrid>().targetStation = newRandomStation;

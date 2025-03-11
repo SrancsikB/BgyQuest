@@ -213,7 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &20073194
 SpriteRenderer:
@@ -364,7 +363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &34658846
 SpriteRenderer:
@@ -637,7 +635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &64357747
 SpriteRenderer:
@@ -727,7 +724,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &79746416
 SpriteRenderer:
@@ -939,7 +935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &88029597
 SpriteRenderer:
@@ -1090,7 +1085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &107788047
 SpriteRenderer:
@@ -1147,6 +1141,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &110168100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 2749581214652151487, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_Name
+      value: RailTLfD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237668688755102184, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+--- !u!4 &110168101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5306221337099849219, guid: 34e6742946b017f41858a5c3faaacefc, type: 3}
+  m_PrefabInstance: {fileID: 110168100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &113463397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &113463401
 SpriteRenderer:
@@ -1331,7 +1390,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &116540091
 SpriteRenderer:
@@ -1483,7 +1541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 1
   isStationCoalMine: 0
 --- !u!212 &124183811
 SpriteRenderer:
@@ -1649,14 +1706,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 904551994}
   parentTrain: {fileID: 0}
-  angularSpeed: 90
   maxSpeed: 1
   stations: {fileID: 1169296750}
   isWagon: 0
+  isSelectedTrain: 0
   startCoalQuantity: 0
   actualCoalQuantity: 0
-  targetStation: 1
   stopMovement: 0
+  targetStation: 1
 --- !u!212 &124485062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1721,7 +1778,7 @@ Transform:
   m_GameObject: {fileID: 124485060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: -7, y: 0.5, z: 0}
   m_LocalScale: {x: 0.87, y: 0.87, z: 0.87}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1897,7 +1954,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &155330852
 SpriteRenderer:
@@ -1971,6 +2027,224 @@ MonoBehaviour:
   alternateRailType: 3
   switchingTime: 3
   elapsedTime: 0
+--- !u!1001 &158778861
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1110153975116319500, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192916997643259300, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_Name
+      value: RailTU
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+--- !u!4 &158778862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722081346187120361, guid: dcb73794c796bdb459f4e8b1db32f3c3, type: 3}
+  m_PrefabInstance: {fileID: 158778861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &162885586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162885587}
+  - component: {fileID: 162885590}
+  - component: {fileID: 162885589}
+  - component: {fileID: 162885588}
+  m_Layer: 5
+  m_Name: Text (TMP) SwitchingTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &162885587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162885586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1501936904}
+  m_Father: {fileID: 1567021572}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &162885588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162885586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7c30ab9c999cd40899c7438d4d9ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchingTime: 0
+  elapsedTime: 0
+--- !u!114 &162885589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162885586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0.0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.23
+  m_fontSizeBase: 0.23
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &162885590
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162885586}
+  m_CullTransparentMesh: 1
 --- !u!1 &179579596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,7 +2324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &179579599
 SpriteRenderer:
@@ -2294,6 +2567,192 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+--- !u!1 &241435393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241435398}
+  - component: {fileID: 241435397}
+  - component: {fileID: 241435396}
+  - component: {fileID: 241435395}
+  - component: {fileID: 241435394}
+  m_Layer: 0
+  m_Name: Wagon (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &241435394
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241435393}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &241435395
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241435393}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0073019564, y: 0.105878055}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6, y: 0.83}
+    newSize: {x: 0.7, y: 1.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5612634, y: 1.0082439}
+  m_EdgeRadius: 0
+--- !u!114 &241435396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241435393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95b39db4a2972841b3e0d7518dc577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 904551994}
+  parentTrain: {fileID: 124485060}
+  maxSpeed: 1
+  stations: {fileID: 0}
+  isWagon: 1
+  isSelectedTrain: 0
+  startCoalQuantity: 0
+  actualCoalQuantity: 0
+  stopMovement: 0
+  targetStation: 1
+--- !u!212 &241435397
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241435393}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 200
+  m_Sprite: {fileID: 21300000, guid: d246193e1a40e9d41a4857792ac9091b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.7, y: 1.22}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &241435398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241435393}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: -1.5, z: 0}
+  m_LocalScale: {x: 0.9200001, y: 0.9200001, z: 0.9200001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 592107951}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &245681147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2431,6 +2890,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1181560642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &279122055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 3248681165299552312, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_Name
+      value: RailTDfL
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113520853200165449, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+--- !u!4 &279122056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6139208793835073725, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+  m_PrefabInstance: {fileID: 279122055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &282333937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282333938}
+  m_Layer: 0
+  m_Name: MapTool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282333938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282333937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 471460693}
+  - {fileID: 1489736118}
+  - {fileID: 1812150219}
+  - {fileID: 1650312078}
+  - {fileID: 820940560}
+  - {fileID: 952207289}
+  - {fileID: 110168101}
+  - {fileID: 314051381}
+  - {fileID: 279122056}
+  - {fileID: 581147056}
+  - {fileID: 1125840108}
+  - {fileID: 1196996648}
+  - {fileID: 158778862}
+  - {fileID: 1098599000}
+  - {fileID: 558157439}
+  - {fileID: 1757576782}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294618734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,7 +3014,7 @@ GameObject:
   - component: {fileID: 294618736}
   - component: {fileID: 294618735}
   m_Layer: 0
-  m_Name: UI
+  m_Name: UI Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2497,7 +3069,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 5, y: 3}
+  m_Size: {x: 5, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2512,15 +3084,116 @@ Transform:
   m_GameObject: {fileID: 294618734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 5, z: 0}
+  m_LocalPosition: {x: 11, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1948629100}
   - {fileID: 1970387112}
   - {fileID: 5324050042554485230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &307817488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 307817489}
+  - component: {fileID: 307817492}
+  - component: {fileID: 307817491}
+  - component: {fileID: 307817490}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &307817489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307817488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1363636, y: 1.0638298, z: 1.1363636}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1023015528}
+  m_Father: {fileID: 1933190944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.5868, y: 0.009}
+  m_SizeDelta: {x: 2.464, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &307817490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307817488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &307817491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307817488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &307817492
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307817488}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!1 &312000224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,7 +3307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &312000229
 SpriteRenderer:
@@ -2691,6 +3363,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &314051380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 6605592876389577100, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196531031910260832, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+      propertyPath: m_Name
+      value: RailTDfR
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+--- !u!4 &314051381 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7656222573013765856, guid: 40e27458e9257874b8562e982ca5528e, type: 3}
+  m_PrefabInstance: {fileID: 314051380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &338668242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,7 +3523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &338668246
 SpriteRenderer:
@@ -3023,7 +3760,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &386317804
 SpriteRenderer:
@@ -3174,7 +3910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &392430033
 SpriteRenderer:
@@ -3562,7 +4297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &408010088
 SpriteRenderer:
@@ -3713,7 +4447,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &412548320
 SpriteRenderer:
@@ -3864,7 +4597,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &413469942
 SpriteRenderer:
@@ -4015,7 +4747,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &422112430
 SpriteRenderer:
@@ -4166,7 +4897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &422516374
 SpriteRenderer:
@@ -4487,7 +5217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 1
   isStationCoalMine: 0
 --- !u!212 &443693604
 SpriteRenderer:
@@ -4744,7 +5473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &453271012
 SpriteRenderer:
@@ -4801,6 +5529,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &471460692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585663858805722218, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214932723216492187, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+      propertyPath: m_Name
+      value: RailUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+--- !u!4 &471460693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3589148065588899521, guid: a6c6bad33a09c3d479fdc6277f0d770a, type: 3}
+  m_PrefabInstance: {fileID: 471460692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &471565328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5001,7 +5795,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &472540667
 SpriteRenderer:
@@ -5222,7 +6015,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 1
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &491622849
 SpriteRenderer:
@@ -5373,7 +6165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &529412035
 SpriteRenderer:
@@ -5524,7 +6315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &544942815
 SpriteRenderer:
@@ -5675,7 +6465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &545494280
 SpriteRenderer:
@@ -5732,6 +6521,138 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &558157438
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1110153975116319500, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192916997643259300, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_Name
+      value: RailTD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+--- !u!4 &558157439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722081346187120361, guid: b5ca1954981eb6848a3d9556a9357181, type: 3}
+  m_PrefabInstance: {fileID: 558157438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &581147055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1779368151561602494, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_Name
+      value: RailR
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831437876473765388, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+--- !u!4 &581147056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8040800903445767915, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+  m_PrefabInstance: {fileID: 581147055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &586166462
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,7 +6747,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &586166466
 SpriteRenderer:
@@ -5989,6 +6909,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
   m_PrefabInstance: {fileID: 586598193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &592107950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592107951}
+  m_Layer: 0
+  m_Name: WagonChain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592107951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592107950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241435398}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &630587752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6218,7 +7169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &684954313
 SpriteRenderer:
@@ -6292,6 +7242,93 @@ MonoBehaviour:
   alternateRailType: 7
   switchingTime: 3
   elapsedTime: 0
+--- !u!1 &698527190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698527191}
+  - component: {fileID: 698527192}
+  m_Layer: 0
+  m_Name: Coal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698527191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698527190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3, y: 0.085, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1933190944}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &698527192
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698527190}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 21300000, guid: 91bfe394690ecc34cb44f3644b72a9cc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &701091707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,7 +7510,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &728988719
 SpriteRenderer:
@@ -6774,7 +7810,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &744949299
 SpriteRenderer:
@@ -6986,7 +8021,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &748756311
 SpriteRenderer:
@@ -7137,7 +8171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &765949321
 SpriteRenderer:
@@ -7288,7 +8321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &783079464
 SpriteRenderer:
@@ -7504,7 +8536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &786696035
 SpriteRenderer:
@@ -7674,7 +8705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &788252017
 SpriteRenderer:
@@ -7913,7 +8943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 1
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &819678078
 SpriteRenderer:
@@ -7984,7 +9013,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationName: 3
   goStop: {fileID: 0}
---- !u!1 &828579475
+--- !u!1001 &820940559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 2563216774655228868, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_Name
+      value: RailTRfD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516721469438995772, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+--- !u!4 &820940560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
+  m_PrefabInstance: {fileID: 820940559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &843723638
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7992,77 +9087,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 828579478}
-  - component: {fileID: 828579477}
-  - component: {fileID: 828579476}
-  m_Layer: 0
-  m_Name: EventSystem
+  - component: {fileID: 1567021572}
+  - component: {fileID: 1567021575}
+  - component: {fileID: 1567021574}
+  - component: {fileID: 1567021573}
+  m_Layer: 5
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &828579476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828579475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &828579477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828579475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &828579478
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828579475}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848997352
 GameObject:
   m_ObjectHideFlags: 0
@@ -8157,7 +9192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &848997356
 SpriteRenderer:
@@ -8308,7 +9342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &852278943
 SpriteRenderer:
@@ -8464,7 +9497,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &859685085
 SpriteRenderer:
@@ -8554,7 +9586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &870565193
 SpriteRenderer:
@@ -8766,7 +9797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &872651349
 SpriteRenderer:
@@ -9054,7 +10084,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &903300169
 SpriteRenderer:
@@ -9368,7 +10397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &918059482
 SpriteRenderer:
@@ -9425,6 +10453,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &952207288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307333973889059869, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_Name
+      value: RailTLfU
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603896709498152476, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+--- !u!4 &952207289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 993462437473078921, guid: 712f55bd5ca565d4d9527aa208dfdac7, type: 3}
+  m_PrefabInstance: {fileID: 952207288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961502706
 GameObject:
   m_ObjectHideFlags: 0
@@ -9538,7 +10632,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &961502711
 SpriteRenderer:
@@ -9694,7 +10787,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &967085107
 SpriteRenderer:
@@ -9888,7 +10980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &996356115
 SpriteRenderer:
@@ -10039,7 +11130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1009595428
 SpriteRenderer:
@@ -10190,7 +11280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1016962925
 SpriteRenderer:
@@ -10247,6 +11336,156 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1023015527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023015528}
+  - component: {fileID: 1023015531}
+  - component: {fileID: 1023015530}
+  - component: {fileID: 1023015529}
+  m_Layer: 5
+  m_Name: Text (TMP) Coal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1023015528
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023015527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 307817489}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.441876, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5812043}
+  m_AnchoredPosition: {x: -0.55, y: -0.034}
+  m_SizeDelta: {x: 0.8567985, y: 0.84701926}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1023015529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023015527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992880cf693599d49bd17cff107e1f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coalQuantity: 0
+--- !u!114 &1023015530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023015527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: X
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1023015531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023015527}
+  m_CullTransparentMesh: 1
 --- !u!1 &1032078042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8816148344269930090, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
@@ -10365,7 +11604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1035835779
 SpriteRenderer:
@@ -10516,7 +11754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1047692879
 SpriteRenderer:
@@ -10667,7 +11904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1048268091
 SpriteRenderer:
@@ -10818,7 +12054,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1071919624
 SpriteRenderer:
@@ -10969,7 +12204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1077830837
 SpriteRenderer:
@@ -11120,7 +12354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1080916134
 SpriteRenderer:
@@ -11271,7 +12504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1081960382
 SpriteRenderer:
@@ -11422,7 +12654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1084798441
 SpriteRenderer:
@@ -11573,7 +12804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1092349055
 SpriteRenderer:
@@ -11724,7 +12954,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1098115589
 SpriteRenderer:
@@ -11781,6 +13010,138 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1098598999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1110153975116319500, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192916997643259300, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_Name
+      value: RailTR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+--- !u!4 &1098599000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722081346187120361, guid: 804e059fd41574544ae77dc0aae5fbf9, type: 3}
+  m_PrefabInstance: {fileID: 1098598999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1125840107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 5862949039198567801, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816148344269930090, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+      propertyPath: m_Name
+      value: RailL
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+--- !u!4 &1125840108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7833454880583175661, guid: d3d12c371c4b09744baef22d163857e3, type: 3}
+  m_PrefabInstance: {fileID: 1125840107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1139946249
 GameObject:
   m_ObjectHideFlags: 0
@@ -11815,7 +13176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 1
   isStationCoalMine: 0
 --- !u!212 &1139946253
 SpriteRenderer:
@@ -12095,14 +13455,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 988764648}
   parentTrain: {fileID: 1870526739}
-  angularSpeed: 90
   maxSpeed: 1
   stations: {fileID: 0}
   isWagon: 1
+  isSelectedTrain: 0
   startCoalQuantity: 0
   actualCoalQuantity: 0
-  targetStation: 1
   stopMovement: 0
+  targetStation: 1
 --- !u!212 &1181560641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12239,6 +13599,72 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d498271bae42f4887aa9ee85d811b9, type: 3}
+--- !u!1001 &1196996647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 7499825329746851993, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958899830801175127, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_Name
+      value: RailD
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+--- !u!4 &1196996648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
+  m_PrefabInstance: {fileID: 1196996647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1199337853
 GameObject:
   m_ObjectHideFlags: 0
@@ -12333,7 +13759,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1199337857
 SpriteRenderer:
@@ -12486,7 +13911,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1207672133
 SpriteRenderer:
@@ -12655,7 +14079,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 1
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1216693540
 SpriteRenderer:
@@ -12835,7 +14258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1242246473
 SpriteRenderer:
@@ -12986,7 +14408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1250556720
 SpriteRenderer:
@@ -13243,7 +14664,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1253400456
 SpriteRenderer:
@@ -13394,7 +14814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1267369281
 SpriteRenderer:
@@ -13545,7 +14964,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1269646015
 SpriteRenderer:
@@ -13802,7 +15220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1288496585
 SpriteRenderer:
@@ -13953,7 +15370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1297426595
 SpriteRenderer:
@@ -14104,7 +15520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1301366239
 SpriteRenderer:
@@ -14342,7 +15757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1313679473
 SpriteRenderer:
@@ -14495,7 +15909,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1318083545
 SpriteRenderer:
@@ -14663,7 +16076,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1322294439
 SpriteRenderer:
@@ -14759,7 +16171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 1
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1335246752
 SpriteRenderer:
@@ -15135,7 +16546,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1340708129
 SpriteRenderer:
@@ -15291,7 +16701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1359204120
 SpriteRenderer:
@@ -15461,7 +16870,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1376433354
 SpriteRenderer:
@@ -15612,7 +17020,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1378430410
 SpriteRenderer:
@@ -15763,7 +17170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1389387569
 SpriteRenderer:
@@ -15914,7 +17320,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1397963092
 SpriteRenderer:
@@ -16065,7 +17470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 1
 --- !u!212 &1398847521
 SpriteRenderer:
@@ -16216,7 +17620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1401027351
 SpriteRenderer:
@@ -16367,7 +17770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1404681715
 SpriteRenderer:
@@ -16518,7 +17920,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1418163814
 SpriteRenderer:
@@ -16669,7 +18070,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1421370731
 SpriteRenderer:
@@ -16755,8 +18155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d572b93d4794ef949be181732013c308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  train: {fileID: 124485060}
-  wagon: {fileID: 1936112009}
   globalSwitchingTime: 2
   globalCoalQuantity: 200
   startCoinQuantity: 0
@@ -16870,7 +18268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1449932944
 SpriteRenderer:
@@ -17021,7 +18418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1455397707
 SpriteRenderer:
@@ -17259,7 +18655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1457124746
 SpriteRenderer:
@@ -17411,7 +18806,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 1
   isStationCoalMine: 0
 --- !u!212 &1481167521
 SpriteRenderer:
@@ -17515,7 +18909,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1484289680
 SpriteRenderer:
@@ -17633,6 +19026,72 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.17, y: 1.22}
   m_EdgeRadius: 0
+--- !u!1001 &1489736117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1110153975116319500, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192916997643259300, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_Name
+      value: RailTUfR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+--- !u!4 &1489736118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722081346187120361, guid: 10db2683b1c978b43b349b9b6aadb5da, type: 3}
+  m_PrefabInstance: {fileID: 1489736117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1498853497
 GameObject:
   m_ObjectHideFlags: 0
@@ -17729,7 +19188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1498853501
 SpriteRenderer:
@@ -17803,6 +19261,97 @@ MonoBehaviour:
   alternateRailType: 5
   switchingTime: 3
   elapsedTime: 0
+--- !u!1 &1501936903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1501936904}
+  - component: {fileID: 1501936905}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1501936904
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501936903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.38, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 162885587}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &1501936905
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501936903}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 99
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1502731467
 GameObject:
   m_ObjectHideFlags: 0
@@ -17897,7 +19446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1502731471
 SpriteRenderer:
@@ -18048,7 +19596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1526170194
 SpriteRenderer:
@@ -18262,112 +19809,90 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e7be7aa69e2e24428e083e215d288de, type: 3}
---- !u!1001 &1567021571
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1318083542}
-    m_Modifications:
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5752206061343307255, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667933279050401543, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
---- !u!224 &1567021572 stripped
+--- !u!224 &1567021572
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3918122881760434290, guid: 6b6bb13a04b0c5143a2ac6c64d48a8d0, type: 3}
-  m_PrefabInstance: {fileID: 1567021571}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843723638}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1363636, y: 1.0638298, z: 1.1363636}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1934007870}
+  - {fileID: 162885587}
+  m_Father: {fileID: 1318083542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1567021573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843723638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1567021574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843723638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &1567021575
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843723638}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!1 &1571853265
 GameObject:
   m_ObjectHideFlags: 0
@@ -18462,7 +19987,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1571853269
 SpriteRenderer:
@@ -18613,7 +20137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1576050564
 SpriteRenderer:
@@ -18836,7 +20359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1625389893
 SpriteRenderer:
@@ -19157,6 +20679,72 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1652783355}
   m_SourcePrefab: {fileID: 100100000, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
+--- !u!1001 &1650312077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234418366767160666, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481928242703979799, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+      propertyPath: m_Name
+      value: RailTRfU
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+--- !u!4 &1650312078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2804686472619149195, guid: 9bafa3f66b6ec5b4cb895711a7ac7b76, type: 3}
+  m_PrefabInstance: {fileID: 1650312077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1652783350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1779368151561602494, guid: 34e48aa0e6399024a9acbd00d7370e2c, type: 3}
@@ -19275,7 +20863,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1687590826
 SpriteRenderer:
@@ -19426,7 +21013,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1688118526
 SpriteRenderer:
@@ -19577,7 +21163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1712896975
 SpriteRenderer:
@@ -19834,7 +21419,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1750537698
 SpriteRenderer:
@@ -19891,6 +21475,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1757576781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 1110153975116319500, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192916997643259300, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_Name
+      value: RailTL
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+--- !u!4 &1757576782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722081346187120361, guid: 7ba7216135a568149aabacbcd5e43422, type: 3}
+  m_PrefabInstance: {fileID: 1757576781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1786662194
 GameObject:
   m_ObjectHideFlags: 0
@@ -19985,7 +21635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1786662198
 SpriteRenderer:
@@ -20136,7 +21785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1790597805
 SpriteRenderer:
@@ -20288,7 +21936,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 1
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1796664493
 SpriteRenderer:
@@ -20359,6 +22006,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationName: 4
   goStop: {fileID: 0}
+--- !u!1001 &1812150218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 282333938}
+    m_Modifications:
+    - target: {fileID: 899282074298289824, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821570261723455416, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_Name
+      value: RailTUfL
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+--- !u!4 &1812150219 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9159455833550385494, guid: 432a70dcca40fca4b99e6695b1c20384, type: 3}
+  m_PrefabInstance: {fileID: 1812150218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1818452805
 GameObject:
   m_ObjectHideFlags: 0
@@ -20453,7 +22166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1818452809
 SpriteRenderer:
@@ -20604,7 +22316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1845791180
 SpriteRenderer:
@@ -20755,7 +22466,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1852192826
 SpriteRenderer:
@@ -20907,7 +22617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 1
   isStationCoalMine: 0
 --- !u!212 &1865259531
 SpriteRenderer:
@@ -21085,14 +22794,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 988764648}
   parentTrain: {fileID: 0}
-  angularSpeed: 90
   maxSpeed: 1
   stations: {fileID: 2060183427}
   isWagon: 0
+  isSelectedTrain: 0
   startCoalQuantity: 0
   actualCoalQuantity: 0
-  targetStation: 1
   stopMovement: 0
+  targetStation: 1
 --- !u!212 &1870526743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21258,7 +22967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1874750767
 SpriteRenderer:
@@ -21515,7 +23223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1897672001
 SpriteRenderer:
@@ -21666,7 +23373,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1907902899
 SpriteRenderer:
@@ -21817,7 +23523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1915315707
 SpriteRenderer:
@@ -22024,6 +23729,245 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1933190942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933190944}
+  - component: {fileID: 1933190943}
+  m_Layer: 0
+  m_Name: UI Train
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1933190943
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933190942}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 99
+  m_Sprite: {fileID: 21300000, guid: 816d7aef7561ce949a6c05643cd8e8a3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 1
+  m_Size: {x: 5, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1933190944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933190942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 698527191}
+  - {fileID: 307817489}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1934007869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934007870}
+  - component: {fileID: 1934007873}
+  - component: {fileID: 1934007872}
+  - component: {fileID: 1934007871}
+  m_Layer: 5
+  m_Name: Text (TMP) SwitchingNum
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1934007870
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934007869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1567021572}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1934007871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934007869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e18c725635fec24fabcb101bc358917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchingNum: 
+--- !u!114 &1934007872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934007869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: X
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1934007873
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934007869}
+  m_CullTransparentMesh: 1
 --- !u!1 &1936112009
 GameObject:
   m_ObjectHideFlags: 0
@@ -22131,14 +24075,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 904551994}
   parentTrain: {fileID: 124485060}
-  angularSpeed: 90
   maxSpeed: 1
   stations: {fileID: 0}
   isWagon: 1
+  isSelectedTrain: 0
   startCoalQuantity: 0
   actualCoalQuantity: 0
-  targetStation: 1
   stopMovement: 0
+  targetStation: 1
 --- !u!212 &1936112013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22203,7 +24147,7 @@ Transform:
   m_GameObject: {fileID: 1936112009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -7, y: -0.5, z: 0}
   m_LocalScale: {x: 0.9200001, y: 0.9200001, z: 0.9200001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -22410,7 +24354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1939439035
 SpriteRenderer:
@@ -22513,93 +24456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 473196843}
---- !u!1 &1948629099
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1948629100}
-  - component: {fileID: 1948629101}
-  m_Layer: 0
-  m_Name: Coal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1948629100
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948629099}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 294618736}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1948629101
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948629099}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: 91bfe394690ecc34cb44f3644b72a9cc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!4 &1954760822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2954061622608208284, guid: 50dec54b617058c4ba7b7290fe1398d9, type: 3}
@@ -22699,7 +24555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1955275606
 SpriteRenderer:
@@ -22850,7 +24705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1959389357
 SpriteRenderer:
@@ -23001,7 +24855,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &1964919524
 SpriteRenderer:
@@ -23083,8 +24936,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970387111}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: -0.39, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3000002, y: 0.018, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -23312,7 +25165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &2011807899
 SpriteRenderer:
@@ -23463,7 +25315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &2050968483
 SpriteRenderer:
@@ -23647,7 +25498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &2081924622
 SpriteRenderer:
@@ -23739,7 +25589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.441876, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5812043}
-  m_AnchoredPosition: {x: -0.55, y: -0.47}
+  m_AnchoredPosition: {x: -0.55, y: -0.025}
   m_SizeDelta: {x: 0.8567985, y: 0.84701926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094791069
@@ -24098,7 +25948,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &2141126175
 SpriteRenderer:
@@ -24307,7 +26156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!114 &703137981245425995
 MonoBehaviour:
@@ -24323,7 +26171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 3
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &812424456383885579
 SpriteRenderer:
@@ -24440,7 +26287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!114 &1573115261530543771
 MonoBehaviour:
@@ -24520,25 +26366,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1805031025919971611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5135529154356755984}
-  - component: {fileID: 3189331696643531925}
-  - component: {fileID: 9098076883953924374}
-  - component: {fileID: 9098076883953924375}
-  m_Layer: 5
-  m_Name: Text (TMP) Coal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1814488597511658681
 GameObject:
   m_ObjectHideFlags: 0
@@ -24693,14 +26520,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.17, y: 1.2}
   m_EdgeRadius: 0
---- !u!222 &3189331696643531925
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805031025919971611}
-  m_CullTransparentMesh: 1
 --- !u!212 &3250173223317230604
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25007,7 +26826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!1 &4747426942743665118
 GameObject:
@@ -25088,7 +26906,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 6
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!114 &5063462490922787431
 MonoBehaviour:
@@ -25104,7 +26921,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 0
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!1 &5073146525819891596
 GameObject:
@@ -25125,25 +26941,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5135529154356755984
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805031025919971611}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5324050042554485230}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.441876, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5812043}
-  m_AnchoredPosition: {x: -0.55, y: 0.37}
-  m_SizeDelta: {x: 0.8567985, y: 0.84701926}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &5277732648060927608
 Transform:
   m_ObjectHideFlags: 0
@@ -25171,14 +26968,13 @@ RectTransform:
   m_LocalScale: {x: 1.1363636, y: 1.0638298, z: 1.1363636}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5135529154356755984}
   - {fileID: 2094791067}
   m_Father: {fileID: 294618736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.5868, y: 0.009}
-  m_SizeDelta: {x: 2.464, y: 1.8839}
+  m_SizeDelta: {x: 2.464, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5350913406287156936
 SpriteRenderer:
@@ -25460,7 +27256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 7
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!1001 &6127812108823719910
 PrefabInstance:
@@ -25893,7 +27688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!4 &7836853024263331021
 Transform:
@@ -25939,7 +27733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 5
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!4 &8290671642029303079
 Transform:
@@ -26025,7 +27818,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 4
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!1 &8560663717273580928
 GameObject:
@@ -26079,7 +27871,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 1
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!114 &8753387023741668208
 MonoBehaviour:
@@ -26095,7 +27886,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   railType: 2
   isStationForTrain: 0
-  isStationForWagon: 0
   isStationCoalMine: 0
 --- !u!212 &8915242073091600696
 SpriteRenderer:
@@ -26198,110 +27988,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.17, y: 1.22}
   m_EdgeRadius: 0
---- !u!114 &9098076883953924374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805031025919971611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: X
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &9098076883953924375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805031025919971611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992880cf693599d49bd17cff107e1f51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coalQuantity: 0
 --- !u!4 &9129737479714461171
 Transform:
   m_ObjectHideFlags: 0
@@ -26324,12 +28010,14 @@ SceneRoots:
   - {fileID: 880514198}
   - {fileID: 1446299244}
   - {fileID: 124485063}
-  - {fileID: 1870526744}
   - {fileID: 1936112014}
-  - {fileID: 1181560642}
+  - {fileID: 241435398}
   - {fileID: 904551995}
   - {fileID: 1169296751}
-  - {fileID: 828579478}
-  - {fileID: 294618736}
+  - {fileID: 1870526744}
+  - {fileID: 1181560642}
   - {fileID: 988764649}
   - {fileID: 2060183428}
+  - {fileID: 282333938}
+  - {fileID: 294618736}
+  - {fileID: 1933190944}

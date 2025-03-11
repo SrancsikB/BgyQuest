@@ -12,8 +12,27 @@ public class RailController : MonoBehaviour
 
     public RailController.RailType railType;
     public bool isStationForTrain = false;
-    public bool isStationForWagon = false;
+    //public bool isStationForWagon = false;
     public bool isStationCoalMine = false;
+
+    private void Start()
+    {
+        try
+        {
+            //Remove arrow child if not switch
+            RailSwitch railSwitch = GetComponent<RailSwitch>();
+            if (railSwitch==null)
+            {
+                transform.GetChild(0).gameObject.SetActive(false); //Remove arrow
+            }
+            
+        }
+        catch (System.Exception)
+        {
+                        
+        }
+        
+    }
 
     private void OnValidate()
     {
