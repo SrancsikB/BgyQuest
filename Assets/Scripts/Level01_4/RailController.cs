@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class RailController : MonoBehaviour
 {
+
+
+
     public enum RailType
     {
         Up, Left, Down, Right, TurnUp, TurnLeft, TurnDown, TurnRight
 
     }
 
+    public enum RailStyle
+    {
+        Up, Left, Down, Right,
+        TurnUpFromLeft, TurnUpFromRight, TurnUpFromBoth,
+        TurnDownFromLeft, TurnDownFromRight, TurnDownFromBoth,
+        TurnRightFromUp, TurnRightFromDown, TurnRightFromBoth,
+        TurnLeftFromUp, TurnLeftFromDown, TurnLeftFromBoth
+
+    }
+
+
+    [SerializeField] Sprite[] rails;
+    [SerializeField] Sprite[] arrows;
+    public RailController.RailStyle railStyle;
     public RailController.RailType railType;
+
     public bool isStationForTrain = false;
     //public bool isStationForWagon = false;
     public bool isStationCoalMine = false;
@@ -19,26 +37,123 @@ public class RailController : MonoBehaviour
     {
         try
         {
-            //Remove arrow child if not switch
-            RailSwitch railSwitch = GetComponent<RailSwitch>();
-            if (railSwitch==null)
-            {
-                transform.GetChild(0).gameObject.SetActive(false); //Remove arrow
-            }
-            
+
+            transform.GetChild(0).gameObject.SetActive(false); //Remove arrow
+
         }
         catch (System.Exception)
         {
-                        
+
         }
-        
+
     }
 
     private void OnValidate()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        sr.sortingOrder = 10 - (int)transform.position.y;
-        
+       
+        try
+        {
+
+            SpriteRenderer spRail = GetComponent<SpriteRenderer>();
+            SpriteRenderer spArrow = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            switch (railStyle)
+            {
+                case RailStyle.Up:
+                    spRail.sprite = rails[0];
+                    spArrow.sprite = arrows[0];
+                    railType = RailType.Up;
+                    break;
+                case RailStyle.Left:
+                    spRail.sprite = rails[1];
+                    spArrow.sprite = arrows[1];
+                    railType = RailType.Left;
+                    break;
+                case RailStyle.Down:
+                    spRail.sprite = rails[2];
+                    spArrow.sprite = arrows[2];
+                    railType = RailType.Down;
+                    break;
+                case RailStyle.Right:
+                    spRail.sprite = rails[3];
+                    spArrow.sprite = arrows[3];
+                    railType = RailType.Right;
+                    break;
+                case RailStyle.TurnUpFromLeft:
+                    spRail.sprite = rails[4];
+                    spArrow.sprite = arrows[4];
+                    railType = RailType.TurnUp;
+                    break;
+                case RailStyle.TurnUpFromRight:
+                    spRail.sprite = rails[5];
+                    spArrow.sprite = arrows[5];
+                    railType = RailType.TurnUp;
+                    break;
+                case RailStyle.TurnUpFromBoth:
+                    spRail.sprite = rails[6];
+                    spArrow.sprite = arrows[6];
+                    railType = RailType.TurnUp;
+                    break;
+                case RailStyle.TurnDownFromLeft:
+                    spRail.sprite = rails[7];
+                    spArrow.sprite = arrows[7];
+                    railType = RailType.TurnDown;
+                    break;
+                case RailStyle.TurnDownFromRight:
+                    spRail.sprite = rails[8];
+                    spArrow.sprite = arrows[8];
+                    railType = RailType.TurnDown;
+                    break;
+                case RailStyle.TurnDownFromBoth:
+                    spRail.sprite = rails[9];
+                    spArrow.sprite = arrows[9];
+                    railType = RailType.TurnDown;
+                    break;
+                case RailStyle.TurnRightFromUp:
+                    spRail.sprite = rails[10];
+                    spArrow.sprite = arrows[10];
+                    railType = RailType.TurnRight;
+                    break;
+                case RailStyle.TurnRightFromDown:
+                    spRail.sprite = rails[11];
+                    spArrow.sprite = arrows[11];
+                    railType = RailType.TurnRight;
+                    break;
+                case RailStyle.TurnRightFromBoth:
+                    spRail.sprite = rails[12];
+                    spArrow.sprite = arrows[12];
+                    railType = RailType.TurnRight;
+                    break;
+                case RailStyle.TurnLeftFromUp:
+                    spRail.sprite = rails[13];
+                    spArrow.sprite = arrows[13];
+                    railType = RailType.TurnLeft;
+                    break;
+                case RailStyle.TurnLeftFromDown:
+                    spRail.sprite = rails[14];
+                    spArrow.sprite = arrows[14];
+                    railType = RailType.TurnLeft;
+                    break;
+                case RailStyle.TurnLeftFromBoth:
+                    spRail.sprite = rails[15];
+                    spArrow.sprite = arrows[15];
+                    railType = RailType.TurnLeft;
+                    break;
+                default:
+                    break;
+
+
+            }
+
+
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+
+
     }
 
 
@@ -82,7 +197,7 @@ public class RailController : MonoBehaviour
                 drawTo = pos + Vector3.right * gizmoLength;
                 break;
             case RailType.TurnUp:
-                drawFrom = pos; 
+                drawFrom = pos;
                 drawTo = pos + Vector3.up * gizmoLength;
                 break;
             case RailType.TurnLeft:

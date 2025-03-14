@@ -10,7 +10,14 @@ public class TrainControllerGrid : MonoBehaviour
     [SerializeField] GameObject map;
     [SerializeField] GameObject parentTrain;
     [SerializeField] float maxSpeed = 10;
+    [SerializeField] float accelerationSpeed = 0.05f;
     float angularSpeed = 90;
+    float accelerationFactor = 1;
+    bool activateDeceleration = false;
+
+    [SerializeField] Smoke smoke;
+    [SerializeField] float smokeFreq = 1;
+    float timeToSmoke;
 
     TrainControllerGrid parentTrainController;
     public GameObject stations;
@@ -19,6 +26,7 @@ public class TrainControllerGrid : MonoBehaviour
     public int startCoalQuantity;
     public int actualCoalQuantity;
     public bool stopMovement;
+    bool releaseStopMovement; //Space key or this
 
 
     //For movement
@@ -60,20 +68,38 @@ public class TrainControllerGrid : MonoBehaviour
     private void Update()
     {
 
-        if (isWagon) //Use parntTrain properties if it is a wagon
+        if (isWagon) //Use parentTrain properties if it is a wagon
         {
             targetStation = parentTrain.GetComponent<TrainControllerGrid>().targetStation;
             angularSpeed = parentTrainController.angularSpeed;
             maxSpeed = parentTrainController.maxSpeed;
-            stopMovement = parentTrainController.stopMovement;
+
+        }
+        else
+        {
+            if (activateDeceleration == false)
+            {//apply more smoke during accel
+                timeToSmoke += Time.deltaTime * (1 / accelerationFactor);
+            }
+            else
+            {
+                timeToSmoke += Time.deltaTime;
+            }
+
+            if (timeToSmoke >= smokeFreq && stopMovement == false)
+            {
+                Instantiate(smoke, transform.position, transform.rotation);
+                timeToSmoke = 0;
+            }
         }
 
 
         //Release movement
-        if (stopMovement == true && Input.GetKeyDown(KeyCode.Space))
+        if (stopMovement == true && (Input.GetKeyDown(KeyCode.Space) || releaseStopMovement))
         {
             SetNextStation();
             stopMovement = false;
+            releaseStopMovement = false;
         }
 
         //Show target station
@@ -105,16 +131,50 @@ public class TrainControllerGrid : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Acceleration
+        if (!isWagon)
+        {
+            if (activateDeceleration == false)
+            {//Accel
+                if (accelerationFactor < 1)
+                    accelerationFactor += accelerationSpeed;
+                else
+                    accelerationFactor = 1;
+            }
+            else
+            {//Decel
+                if (accelerationFactor > accelerationSpeed)
+                    accelerationFactor -= accelerationSpeed;
+                else
+                    accelerationFactor = accelerationSpeed;
+            }
+
+        }
+        else
+        {
+            accelerationFactor = parentTrainController.accelerationFactor;
+            //Wagon movement sync
+            if (accelerationFactor < accelerationSpeed * 10)
+            {
+                stopMovement = parentTrainController.stopMovement;
+            }
+
+        }
 
 
         if (tileMovementActive == false)
         {
+            //if (isWagon)
+            //{
+            //    stopMovement = parentTrainController.stopMovement;
+            //}
+
             tileMovementActive = true;
 
             angularSpeed = maxSpeed * 90; //+ angulerSpeedFactor;
-                        
+
             actualCoalQuantity -= 1;
-            
+
 
             targetPos = GetNextTile();
 
@@ -143,7 +203,7 @@ public class TrainControllerGrid : MonoBehaviour
 
 
             movementLength = Vector3.Distance(startPos, targetPos);
-            
+
             startTime = Time.time;
         }
 
@@ -151,12 +211,12 @@ public class TrainControllerGrid : MonoBehaviour
         //angulerSpeed = maxSpeed * 90 + angulerSpeedFactor;
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, angulerSpeed * Time.deltaTime);
 
-        float distCovered = (Time.time - startTime) * maxSpeed;
-        float percentOfMovement = distCovered / movementLength;
+        //float distCovered = (Time.time - startTime) * maxSpeed * accelerationFactor;
+        //float percentOfMovement = distCovered / movementLength;
 
         if (doTurn)
         {
-            transform.RotateAround(rotPos, new Vector3(0, 0, rotateDirection), Time.fixedDeltaTime * angularSpeed);
+            transform.RotateAround(rotPos, new Vector3(0, 0, rotateDirection), Time.fixedDeltaTime * angularSpeed * accelerationFactor);
 
 
             if ((rotateDirection == 1 && targetRotAngle != 0 && transform.rotation.eulerAngles.z >= targetRotAngle) ||
@@ -165,15 +225,16 @@ public class TrainControllerGrid : MonoBehaviour
                 (rotateDirection == -1 && targetRotAngle == 0 && transform.rotation.eulerAngles.z > 330))
             {
                 //Finish rotation
-                transform.position = targetPos; 
+                transform.position = targetPos;
                 transform.rotation = Quaternion.Euler(0, 0, targetRotAngle);
             }
-           
+
         }
         else
         {
             if (movementLength != 0)
-                transform.position = Vector3.Lerp(startPos, targetPos, percentOfMovement);
+                //transform.position = Vector3.Lerp(startPos, targetPos, percentOfMovement);
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.fixedDeltaTime * maxSpeed * accelerationFactor);
         }
 
         if (transform.position == targetPos && stopMovement == false)
@@ -231,12 +292,21 @@ public class TrainControllerGrid : MonoBehaviour
             {
                 RailController.RailType railType = goTile.GetComponent<RailController>().railType;
                 if (!isWagon)
+                {
                     targetIsStation = goTile.GetComponent<RailController>().isStationForTrain;
+
+                }
                 //else
-                  //  targetIsStation = goTile.GetComponent<RailController>().isStationForWagon;
+                //  targetIsStation = goTile.GetComponent<RailController>().isStationForWagon;
 
                 if (targetIsStation)
+                {
                     reachedStation = goTile.GetComponent<StationController>().stationName;
+                    if (reachedStation == targetStation)
+                    {
+                        activateDeceleration = true;
+                    }
+                }
                 else
                     reachedStation = StationController.StationNames.None;
 
@@ -326,6 +396,7 @@ public class TrainControllerGrid : MonoBehaviour
 
                 lastDirection = currentDirection;
 
+
                 return goTile.position;
             }
         }
@@ -337,8 +408,12 @@ public class TrainControllerGrid : MonoBehaviour
 
     public void SetNextStation()
     {
+
+
         if (!isWagon)
         {
+            accelerationFactor = accelerationSpeed;
+            activateDeceleration = false;
             StationController.StationNames newRandomStation = targetStation;
 
             while (newRandomStation == targetStation) //Avoid same seed
@@ -373,6 +448,24 @@ public class TrainControllerGrid : MonoBehaviour
             }
             isSelectedTrain = true;
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0.0f, 1f);
+
+            //Release movement
+            if (stopMovement == true)
+            {
+                //releaseStopMovement = true;
+                SetNextStation();
+                stopMovement = false;
+            }
         }
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+
+        int X = Mathf.RoundToInt(transform.position.x);
+        int Y = Mathf.RoundToInt(transform.position.y);
+        transform.position = new Vector3(X, Y, 0);
     }
 }

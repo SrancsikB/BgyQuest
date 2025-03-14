@@ -3,12 +3,13 @@ using UnityEngine;
 public class RailSwitch : MonoBehaviour
 {
 
-    [SerializeField] KeyCode switchButton;
+    public KeyCode switchButton;
     [SerializeField] Sprite alternateSprite;
     [SerializeField] RailController.RailType alternateRailType;
 
     public float switchingTime = 3;
     public float elapsedTime = 0;
+    public bool triggerSwitch;
 
     Sprite defaultSprite;
     RailController.RailType defaultRailtype;
@@ -25,7 +26,7 @@ public class RailSwitch : MonoBehaviour
         elapsedTime = 0;
         try
         {
-            Canvas = transform.GetChild(0).gameObject;
+            Canvas = GetComponentInChildren<Canvas>().gameObject; //transform.GetChild(0).gameObject;
             Canvas.GetComponentInChildren<UISwitchingNum>().switchingNum = switchButton.ToString();
             Canvas.GetComponentInChildren<UISwicthingTime>().switchingTime = switchingTime;
         }
@@ -36,6 +37,15 @@ public class RailSwitch : MonoBehaviour
         }
 
         
+    }
+
+
+    private void OnValidate()
+    {
+        
+        RailController[] alterRail = GetComponentsInChildren<RailController>(true);
+        alternateRailType = alterRail[1].railType;
+        alternateSprite = alterRail[1].GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -57,14 +67,16 @@ public class RailSwitch : MonoBehaviour
 
 
                 GetComponent<SpriteRenderer>().color = new Color(0.5f, 1, 0.5f, 1);
-                if (Input.GetKeyDown(switchButton))
+                if (Input.GetKeyDown(switchButton) || triggerSwitch)
                 {
+                    triggerSwitch = false;
                     elapsedTime += Time.deltaTime;
                 }
             }
             else
             {
                 //Switching in progress
+                triggerSwitch = false; //Disable switch trigger
                 GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1);
                 elapsedTime += Time.deltaTime;
                 if (elapsedTime>=switchingTime)
@@ -86,6 +98,7 @@ public class RailSwitch : MonoBehaviour
                 }
                 
             }
+            
         }
         else
         {
