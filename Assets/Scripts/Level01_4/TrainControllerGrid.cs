@@ -464,8 +464,8 @@ public class TrainControllerGrid : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        int X = Mathf.RoundToInt(transform.position.x);
-        int Y = Mathf.RoundToInt(transform.position.y);
-        transform.position = new Vector3(X, Y, 0);
+        //int X = Mathf.RoundToInt(transform.position.x);
+        //int Y = Mathf.RoundToInt(transform.position.y);
+        //transform.position = new Vector3(X, Y-0.5f, 0);
     }
 }

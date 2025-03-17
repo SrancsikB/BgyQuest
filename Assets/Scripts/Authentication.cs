@@ -23,8 +23,24 @@ public class Authentication : MonoBehaviour
     {
         InputPassWord.contentType = TMP_InputField.ContentType.Password;
         await UnityServices.InitializeAsync();
+        if (AuthenticationService.Instance.SessionTokenExists)
+        {
+            try
+            {
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+            catch (System.Exception)
+            {
+                                
+            }
+            
+        }
         if (AuthenticationService.Instance.IsSignedIn)
+        {
             ShowSuccessMessage("Already signed in. " + AuthenticationService.Instance.PlayerId);
+            SceneManager.LoadScene("Level01_1");
+        }
+            
     }
 
     public async void CreateUser()

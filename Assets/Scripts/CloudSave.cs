@@ -16,7 +16,12 @@ public class CloudSave : MonoBehaviour
     public GameObject GO3;
     public GameObject GO4;
 
- 
+    async private void Start()
+    {
+        string playerName =AuthenticationService.Instance.PlayerInfo.Username;
+        Debug.Log(playerName);
+    }
+
     async void SaveData(int MainLevel,int SubLevel)
     {
         var data = new Dictionary<string, object>
@@ -43,6 +48,7 @@ public class CloudSave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveData(MainLevel+1, 2);
