@@ -10,6 +10,7 @@ public class Authentication : MonoBehaviour
     [SerializeField] TMP_InputField InputUserName;
     [SerializeField] TMP_InputField InputPassWord;
     [SerializeField] TextMeshProUGUI ErrorMessage;
+    PlayerDataControl pdc;
 
     string UserNameText = "User";
     string PasswordText = "User1234!";
@@ -21,8 +22,10 @@ public class Authentication : MonoBehaviour
 
     async void Start()
     {
+        pdc = PlayerDataControl.Instance;
         InputPassWord.contentType = TMP_InputField.ContentType.Password;
         await UnityServices.InitializeAsync();
+        AuthenticationService.Instance.SignOut(true);//Temp
         if (AuthenticationService.Instance.SessionTokenExists)
         {
             try
@@ -31,16 +34,18 @@ public class Authentication : MonoBehaviour
             }
             catch (System.Exception)
             {
-                                
+
             }
-            
+
         }
         if (AuthenticationService.Instance.IsSignedIn)
         {
-            ShowSuccessMessage("Already signed in. " + AuthenticationService.Instance.PlayerId);
-            SceneManager.LoadScene("Level01_1");
+            ShowSuccessMessage("Already signed in. " + AuthenticationService.Instance.PlayerId + "/n" + AuthenticationService.Instance.PlayerInfo.Username);
+            pdc.playerName = AuthenticationService.Instance.PlayerInfo.Username;
+            pdc.LoadData();
+            SceneManager.LoadScene("Map");
         }
-            
+
     }
 
     public async void CreateUser()
@@ -55,11 +60,13 @@ public class Authentication : MonoBehaviour
         UserNameText = InputUserName.text;
         PasswordText = InputPassWord.text;
         await SignInWithUsernamePasswordAsync(UserNameText, PasswordText);
+
     }
 
     public async void SignInGuest()
     {
         await SignInGuestAsync();
+
     }
 
     async Task SignUpWithUsernamePasswordAsync(string username, string password)
@@ -68,8 +75,10 @@ public class Authentication : MonoBehaviour
         {
             await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync(username, password);
             //Debug.Log("SignUp is successful. " + AuthenticationService.Instance.PlayerId);
-            ShowSuccessMessage("SignUp is successful. " + AuthenticationService.Instance.PlayerId);
-            SceneManager.LoadScene("Level01_1");
+            ShowSuccessMessage("SignUp is successful. " + AuthenticationService.Instance.PlayerId + "/n" + AuthenticationService.Instance.PlayerInfo.Username);
+            pdc.playerName = AuthenticationService.Instance.PlayerInfo.Username;
+            pdc.InitData();
+            SceneManager.LoadScene("Map");
         }
         catch (AuthenticationException ex)
         {
@@ -101,7 +110,9 @@ public class Authentication : MonoBehaviour
             await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(username, password);
             //Debug.Log("SignIn is successful." + AuthenticationService.Instance.PlayerId);
             ShowSuccessMessage("SignIn is successful. " + AuthenticationService.Instance.PlayerId);
-            SceneManager.LoadScene("Level01_1");
+            pdc.playerName = AuthenticationService.Instance.PlayerInfo.Username;
+            pdc.LoadData();
+            SceneManager.LoadScene("Map");
         }
         catch (AuthenticationException ex)
         {
@@ -132,7 +143,9 @@ public class Authentication : MonoBehaviour
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             //Debug.Log("SignIn is successful." + AuthenticationService.Instance.PlayerId);
             ShowSuccessMessage("SignIn as guest successful. " + AuthenticationService.Instance.PlayerId);
-            SceneManager.LoadScene("Level01_1");
+            pdc.playerName = "Guest";
+            pdc.InitData();
+            SceneManager.LoadScene("Map");
         }
         catch (AuthenticationException ex)
         {

@@ -5,15 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoginMenu.unity
     guid: 896cdcdb19632b149988d4c971a86967
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level01_1.unity
     guid: b98b333cee61a9a4c9397f19a1dbed0c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level01_2.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Login/Login.unity
+    guid: da996e7736955f54b99707f7a7075bbf
+  - enabled: 1
+    path: Assets/Map/Map.unity
+    guid: eec064a944197c2438676e284131e452
+  - enabled: 1
+    path: Assets/LevelRailway/RailwayLevel.unity
+    guid: acfb2f4b2bb867f4688710aff1d7a240
+  - enabled: 1
+    path: Assets/Puzzle/Puzzle.unity
+    guid: fd9459eab7ac8db42b4e1681f6e06b8b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

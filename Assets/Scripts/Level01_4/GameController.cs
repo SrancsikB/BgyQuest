@@ -28,9 +28,11 @@ public class GameController : MonoBehaviour
             train.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
         }
 
+        coinQuantity = PlayerDataControl.Instance.coins;
+
         //wagon.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
 
-        coinQuantity = startCoinQuantity;
+        //coinQuantity = startCoinQuantity;
 
         //SetNextStation();
     }

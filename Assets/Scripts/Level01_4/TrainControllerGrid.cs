@@ -249,7 +249,11 @@ public class TrainControllerGrid : MonoBehaviour
                     stopMovement = true;
                     if (!isWagon)
                     {
-                        FindFirstObjectByType<GameController>().coinQuantity += 100;
+                        GameController gc = FindFirstObjectByType<GameController>();
+
+                        gc.coinQuantity += 100;
+
+                        PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
                     }
                 }
 

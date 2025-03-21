@@ -2,25 +2,27 @@ using UnityEngine;
 
 public class PuzzleCard : MonoBehaviour
 {
-    [SerializeField] Sprite backSideSprite;
+    public int order;
     public Vector3 correctPosition;
     public bool aquired = false;
+    
     bool hovered = false;
     Vector3 startPos;
     Quaternion startRot;
 
-    float clicked = 0;
-    float clicktime = 0;
-    float clickdelay = 0.5f;
 
+
+
+    public void StoreStartPos()
+    {
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (!aquired)
-        {
-            GetComponent<SpriteRenderer>().sprite = backSideSprite;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
         startPos = transform.position;
         startRot = transform.rotation;
     }
