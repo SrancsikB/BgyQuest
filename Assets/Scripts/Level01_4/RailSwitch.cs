@@ -81,7 +81,7 @@ public class RailSwitch : MonoBehaviour
                 elapsedTime += Time.deltaTime;
                 if (elapsedTime>=switchingTime)
                 {
-                    //Swtiching ready
+                    //Switching ready
                     elapsedTime = 0;
                     switched = !switched;
                     if (switched == true)

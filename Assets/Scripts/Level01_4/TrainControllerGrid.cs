@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainControllerGrid : MonoBehaviour
@@ -252,8 +253,15 @@ public class TrainControllerGrid : MonoBehaviour
                         GameController gc = FindFirstObjectByType<GameController>();
 
                         gc.coinQuantity += 100;
+                        try
+                        {
+                            PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
+                        }
+                        catch (System.Exception)
+                        {
+                            Debug.Log("Coin save failed");
+                        }
 
-                        PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
                     }
                 }
 
@@ -316,7 +324,22 @@ public class TrainControllerGrid : MonoBehaviour
 
                 if (goTile.GetComponent<RailController>().isStationCoalMine == true)
                 {
-                    actualCoalQuantity += 100;
+                    int coalMineLevel = PlayerDataControl.Instance.GetRailwayCoalMineLevel();
+                    switch (coalMineLevel)
+                    {
+                        case 1:
+                            actualCoalQuantity += Random.Range(10, 20);
+                            break;
+                        case 2:
+                            actualCoalQuantity += Random.Range(20, 50);
+                            break;
+                        case 3:
+                            actualCoalQuantity += Random.Range(50, 100);
+                            break;
+                        default:
+                            break;
+                    }
+                    
                     if (actualCoalQuantity > startCoalQuantity)
                         actualCoalQuantity = startCoalQuantity;
                 }

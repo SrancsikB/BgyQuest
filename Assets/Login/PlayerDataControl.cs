@@ -14,15 +14,29 @@ public class PlayerDataControl : MonoBehaviour
     public string playerName;
     public int coins;
 
-    private List<bool> railwayPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true };
-
+    //Railway
+    private List<bool> railwayPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true }; //Collected cards
+    private int railwayMapLevel = 1; //Level of map/scene
+    private int railwayTrainSpeed = 1; //Speed of the train
+    private float railwaySwitchingTime = 5.0f; //Speed of railway swithcing time
+    private int railwayCoalMineLevel = 1; //Level of coal mine
+    
     public List<bool> GetRailwayPuzzleData()
     {
         return railwayPuzzleData;
     }
-
-
-
+    public float GetRailwaySwitchingTime()
+    {
+        return railwaySwitchingTime;
+    }
+    public int GetRailwayTrainSpeed()
+    {
+        return railwayTrainSpeed;
+    }
+    public int GetRailwayCoalMineLevel()
+    {
+        return railwayCoalMineLevel;
+    }
 
 
 

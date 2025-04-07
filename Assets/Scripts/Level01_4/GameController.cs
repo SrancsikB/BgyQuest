@@ -28,7 +28,18 @@ public class GameController : MonoBehaviour
             train.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
         }
 
-        coinQuantity = PlayerDataControl.Instance.coins;
+
+        try //try to get Player coins, 0 if NA
+        {
+            coinQuantity = PlayerDataControl.Instance.coins;
+        }
+        catch (System.Exception)
+        {
+            coinQuantity = 0;
+            Debug.Log("Coins cannot aquired from Player data");
+        }
+
+        
 
         //wagon.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
 

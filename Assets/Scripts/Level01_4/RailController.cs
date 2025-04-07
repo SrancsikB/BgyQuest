@@ -32,7 +32,7 @@ public class RailController : MonoBehaviour
     public bool isStationForTrain = false;
     //public bool isStationForWagon = false;
     public bool isStationCoalMine = false;
-
+    public float coalMineRechargeTime = 0;
     private void Start()
     {
         try
