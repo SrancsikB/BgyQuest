@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainControllerGrid : MonoBehaviour
@@ -8,24 +7,42 @@ public class TrainControllerGrid : MonoBehaviour
         Up, Left, Down, Right //, TurningUp, TurningLeft, TurningDown, TurningRight
     }
 
+    //Train map and speed, setup by Railway level
     [SerializeField] GameObject map;
+    public GameObject stations;
     [SerializeField] GameObject parentTrain;
-    [SerializeField] float maxSpeed = 10;
+    [SerializeField] GameObject coalHeap;
+    [SerializeField] float maxSpeed = 1;
     [SerializeField] float accelerationSpeed = 0.05f;
     float angularSpeed = 90;
     float accelerationFactor = 1;
     bool activateDeceleration = false;
 
+    //Fx
     [SerializeField] Smoke smoke;
     [SerializeField] float smokeFreq = 1;
     float timeToSmoke;
 
+    //Behaviour
     TrainControllerGrid parentTrainController;
-    public GameObject stations;
     public bool isWagon;
     public bool isSelectedTrain;
+
+    //Setup by GameController
     public int startCoalQuantity;
-    public int actualCoalQuantity;
+    int actualCoalQuantity;
+    public int minReward;
+    public int maxReward;
+    int bonusReward;
+    public float maxTimeToDecreaseReward;
+    float timeToDecreaseReward;
+
+    public float coalHeapShowTime;
+    float coalHeapShowActTimer;
+    public float coalHeapHideTime;
+    float coalHeapHideActTimer;
+    public int coalHeapQuantity;
+
     public bool stopMovement;
     bool releaseStopMovement; //Space key or this
 
@@ -53,6 +70,12 @@ public class TrainControllerGrid : MonoBehaviour
         startTime = Time.time;
         targetPos = transform.position;
         actualCoalQuantity = startCoalQuantity;
+        bonusReward = maxReward;
+        timeToDecreaseReward = maxTimeToDecreaseReward;
+        coalHeapShowActTimer = coalHeapShowTime;
+        coalHeapHideActTimer = coalHeapHideTime;
+        coalHeap = Instantiate(coalHeap);
+        CoalHeapRandomize();
 
         if (isWagon)
         {
@@ -117,11 +140,38 @@ public class TrainControllerGrid : MonoBehaviour
         }
 
 
-        //Coal handling
+        //Bonus reward handling
+        timeToDecreaseReward -= Time.deltaTime;
+        if (timeToDecreaseReward < 0)
+        {
+            if (bonusReward > 0)
+                bonusReward -= 1; //Decrease bonus
+            timeToDecreaseReward = maxTimeToDecreaseReward;
+        }
+
+
+        //Coal heap show / hide
+        coalHeapShowActTimer -= Time.deltaTime;
+        if (coalHeapShowActTimer < 0)
+        {
+            coalHeap.SetActive(true);
+            coalHeapHideActTimer -= Time.deltaTime;
+            if (coalHeapHideActTimer < 0)
+            {
+                coalHeap.SetActive(false);
+                CoalHeapRandomize();
+                coalHeapShowActTimer = coalHeapShowTime;
+                coalHeapHideActTimer = coalHeapHideTime;
+            }
+        }
+
+        //Coal handling and UI in foot
         if (!isWagon && isSelectedTrain)
         {
 
             FindFirstObjectByType<UICoal>().coalQuantity = actualCoalQuantity;
+            FindFirstObjectByType<UIStation>().stationName = targetStation.ToString();
+            FindFirstObjectByType<UIReward>().reward = minReward + bonusReward;
         }
         if (actualCoalQuantity <= 0)
         {
@@ -174,7 +224,8 @@ public class TrainControllerGrid : MonoBehaviour
 
             angularSpeed = maxSpeed * 90; //+ angulerSpeedFactor;
 
-            actualCoalQuantity -= 1;
+            actualCoalQuantity -= 1; //Decrease coal
+
 
 
             targetPos = GetNextTile();
@@ -252,7 +303,8 @@ public class TrainControllerGrid : MonoBehaviour
                     {
                         GameController gc = FindFirstObjectByType<GameController>();
 
-                        gc.coinQuantity += 100;
+                        gc.coinQuantity += minReward + bonusReward; //Temp 100
+                        bonusReward = maxReward;
                         try
                         {
                             PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
@@ -339,7 +391,7 @@ public class TrainControllerGrid : MonoBehaviour
                         default:
                             break;
                     }
-                    
+
                     if (actualCoalQuantity > startCoalQuantity)
                         actualCoalQuantity = startCoalQuantity;
                 }
@@ -485,6 +537,27 @@ public class TrainControllerGrid : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<CoalHeapController>() != null)
+        {
+            actualCoalQuantity += coalHeapQuantity;
+            coalHeapShowActTimer = coalHeapShowTime;
+            coalHeapHideActTimer = coalHeapHideTime;
+            CoalHeapRandomize();
+
+        }
+    }
+    
+
+    private void CoalHeapRandomize()
+    {
+        int rndMapTile = Random.Range(0, map.transform.childCount);
+        coalHeap.transform.position = map.transform.GetChild(rndMapTile).position;
+        coalHeap.SetActive(false); //Will show after timer 
+    }
+
 
 
 

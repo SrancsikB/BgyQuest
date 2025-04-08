@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
-
-
-    public float globalSwitchingTime;
-    public int globalCoalQuantity;
-    public int startCoinQuantity;
     public int coinQuantity;
 
+    //RV specific
+    public float globalSwitchingTime;
+    
+    public int globalCoalQuantity;
+
+    public int transportMinReward;
+    public int transportMaxReward;
+    public float transportTimeToDecreaseReward;
+
+    public float coalHeapShowTime;
+    public float coalHeapHideTime;
+    public int coalHeapQuantity;
 
 
     private void Start()
@@ -26,6 +32,12 @@ public class GameController : MonoBehaviour
         foreach (TrainControllerGrid train in trains)
         {
             train.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
+            train.GetComponent<TrainControllerGrid>().minReward = transportMinReward;
+            train.GetComponent<TrainControllerGrid>().maxReward = transportMaxReward;
+            train.GetComponent<TrainControllerGrid>().maxTimeToDecreaseReward = transportTimeToDecreaseReward;
+            train.GetComponent<TrainControllerGrid>().coalHeapShowTime = coalHeapShowTime;
+            train.GetComponent<TrainControllerGrid>().coalHeapHideTime = coalHeapHideTime;
+            train.GetComponent<TrainControllerGrid>().coalHeapQuantity = coalHeapQuantity;
         }
 
 
@@ -36,7 +48,7 @@ public class GameController : MonoBehaviour
         catch (System.Exception)
         {
             coinQuantity = 0;
-            Debug.Log("Coins cannot aquired from Player data");
+            Debug.Log("SB: Coins cannot aquired from Player data");
         }
 
         

@@ -4,14 +4,14 @@ public class StationController : MonoBehaviour
 {
     [SerializeField] Sprite[] sprites;
     public StationOrientation stationOrientation = StationOrientation.Up;
-    public StationNames stationName = StationNames.Bgy;
+    public StationNames stationName = StationNames.BalassaDallas;
     public GameObject goStop;
     Vector3 startScale;
     float scaler = -0.1f;
 
     public enum StationNames
     {
-        None, Bgy, Szugy, Patvarc, Mohora, Ipolyszog, Dregely, Belgrad, Zagrab
+        None, BalassaDallas, Szög, Ditroit, Palánk, Sudice, Nándor, Guta
 
     }
 
