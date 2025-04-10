@@ -6,7 +6,7 @@ using System.Collections;
 
 public class UIButtonAnimation : MonoBehaviour
 {
-    [SerializeField] int Offset = 20;
+    [SerializeField] float Offset = 1;
 
     public void MyPointerDown() {
 
@@ -27,4 +27,14 @@ public class UIButtonAnimation : MonoBehaviour
         }
     }
 
+
+    void OnMouseDown()
+    {
+        MyPointerDown();
+    }
+
+    void OnMouseUp()
+    {
+        MyPointerUp();
+    }
 }
