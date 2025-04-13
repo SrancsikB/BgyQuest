@@ -1922,7 +1922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button (2)
+      value: ButtonC
       objectReference: {fileID: 0}
     - target: {fileID: 6547510138902205008, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: switchButton
@@ -2272,7 +2272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button (3)
+      value: ButtonE
       objectReference: {fileID: 0}
     - target: {fileID: 6547510138902205008, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: switchButton
@@ -2766,7 +2766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: ButtonB
       objectReference: {fileID: 0}
     - target: {fileID: 6547510138902205008, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: switchButton
@@ -3301,6 +3301,10 @@ PrefabInstance:
       propertyPath: coalHeap
       value: 
       objectReference: {fileID: 7383493489966035819, guid: 84982827555c29b48b73bf360f9e566a, type: 3}
+    - target: {fileID: 6121526862654381774, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
+      propertyPath: coinHeap
+      value: 
+      objectReference: {fileID: 7383493489966035819, guid: 91ba0e7287747aa45ab8d5a0be215eaf, type: 3}
     - target: {fileID: 6121526862654381774, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: maxSpeed
       value: 1.2
@@ -5478,7 +5482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button (4)
+      value: ButtonD
       objectReference: {fileID: 0}
     - target: {fileID: 6547510138902205008, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: switchButton
@@ -5869,7 +5873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: ButtonA
       objectReference: {fileID: 0}
     - target: {fileID: 8763291701816249737, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6445,14 +6449,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinQuantity: 0
+  rwPD:
+    rwMapLevel: 1
+    rwTrainSpeed: 1
+    rwSwitchingTime: 5
+    rwWagonLevel: 1
+    rwCoalHeapLevel: 1
+    rwBonusCoinLevel: 1
   globalSwitchingTime: 2
+  globalTrainSpeed: 0
   globalCoalQuantity: 200
+  globalWagonLevel: 0
   transportMinReward: 10
   transportMaxReward: 50
   transportTimeToDecreaseReward: 2
   coalHeapShowTime: 10
   coalHeapHideTime: 10
   coalHeapQuantity: 10
+  coinHeapShowTime: 1
+  coinHeapHideTime: 50
+  coinHeapQuantity: 33
 --- !u!4 &1446299244
 Transform:
   m_ObjectHideFlags: 0
@@ -8761,7 +8777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636188903121484864, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: m_Name
-      value: Button (5)
+      value: ButtonF
       objectReference: {fileID: 0}
     - target: {fileID: 6547510138902205008, guid: 26a94e12bf2c5eb43b5f7c6a8870be17, type: 3}
       propertyPath: switchButton
@@ -10570,8 +10586,8 @@ SceneRoots:
   - {fileID: 1200626274}
   - {fileID: 676859873}
   - {fileID: 398337880}
+  - {fileID: 1114958114}
   - {fileID: 530828768}
   - {fileID: 1861382428}
-  - {fileID: 1114958114}
   - {fileID: 6091654048362565471}
   - {fileID: 1913802894}

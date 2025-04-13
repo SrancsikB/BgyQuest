@@ -5,9 +5,13 @@ public class GameController : MonoBehaviour
     public int coinQuantity;
 
     //RV specific
+    [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
     public float globalSwitchingTime;
-    
+
+    public float globalTrainSpeed;
+
     public int globalCoalQuantity;
+    public int globalWagonLevel;
 
     public int transportMinReward;
     public int transportMaxReward;
@@ -17,9 +21,44 @@ public class GameController : MonoBehaviour
     public float coalHeapHideTime;
     public int coalHeapQuantity;
 
+    public float coinHeapShowTime;
+    public float coinHeapHideTime;
+    public int coinHeapQuantity;
 
     private void Start()
     {
+
+
+        try //try to get Player data
+        {
+            PlayerDataControl pDC = PlayerDataControl.Instance;
+            coinQuantity = pDC.coins;
+            rwPD = pDC.GetRailwayProgressData();
+            
+
+        }
+        catch (System.Exception)
+        {
+            coinQuantity = 0;
+            Debug.Log("SB: Player data cannot be aquired, using public progress data");
+        }
+
+        globalTrainSpeed = rwPD.rwTrainSpeed;
+        globalSwitchingTime = rwPD.rwSwitchingTime;
+        globalWagonLevel = rwPD.rwWagonLevel;
+        globalCoalQuantity = 50 + rwPD.rwWagonLevel * 50;
+        transportMinReward = 25 + rwPD.rwWagonLevel * 25;
+        transportMaxReward = 25 + rwPD.rwWagonLevel * 25;
+
+        coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 10;
+        coalHeapShowTime = 60 / rwPD.rwCoalHeapLevel;
+        coalHeapHideTime = rwPD.rwCoalHeapLevel * 10;
+
+        coinHeapQuantity = 20 + rwPD.rwBonusCoinLevel * 20;
+        coinHeapShowTime = 60 / rwPD.rwBonusCoinLevel;
+        coinHeapHideTime = rwPD.rwBonusCoinLevel * 10;
+        transportTimeToDecreaseReward = rwPD.rwBonusCoinLevel;
+
         //Setup start params
         RailSwitch[] rs = FindObjectsByType<RailSwitch>(FindObjectsSortMode.None);
         foreach (var railSwitch in rs)
@@ -38,18 +77,12 @@ public class GameController : MonoBehaviour
             train.GetComponent<TrainControllerGrid>().coalHeapShowTime = coalHeapShowTime;
             train.GetComponent<TrainControllerGrid>().coalHeapHideTime = coalHeapHideTime;
             train.GetComponent<TrainControllerGrid>().coalHeapQuantity = coalHeapQuantity;
+            train.GetComponent<TrainControllerGrid>().coinHeapShowTime = coinHeapShowTime;
+            train.GetComponent<TrainControllerGrid>().coinHeapHideTime = coinHeapHideTime;
+            train.GetComponent<TrainControllerGrid>().coinHeapQuantity = coinHeapQuantity;
         }
 
 
-        try //try to get Player coins, 0 if NA
-        {
-            coinQuantity = PlayerDataControl.Instance.coins;
-        }
-        catch (System.Exception)
-        {
-            coinQuantity = 0;
-            Debug.Log("SB: Coins cannot aquired from Player data");
-        }
 
         
 

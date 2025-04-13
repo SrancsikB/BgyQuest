@@ -12,6 +12,7 @@ public class TrainControllerGrid : MonoBehaviour
     public GameObject stations;
     [SerializeField] GameObject parentTrain;
     [SerializeField] GameObject coalHeap;
+    [SerializeField] GameObject coinHeap;
     [SerializeField] float maxSpeed = 1;
     [SerializeField] float accelerationSpeed = 0.05f;
     float angularSpeed = 90;
@@ -42,6 +43,12 @@ public class TrainControllerGrid : MonoBehaviour
     public float coalHeapHideTime;
     float coalHeapHideActTimer;
     public int coalHeapQuantity;
+
+    public float coinHeapShowTime;
+    float coinHeapShowActTimer;
+    public float coinHeapHideTime;
+    float coinHeapHideActTimer;
+    public int coinHeapQuantity;
 
     public bool stopMovement;
     bool releaseStopMovement; //Space key or this
@@ -76,6 +83,11 @@ public class TrainControllerGrid : MonoBehaviour
         coalHeapHideActTimer = coalHeapHideTime;
         coalHeap = Instantiate(coalHeap);
         CoalHeapRandomize();
+
+        coinHeapShowActTimer = coinHeapShowTime;
+        coinHeapHideActTimer = coinHeapHideTime;
+        coinHeap = Instantiate(coinHeap);
+        CoinHeapRandomize();
 
         if (isWagon)
         {
@@ -162,6 +174,21 @@ public class TrainControllerGrid : MonoBehaviour
                 CoalHeapRandomize();
                 coalHeapShowActTimer = coalHeapShowTime;
                 coalHeapHideActTimer = coalHeapHideTime;
+            }
+        }
+
+        //Coin heap show / hide
+        coinHeapShowActTimer -= Time.deltaTime;
+        if (coinHeapShowActTimer < 0)
+        {
+            coinHeap.SetActive(true);
+            coinHeapHideActTimer -= Time.deltaTime;
+            if (coinHeapHideActTimer < 0)
+            {
+                coinHeap.SetActive(false);
+                CoinHeapRandomize();
+                coinHeapShowActTimer = coinHeapShowTime;
+                coinHeapHideActTimer = coinHeapHideTime;
             }
         }
 
@@ -374,27 +401,27 @@ public class TrainControllerGrid : MonoBehaviour
                 else
                     reachedStation = StationController.StationNames.None;
 
-                if (goTile.GetComponent<RailController>().isStationCoalMine == true)
-                {
-                    int coalMineLevel = PlayerDataControl.Instance.GetRailwayCoalMineLevel();
-                    switch (coalMineLevel)
-                    {
-                        case 1:
-                            actualCoalQuantity += Random.Range(10, 20);
-                            break;
-                        case 2:
-                            actualCoalQuantity += Random.Range(20, 50);
-                            break;
-                        case 3:
-                            actualCoalQuantity += Random.Range(50, 100);
-                            break;
-                        default:
-                            break;
-                    }
+                //if (goTile.GetComponent<RailController>().isStationCoalMine == true)
+                //{
+                //    int coalMineLevel = PlayerDataControl.Instance.GetRailwayCoalMineLevel;
+                //    switch (coalMineLevel)
+                //    {
+                //        case 1:
+                //            actualCoalQuantity += Random.Range(10, 20);
+                //            break;
+                //        case 2:
+                //            actualCoalQuantity += Random.Range(20, 50);
+                //            break;
+                //        case 3:
+                //            actualCoalQuantity += Random.Range(50, 100);
+                //            break;
+                //        default:
+                //            break;
+                //    }
 
-                    if (actualCoalQuantity > startCoalQuantity)
-                        actualCoalQuantity = startCoalQuantity;
-                }
+                //    if (actualCoalQuantity > startCoalQuantity)
+                //        actualCoalQuantity = startCoalQuantity;
+                //}
 
                 rotateDirection = 1;
                 switch (railType)
@@ -538,6 +565,20 @@ public class TrainControllerGrid : MonoBehaviour
         }
     }
 
+    private void CoalHeapRandomize()
+    {
+        int rndMapTile = Random.Range(0, map.transform.childCount);
+        coalHeap.transform.position = map.transform.GetChild(rndMapTile).position;
+        coalHeap.SetActive(false); //Will show after timer 
+    }
+
+    private void CoinHeapRandomize()
+    {
+        int rndMapTile = Random.Range(0, map.transform.childCount);
+        coinHeap.transform.position = map.transform.GetChild(rndMapTile).position;
+        coinHeap.SetActive(false); //Will show after timer 
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<CoalHeapController>() != null)
@@ -548,15 +589,19 @@ public class TrainControllerGrid : MonoBehaviour
             CoalHeapRandomize();
 
         }
+        if (collision.gameObject.GetComponent<CoinHeapController>() != null)
+        {
+            GameController gc = FindFirstObjectByType<GameController>();
+            gc.coinQuantity += coinHeapQuantity;
+            coinHeapShowActTimer = coinHeapShowTime;
+            coinHeapHideActTimer = coinHeapHideTime;
+            CoinHeapRandomize();
+
+        }
     }
     
 
-    private void CoalHeapRandomize()
-    {
-        int rndMapTile = Random.Range(0, map.transform.childCount);
-        coalHeap.transform.position = map.transform.GetChild(rndMapTile).position;
-        coalHeap.SetActive(false); //Will show after timer 
-    }
+   
 
 
 

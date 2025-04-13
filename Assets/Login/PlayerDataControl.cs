@@ -6,45 +6,68 @@ using UnityEngine;
 public class PlayerDataControl : MonoBehaviour
 {
 
+
+
     //private static PlayerDataControl playerDataControl;
     public static PlayerDataControl Instance;
-
+    void Awake()
+    {
+        Instance = this;
+    }
 
 
     public string playerName;
     public int coins;
 
     //Railway
-    private List<bool> railwayPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true }; //Collected cards
-    private int railwayMapLevel = 1; //Level of map/scene
-    private int railwayTrainSpeed = 1; //Speed of the train
-    private float railwaySwitchingTime = 5.0f; //Speed of railway swithcing time
-    private int railwayCoalMineLevel = 1; //Level of coal mine
-    
+    [System.Serializable]
+    public struct RailwayPogressData
+    {
+        public int rwMapLevel; //Level of map/scene
+        public int rwTrainSpeed; //Speed of the train
+        public float rwSwitchingTime; //Speed of rw swithcing time
+        public int rwWagonLevel; //Number of wagons
+        public int rwCoalHeapLevel; //Size and freq of coal heaps
+        public int rwBonusCoinLevel; //Level of bonus coin
+
+        public RailwayPogressData(int rwMapLevel, int rwTrainSpeed, float rwSwitchingTime, int rwWagonLevel, int rwCoalHeapLevel, int rwBonusCoinLevel)
+        {
+            this.rwMapLevel = rwMapLevel;
+            this.rwTrainSpeed = rwTrainSpeed;
+            this.rwSwitchingTime = rwSwitchingTime;
+            this.rwWagonLevel = rwWagonLevel;
+            this.rwCoalHeapLevel = rwCoalHeapLevel;
+            this.rwBonusCoinLevel = rwBonusCoinLevel;
+        }
+    }
+    private List<bool> rwPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true }; //Collected cards
+    private RailwayPogressData rwProgressData;
+
     public List<bool> GetRailwayPuzzleData()
     {
-        return railwayPuzzleData;
+        return rwPuzzleData;
     }
-    public float GetRailwaySwitchingTime()
+    public void SetRailwayPuzzleData(int index, bool aquired)
     {
-        return railwaySwitchingTime;
+        rwPuzzleData[index] = aquired;
+        SavePuzzleData(MapFlag.GameGroup.Railway, rwPuzzleData);
     }
-    public int GetRailwayTrainSpeed()
+
+    public RailwayPogressData GetRailwayProgressData()
     {
-        return railwayTrainSpeed;
+        return rwProgressData;
+
     }
-    public int GetRailwayCoalMineLevel()
+
+    public void SetRailwayProgressData(RailwayPogressData railwayPD)
     {
-        return railwayCoalMineLevel;
+        rwProgressData = railwayPD;
+        SaveRailwayProgressData(rwProgressData);
     }
 
 
 
 
-    void Awake()
-    {
-        Instance = this;
-    }
 
 
 
@@ -54,7 +77,8 @@ public class PlayerDataControl : MonoBehaviour
         var data = new Dictionary<string, object>
                 {
                     {"CoinData",0},
-                    {"PuzzleData_Railway",new List<bool>() { false, false, false, false, false, false, false, false, false }}
+                    {"PuzzleData_rw",new List<bool>() { false, false, false, false, false, false, false, false, false }},
+                    {"ProgressData_rw",new RailwayPogressData(1,1,5,1,0,0)}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
         LoadData();
@@ -68,11 +92,13 @@ public class PlayerDataControl : MonoBehaviour
         var data = new HashSet<string>
             {
                 "CoinData",
-                "PuzzleData_Railway"
+                "PuzzleData_rw",
+                "ProgressData_rw"
             };
         var LoadedData = await CloudSaveService.Instance.Data.Player.LoadAsync(data);
         coins = LoadedData["CoinData"].Value.GetAs<int>();
-        railwayPuzzleData = LoadedData["PuzzleData_Railway"].Value.GetAs<List<bool>>();
+        rwPuzzleData = LoadedData["PuzzleData_rw"].Value.GetAs<List<bool>>();
+        rwProgressData = LoadedData["ProgressData_rw"].Value.GetAs<RailwayPogressData>();
 
     }
 
@@ -84,6 +110,19 @@ public class PlayerDataControl : MonoBehaviour
         var data = new Dictionary<string, object>
                 {
                     {"CoinData",savedData}
+                };
+        await CloudSaveService.Instance.Data.Player.SaveAsync(data);
+
+    }
+
+
+
+    public async void SaveRailwayProgressData(RailwayPogressData railwayPD)
+    {
+
+        var data = new Dictionary<string, object>
+                {
+                    {"ProgressData_rw",railwayPD}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
 
