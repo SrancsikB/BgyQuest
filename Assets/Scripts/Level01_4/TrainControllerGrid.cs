@@ -76,24 +76,28 @@ public class TrainControllerGrid : MonoBehaviour
         currentDirection = Direction.Up;
         startTime = Time.time;
         targetPos = transform.position;
-        actualCoalQuantity = startCoalQuantity;
-        bonusReward = maxReward;
-        timeToDecreaseReward = maxTimeToDecreaseReward;
-        coalHeapShowActTimer = coalHeapShowTime;
-        coalHeapHideActTimer = coalHeapHideTime;
-        coalHeap = Instantiate(coalHeap);
-        CoalHeapRandomize();
 
-        coinHeapShowActTimer = coinHeapShowTime;
-        coinHeapHideActTimer = coinHeapHideTime;
-        coinHeap = Instantiate(coinHeap);
-        CoinHeapRandomize();
 
         if (isWagon)
         {
             parentTrainController = parentTrain.GetComponent<TrainControllerGrid>();
             currentDirection = parentTrainController.currentDirection;
             stations = parentTrainController.stations;
+        }
+        else
+        {
+            actualCoalQuantity = startCoalQuantity;
+            bonusReward = maxReward;
+            timeToDecreaseReward = maxTimeToDecreaseReward;
+            coalHeapShowActTimer = coalHeapShowTime;
+            coalHeapHideActTimer = coalHeapHideTime;
+            coalHeap = Instantiate(coalHeap);
+            CoalHeapRandomize();
+
+            coinHeapShowActTimer = coinHeapShowTime;
+            coinHeapHideActTimer = coinHeapHideTime;
+            coinHeap = Instantiate(coinHeap);
+            CoinHeapRandomize();
         }
 
         SetNextStation();
@@ -109,7 +113,8 @@ public class TrainControllerGrid : MonoBehaviour
             targetStation = parentTrain.GetComponent<TrainControllerGrid>().targetStation;
             angularSpeed = parentTrainController.angularSpeed;
             maxSpeed = parentTrainController.maxSpeed;
-
+            this.enabled = parentTrain.GetComponent<TrainControllerGrid>().enabled;
+            
         }
         else
         {
@@ -126,6 +131,53 @@ public class TrainControllerGrid : MonoBehaviour
             {
                 Instantiate(smoke, transform.position, transform.rotation);
                 timeToSmoke = 0;
+            }
+
+            //Out of coal
+            if (actualCoalQuantity <= 0)
+            {
+                this.enabled = false;
+            }
+
+
+            //Bonus reward handling
+            timeToDecreaseReward -= Time.deltaTime;
+            if (timeToDecreaseReward < 0)
+            {
+                if (bonusReward > 0)
+                    bonusReward -= 1; //Decrease bonus
+                timeToDecreaseReward = maxTimeToDecreaseReward;
+            }
+
+
+            //Coal heap show / hide
+            coalHeapShowActTimer -= Time.deltaTime;
+            if (coalHeapShowActTimer < 0)
+            {
+                coalHeap.SetActive(true);
+                coalHeapHideActTimer -= Time.deltaTime;
+                if (coalHeapHideActTimer < 0)
+                {
+                    coalHeap.SetActive(false);
+                    CoalHeapRandomize();
+                    coalHeapShowActTimer = coalHeapShowTime;
+                    coalHeapHideActTimer = coalHeapHideTime;
+                }
+            }
+
+            //Coin heap show / hide
+            coinHeapShowActTimer -= Time.deltaTime;
+            if (coinHeapShowActTimer < 0)
+            {
+                coinHeap.SetActive(true);
+                coinHeapHideActTimer -= Time.deltaTime;
+                if (coinHeapHideActTimer < 0)
+                {
+                    coinHeap.SetActive(false);
+                    CoinHeapRandomize();
+                    coinHeapShowActTimer = coinHeapShowTime;
+                    coinHeapHideActTimer = coinHeapHideTime;
+                }
             }
         }
 
@@ -152,45 +204,7 @@ public class TrainControllerGrid : MonoBehaviour
         }
 
 
-        //Bonus reward handling
-        timeToDecreaseReward -= Time.deltaTime;
-        if (timeToDecreaseReward < 0)
-        {
-            if (bonusReward > 0)
-                bonusReward -= 1; //Decrease bonus
-            timeToDecreaseReward = maxTimeToDecreaseReward;
-        }
 
-
-        //Coal heap show / hide
-        coalHeapShowActTimer -= Time.deltaTime;
-        if (coalHeapShowActTimer < 0)
-        {
-            coalHeap.SetActive(true);
-            coalHeapHideActTimer -= Time.deltaTime;
-            if (coalHeapHideActTimer < 0)
-            {
-                coalHeap.SetActive(false);
-                CoalHeapRandomize();
-                coalHeapShowActTimer = coalHeapShowTime;
-                coalHeapHideActTimer = coalHeapHideTime;
-            }
-        }
-
-        //Coin heap show / hide
-        coinHeapShowActTimer -= Time.deltaTime;
-        if (coinHeapShowActTimer < 0)
-        {
-            coinHeap.SetActive(true);
-            coinHeapHideActTimer -= Time.deltaTime;
-            if (coinHeapHideActTimer < 0)
-            {
-                coinHeap.SetActive(false);
-                CoinHeapRandomize();
-                coinHeapShowActTimer = coinHeapShowTime;
-                coinHeapHideActTimer = coinHeapHideTime;
-            }
-        }
 
         //Coal handling and UI in foot
         if (!isWagon && isSelectedTrain)
@@ -200,10 +214,7 @@ public class TrainControllerGrid : MonoBehaviour
             FindFirstObjectByType<UIStation>().stationName = targetStation.ToString();
             FindFirstObjectByType<UIReward>().reward = minReward + bonusReward;
         }
-        if (actualCoalQuantity <= 0)
-        {
-            this.enabled = false;
-        }
+       
     }
 
 
@@ -599,9 +610,9 @@ public class TrainControllerGrid : MonoBehaviour
 
         }
     }
-    
 
-   
+
+
 
 
 
