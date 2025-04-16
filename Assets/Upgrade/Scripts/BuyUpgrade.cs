@@ -27,7 +27,18 @@ public class BuyUpgrade : MonoBehaviour
     {
         if (upgradeable)
         {
-
+            RwUpgradeController gc = FindFirstObjectByType<RwUpgradeController>();
+            gc.coinQuantity -= int.Parse(cost.text);
+            gc.rwPD.rwTrainSpeed += 1;
+            
+            try
+            {
+                PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("Coin save failed");
+            }
         }
     }
     }

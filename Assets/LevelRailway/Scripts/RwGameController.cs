@@ -34,7 +34,7 @@ public class RwGameController : MonoBehaviour
             PlayerDataControl pDC = PlayerDataControl.Instance;
             coinQuantity = pDC.coins;
             rwPD = pDC.GetRailwayProgressData();
-            
+
 
         }
         catch (System.Exception)
@@ -43,8 +43,8 @@ public class RwGameController : MonoBehaviour
             Debug.Log("SB: Player data cannot be aquired, using public progress data");
         }
 
-        globalTrainSpeed = rwPD.rwTrainSpeed;
-        globalSwitchingTime = rwPD.rwSwitchingTime;
+        globalTrainSpeed = 0.5f + (float)rwPD.rwTrainSpeed * 0.5f;
+        globalSwitchingTime = 6 - rwPD.rwSwitchingTime;
         globalWagonLevel = rwPD.rwWagonLevel;
         globalCoalQuantity = 50 + rwPD.rwWagonLevel * 50;
         transportMinReward = 25 + rwPD.rwWagonLevel * 25;
@@ -84,7 +84,7 @@ public class RwGameController : MonoBehaviour
 
 
 
-        
+
 
         //wagon.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
 

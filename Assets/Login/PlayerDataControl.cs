@@ -25,12 +25,12 @@ public class PlayerDataControl : MonoBehaviour
     {
         public int rwMapLevel; //Level of map/scene
         public int rwTrainSpeed; //Speed of the train
-        public float rwSwitchingTime; //Speed of rw swithcing time
+        public int rwSwitchingTime; //Speed of rw swithcing time
         public int rwWagonLevel; //Number of wagons
         public int rwCoalHeapLevel; //Size and freq of coal heaps
         public int rwBonusCoinLevel; //Level of bonus coin
 
-        public RailwayPogressData(int rwMapLevel, int rwTrainSpeed, float rwSwitchingTime, int rwWagonLevel, int rwCoalHeapLevel, int rwBonusCoinLevel)
+        public RailwayPogressData(int rwMapLevel, int rwTrainSpeed, int rwSwitchingTime, int rwWagonLevel, int rwCoalHeapLevel, int rwBonusCoinLevel)
         {
             this.rwMapLevel = rwMapLevel;
             this.rwTrainSpeed = rwTrainSpeed;

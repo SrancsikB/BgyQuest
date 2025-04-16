@@ -7080,7 +7080,7 @@ MonoBehaviour:
   rwPD:
     rwMapLevel: 1
     rwTrainSpeed: 1
-    rwSwitchingTime: 5
+    rwSwitchingTime: 1
     rwWagonLevel: 1
     rwCoalHeapLevel: 1
     rwBonusCoinLevel: 1
