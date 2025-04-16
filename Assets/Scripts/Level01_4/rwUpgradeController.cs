@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class rwUpgradeController : MonoBehaviour
+public class RwUpgradeController : MonoBehaviour
 {
     public int coinQuantity;
     [SerializeField] PlayerDataControl.RailwayPogressData rwPD;

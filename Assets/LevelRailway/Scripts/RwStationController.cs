@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StationController : MonoBehaviour
+public class RwStationController : MonoBehaviour
 {
     [SerializeField] Sprite[] sprites;
     public StationOrientation stationOrientation = StationOrientation.Up;

@@ -1,8 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
-using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.CloudSave;
+using UnityEngine;
 
 
 public class CloudSave : MonoBehaviour
@@ -18,11 +17,11 @@ public class CloudSave : MonoBehaviour
 
     async private void Start()
     {
-        string playerName =AuthenticationService.Instance.PlayerInfo.Username;
+        string playerName = AuthenticationService.Instance.PlayerInfo.Username;
         Debug.Log(playerName);
     }
 
-    async void SaveData(int MainLevel,int SubLevel)
+    async void SaveData(int MainLevel, int SubLevel)
     {
         var data = new Dictionary<string, object>
         {
@@ -48,10 +47,10 @@ public class CloudSave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.S))
         {
-            SaveData(MainLevel+1, 2);
+            SaveData(MainLevel + 1, 2);
         }
 
         if (Input.GetKeyDown(KeyCode.L))

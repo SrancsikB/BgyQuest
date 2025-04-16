@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SwitchButton : MonoBehaviour
+public class RwSwitchButton : MonoBehaviour
 {
     public KeyCode switchButton;
 
@@ -23,9 +23,9 @@ public class SwitchButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        RailSwitch[] switches = FindObjectsByType<RailSwitch>(FindObjectsSortMode.None);
+        RwRailSwitch[] switches = FindObjectsByType<RwRailSwitch>(FindObjectsSortMode.None);
 
-        foreach (RailSwitch item in switches)
+        foreach (RwRailSwitch item in switches)
         {
             if (switchButton == item.switchButton)
             {

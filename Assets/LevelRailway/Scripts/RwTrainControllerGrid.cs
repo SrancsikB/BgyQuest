@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TrainControllerGrid : MonoBehaviour
+public class RwTrainControllerGrid : MonoBehaviour
 {
     enum Direction
     {
@@ -20,12 +20,12 @@ public class TrainControllerGrid : MonoBehaviour
     bool activateDeceleration = false;
 
     //Fx
-    [SerializeField] Smoke smoke;
+    [SerializeField] RwSmoke smoke;
     [SerializeField] float smokeFreq = 1;
     float timeToSmoke;
 
     //Behaviour
-    TrainControllerGrid parentTrainController;
+    RwTrainControllerGrid parentTrainController;
     public bool isWagon;
     public bool isSelectedTrain;
 
@@ -57,8 +57,8 @@ public class TrainControllerGrid : MonoBehaviour
     //For movement
     private float startTime;
     private float movementLength;
-    public StationController.StationNames targetStation;
-    StationController.StationNames reachedStation = StationController.StationNames.None;
+    public RwStationController.StationNames targetStation;
+    RwStationController.StationNames reachedStation = RwStationController.StationNames.None;
     Vector3 startPos;
     Vector3 targetPos;
     Vector3 rotPos;
@@ -80,7 +80,7 @@ public class TrainControllerGrid : MonoBehaviour
 
         if (isWagon)
         {
-            parentTrainController = parentTrain.GetComponent<TrainControllerGrid>();
+            parentTrainController = parentTrain.GetComponent<RwTrainControllerGrid>();
             currentDirection = parentTrainController.currentDirection;
             stations = parentTrainController.stations;
         }
@@ -110,10 +110,10 @@ public class TrainControllerGrid : MonoBehaviour
 
         if (isWagon) //Use parentTrain properties if it is a wagon
         {
-            targetStation = parentTrain.GetComponent<TrainControllerGrid>().targetStation;
+            targetStation = parentTrain.GetComponent<RwTrainControllerGrid>().targetStation;
             angularSpeed = parentTrainController.angularSpeed;
             maxSpeed = parentTrainController.maxSpeed;
-            this.enabled = parentTrain.GetComponent<TrainControllerGrid>().enabled;
+            this.enabled = parentTrain.GetComponent<RwTrainControllerGrid>().enabled;
             
         }
         else
@@ -193,7 +193,7 @@ public class TrainControllerGrid : MonoBehaviour
         //Show target station
         foreach (Transform goStation in stations.transform)
         {
-            if (goStation.GetComponent<StationController>().stationName == targetStation)
+            if (goStation.GetComponent<RwStationController>().stationName == targetStation)
             {
                 goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
             }
@@ -339,7 +339,7 @@ public class TrainControllerGrid : MonoBehaviour
                     stopMovement = true;
                     if (!isWagon)
                     {
-                        GameController gc = FindFirstObjectByType<GameController>();
+                        RwGameController gc = FindFirstObjectByType<RwGameController>();
 
                         gc.coinQuantity += minReward + bonusReward; //Temp 100
                         bonusReward = maxReward;
@@ -392,10 +392,10 @@ public class TrainControllerGrid : MonoBehaviour
         {
             if (goTile.position == nextTile)
             {
-                RailController.RailType railType = goTile.GetComponent<RailController>().railType;
+                RwRailController.RailType railType = goTile.GetComponent<RwRailController>().railType;
                 if (!isWagon)
                 {
-                    targetIsStation = goTile.GetComponent<RailController>().isStationForTrain;
+                    targetIsStation = goTile.GetComponent<RwRailController>().isStationForTrain;
 
                 }
                 //else
@@ -403,14 +403,14 @@ public class TrainControllerGrid : MonoBehaviour
 
                 if (targetIsStation)
                 {
-                    reachedStation = goTile.GetComponent<StationController>().stationName;
+                    reachedStation = goTile.GetComponent<RwStationController>().stationName;
                     if (reachedStation == targetStation)
                     {
                         activateDeceleration = true;
                     }
                 }
                 else
-                    reachedStation = StationController.StationNames.None;
+                    reachedStation = RwStationController.StationNames.None;
 
                 //if (goTile.GetComponent<RailController>().isStationCoalMine == true)
                 //{
@@ -437,28 +437,28 @@ public class TrainControllerGrid : MonoBehaviour
                 rotateDirection = 1;
                 switch (railType)
                 {
-                    case RailController.RailType.Up:
+                    case RwRailController.RailType.Up:
                         currentDirection = Direction.Up;
                         doTurn = false;
                         break;
 
-                    case RailController.RailType.Left:
+                    case RwRailController.RailType.Left:
                         currentDirection = Direction.Left;
                         doTurn = false;
                         break;
 
-                    case RailController.RailType.Down:
+                    case RwRailController.RailType.Down:
                         currentDirection = Direction.Down;
                         doTurn = false;
                         break;
 
-                    case RailController.RailType.Right:
+                    case RwRailController.RailType.Right:
                         currentDirection = Direction.Right;
                         doTurn = false;
                         break;
 
 
-                    case RailController.RailType.TurnUp:
+                    case RwRailController.RailType.TurnUp:
                         if (lastDirection == Direction.Up)  //Skip turn if direction is same as before
                         {
                             currentDirection = Direction.Up;
@@ -470,7 +470,7 @@ public class TrainControllerGrid : MonoBehaviour
                         doTurn = true;
                         break;
 
-                    case RailController.RailType.TurnLeft:
+                    case RwRailController.RailType.TurnLeft:
                         if (lastDirection == Direction.Left)  //Skip turn if direction is same as before
                         {
                             currentDirection = Direction.Left;
@@ -482,7 +482,7 @@ public class TrainControllerGrid : MonoBehaviour
                         doTurn = true;
                         break;
 
-                    case RailController.RailType.TurnDown:
+                    case RwRailController.RailType.TurnDown:
                         if (lastDirection == Direction.Down)  //Skip turn if direction is same as before
                         {
                             currentDirection = Direction.Down;
@@ -494,7 +494,7 @@ public class TrainControllerGrid : MonoBehaviour
                         doTurn = true;
                         break;
 
-                    case RailController.RailType.TurnRight:
+                    case RwRailController.RailType.TurnRight:
                         if (lastDirection == Direction.Right)  //Skip turn if direction is same as before
                         {
                             currentDirection = Direction.Right;
@@ -531,12 +531,12 @@ public class TrainControllerGrid : MonoBehaviour
         {
             accelerationFactor = accelerationSpeed;
             activateDeceleration = false;
-            StationController.StationNames newRandomStation = targetStation;
+            RwStationController.StationNames newRandomStation = targetStation;
 
             while (newRandomStation == targetStation) //Avoid same seed
             {
                 int index = Random.Range(0, stations.transform.childCount);
-                newRandomStation = stations.transform.GetChild(index).GetComponent<StationController>().stationName;
+                newRandomStation = stations.transform.GetChild(index).GetComponent<RwStationController>().stationName;
 
             }
             targetStation = newRandomStation;
@@ -557,8 +557,8 @@ public class TrainControllerGrid : MonoBehaviour
     {
         if (!isWagon)
         {
-            TrainControllerGrid[] trains = FindObjectsByType<TrainControllerGrid>(FindObjectsSortMode.None);
-            foreach (TrainControllerGrid item in trains)
+            RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
+            foreach (RwTrainControllerGrid item in trains)
             {
                 item.isSelectedTrain = false;
                 item.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
@@ -592,7 +592,7 @@ public class TrainControllerGrid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<CoalHeapController>() != null)
+        if (collision.gameObject.GetComponent<RwCoalHeapController>() != null)
         {
             actualCoalQuantity += coalHeapQuantity;
             coalHeapShowActTimer = coalHeapShowTime;
@@ -600,9 +600,9 @@ public class TrainControllerGrid : MonoBehaviour
             CoalHeapRandomize();
 
         }
-        if (collision.gameObject.GetComponent<CoinHeapController>() != null)
+        if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
         {
-            GameController gc = FindFirstObjectByType<GameController>();
+            RwGameController gc = FindFirstObjectByType<RwGameController>();
             gc.coinQuantity += coinHeapQuantity;
             coinHeapShowActTimer = coinHeapShowTime;
             coinHeapHideActTimer = coinHeapHideTime;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChainController : MonoBehaviour
+public class RwChainController : MonoBehaviour
 {
  [SerializeField] Transform target;  
     void Update()

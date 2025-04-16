@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class RailSwitch : MonoBehaviour
+public class RwRailSwitch : MonoBehaviour
 {
 
     public KeyCode switchButton;
     [SerializeField] Sprite alternateSprite;
-    [SerializeField] RailController.RailType alternateRailType;
+    [SerializeField] RwRailController.RailType alternateRailType;
 
     public float switchingTime = 3;
     public float elapsedTime = 0;
     public bool triggerSwitch;
 
     Sprite defaultSprite;
-    RailController.RailType defaultRailtype;
+    RwRailController.RailType defaultRailtype;
     bool switched;
     bool switchable = true;
 
@@ -22,7 +22,7 @@ public class RailSwitch : MonoBehaviour
     void Start()
     {
         defaultSprite = GetComponent<SpriteRenderer>().sprite;
-        defaultRailtype = GetComponent<RailController>().railType;
+        defaultRailtype = GetComponent<RwRailController>().railType;
         elapsedTime = 0;
         try
         {
@@ -43,7 +43,7 @@ public class RailSwitch : MonoBehaviour
     private void OnValidate()
     {
         
-        RailController[] alterRail = GetComponentsInChildren<RailController>(true);
+        RwRailController[] alterRail = GetComponentsInChildren<RwRailController>(true);
         alternateRailType = alterRail[1].railType;
         alternateSprite = alterRail[1].GetComponent<SpriteRenderer>().sprite;
     }
@@ -88,12 +88,12 @@ public class RailSwitch : MonoBehaviour
                     {
 
                         GetComponent<SpriteRenderer>().sprite = alternateSprite;
-                        GetComponent<RailController>().railType = alternateRailType;
+                        GetComponent<RwRailController>().railType = alternateRailType;
                     }
                     else
                     {
                         GetComponent<SpriteRenderer>().sprite = defaultSprite;
-                        GetComponent<RailController>().railType = defaultRailtype;
+                        GetComponent<RwRailController>().railType = defaultRailtype;
                     }
                 }
                 

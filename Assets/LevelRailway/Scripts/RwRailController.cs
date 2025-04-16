@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class RailController : MonoBehaviour
+public class RwRailController : MonoBehaviour
 {
 
 
@@ -26,8 +26,8 @@ public class RailController : MonoBehaviour
 
     [SerializeField] Sprite[] rails;
     [SerializeField] Sprite[] arrows;
-    public RailController.RailStyle railStyle;
-    public RailController.RailType railType;
+    public RwRailController.RailStyle railStyle;
+    public RwRailController.RailType railType;
 
     public bool isStationForTrain = false;
     //public bool isStationForWagon = false;

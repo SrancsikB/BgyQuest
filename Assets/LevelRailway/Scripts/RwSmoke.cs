@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Smoke : MonoBehaviour
+public class RwSmoke : MonoBehaviour
 {
     [SerializeField] float duration = 3;
     float age;

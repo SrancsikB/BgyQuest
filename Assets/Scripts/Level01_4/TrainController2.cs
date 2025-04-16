@@ -9,7 +9,7 @@ public class TrainController2 : MonoBehaviour
     //public float speed = 1.0F;
     private float startTime;
     private float journeyLength;
-    public StationController.StationNames nextStation;
+    public RwStationController.StationNames nextStation;
 
 
     Quaternion targetRot;
@@ -67,50 +67,50 @@ public class TrainController2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        RailController.RailType railType = other.GetComponent<RailController>().railType;
+        RwRailController.RailType railType = other.GetComponent<RwRailController>().railType;
         Vector3 railLocation = other.transform.position;
         int rotateDirection = 1;
         switch (railType)
         {
-            case RailController.RailType.Up:
+            case RwRailController.RailType.Up:
                 
                 targetPos = railLocation + Vector3.up;
                 doSlerp = false;
                 break;
-            case RailController.RailType.Down:
+            case RwRailController.RailType.Down:
                 targetPos = railLocation + Vector3.down;
                 doSlerp = false;
                 break;
-            case RailController.RailType.Left:
+            case RwRailController.RailType.Left:
                 targetPos = railLocation + Vector3.left;
                 doSlerp = false;
                 break;
-            case RailController.RailType.Right:
+            case RwRailController.RailType.Right:
                 targetPos = railLocation + Vector3.right;
                 doSlerp = false;
                 break;
 
-            case RailController.RailType.TurnDown:
-                if (lastRailUnder.GetComponent<RailController>().railType == RailController.RailType.TurnRight) rotateDirection = -1;
+            case RwRailController.RailType.TurnDown:
+                if (lastRailUnder.GetComponent<RwRailController>().railType == RwRailController.RailType.TurnRight) rotateDirection = -1;
                 targetPos = railLocation + Vector3.down * 0.5f;
                 targetRot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z + 90 * rotateDirection, transform.forward);
                 doSlerp = true;
                 break;
 
-            case RailController.RailType.TurnUp:
+            case RwRailController.RailType.TurnUp:
                 targetPos = railLocation + Vector3.up * 0.5f;
                 targetRot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z + 90 * rotateDirection, transform.forward);
                 doSlerp = true;
                 break;
 
-            case RailController.RailType.TurnLeft:
+            case RwRailController.RailType.TurnLeft:
                 targetPos = railLocation + Vector3.left * 0.5f;
                 targetRot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z + 90 * rotateDirection, transform.forward);
                 doSlerp = true;
                 break;
 
-            case RailController.RailType.TurnRight:
-                if (lastRailUnder.GetComponent<RailController>().railType == RailController.RailType.TurnDown) rotateDirection = -1;
+            case RwRailController.RailType.TurnRight:
+                if (lastRailUnder.GetComponent<RwRailController>().railType == RwRailController.RailType.TurnDown) rotateDirection = -1;
                 targetPos = railLocation + Vector3.right * 0.5f;
                 targetRot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z + 90, transform.forward);
                 doSlerp = true;
@@ -123,7 +123,7 @@ public class TrainController2 : MonoBehaviour
         startTime = Time.time;
         startPos = transform.position;
         journeyLength = Vector3.Distance(startPos, targetPos);
-        Debug.Log(other.GetComponent<RailController>().railType);
+        Debug.Log(other.GetComponent<RwRailController>().railType);
 
         //other.transform.localScale=Vector3.one*0.97f;
     }

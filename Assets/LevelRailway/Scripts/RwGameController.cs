@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class RwGameController : MonoBehaviour
 {
     public int coinQuantity;
 
@@ -60,26 +60,26 @@ public class GameController : MonoBehaviour
         transportTimeToDecreaseReward = rwPD.rwBonusCoinLevel;
 
         //Setup start params
-        RailSwitch[] rs = FindObjectsByType<RailSwitch>(FindObjectsSortMode.None);
+        RwRailSwitch[] rs = FindObjectsByType<RwRailSwitch>(FindObjectsSortMode.None);
         foreach (var railSwitch in rs)
         {
             railSwitch.switchingTime = globalSwitchingTime;
         }
 
-        TrainControllerGrid[] trains = FindObjectsByType<TrainControllerGrid>(FindObjectsSortMode.None);
+        RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         trains[0].SelectTrain(); //Select 1st train by default
-        foreach (TrainControllerGrid train in trains)
+        foreach (RwTrainControllerGrid train in trains)
         {
-            train.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
-            train.GetComponent<TrainControllerGrid>().minReward = transportMinReward;
-            train.GetComponent<TrainControllerGrid>().maxReward = transportMaxReward;
-            train.GetComponent<TrainControllerGrid>().maxTimeToDecreaseReward = transportTimeToDecreaseReward;
-            train.GetComponent<TrainControllerGrid>().coalHeapShowTime = coalHeapShowTime;
-            train.GetComponent<TrainControllerGrid>().coalHeapHideTime = coalHeapHideTime;
-            train.GetComponent<TrainControllerGrid>().coalHeapQuantity = coalHeapQuantity;
-            train.GetComponent<TrainControllerGrid>().coinHeapShowTime = coinHeapShowTime;
-            train.GetComponent<TrainControllerGrid>().coinHeapHideTime = coinHeapHideTime;
-            train.GetComponent<TrainControllerGrid>().coinHeapQuantity = coinHeapQuantity;
+            train.GetComponent<RwTrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
+            train.GetComponent<RwTrainControllerGrid>().minReward = transportMinReward;
+            train.GetComponent<RwTrainControllerGrid>().maxReward = transportMaxReward;
+            train.GetComponent<RwTrainControllerGrid>().maxTimeToDecreaseReward = transportTimeToDecreaseReward;
+            train.GetComponent<RwTrainControllerGrid>().coalHeapShowTime = coalHeapShowTime;
+            train.GetComponent<RwTrainControllerGrid>().coalHeapHideTime = coalHeapHideTime;
+            train.GetComponent<RwTrainControllerGrid>().coalHeapQuantity = coalHeapQuantity;
+            train.GetComponent<RwTrainControllerGrid>().coinHeapShowTime = coinHeapShowTime;
+            train.GetComponent<RwTrainControllerGrid>().coinHeapHideTime = coinHeapHideTime;
+            train.GetComponent<RwTrainControllerGrid>().coinHeapQuantity = coinHeapQuantity;
         }
 
 

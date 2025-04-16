@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class CoinHeapController : MonoBehaviour
+public class RwCoalHeapController : MonoBehaviour
 {
+    
     private void Start()
     {
         // This does nothing, used for collison detect component find, as Csaba loves :)
@@ -11,6 +12,6 @@ public class CoinHeapController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        
     }
 }
