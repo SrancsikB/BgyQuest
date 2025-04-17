@@ -86,31 +86,43 @@ public class RwUpgradeController : MonoBehaviour
                 {
                     coinQuantity -= int.Parse(rwMapLevelUpgradeCost.text);
                     rwPD.rwMapLevel += 1;
+                    if (rwPD.rwMapLevel > 3)
+                        TryPlayerDataStore(1);
                 }
                 else if (hit.transform.gameObject == rwTrainSpeedGOBuy)
                 {
                     coinQuantity -= int.Parse(rwTrainSpeedUpgradeCost.text);
                     rwPD.rwTrainSpeed += 1;
+                    if (rwPD.rwTrainSpeed > 3)
+                        TryPlayerDataStore(2);
                 }
                 else if (hit.transform.gameObject == rwWagonLevelGOBuy)
                 {
                     coinQuantity -= int.Parse(rwWagonLevelUpgradeCost.text);
                     rwPD.rwWagonLevel += 1;
+                    if (rwPD.rwWagonLevel > 3)
+                        TryPlayerDataStore(3);
                 }
                 else if (hit.transform.gameObject == rwSwitchingTimeGOBuy)
                 {
                     coinQuantity -= int.Parse(rwSwitchingTimeUpgradeCost.text);
                     rwPD.rwSwitchingTime += 1;
+                    if (rwPD.rwSwitchingTime > 3)
+                        TryPlayerDataStore(4);
                 }
                 else if (hit.transform.gameObject == rwCoalHeapGOBuy)
                 {
                     coinQuantity -= int.Parse(rwCoalHeapUpgradeCost.text);
                     rwPD.rwCoalHeapLevel += 1;
+                    if (rwPD.rwCoalHeapLevel > 3)
+                        TryPlayerDataStore(7);
                 }
                 else if (hit.transform.gameObject == rwCoinHeapGOBuy)
                 {
                     coinQuantity -= int.Parse(rwCoinHeapUpgradeCost.text);
                     rwPD.rwBonusCoinLevel += 1;
+                    if (rwPD.rwBonusCoinLevel > 3)
+                        TryPlayerDataStore(8);
                 }
                 else if (hit.transform.gameObject.name == "ButtonGimme1000")
                 {
@@ -125,7 +137,7 @@ public class RwUpgradeController : MonoBehaviour
                 }
                 catch (System.Exception)
                 {
-                    Debug.Log("Coin save failed");
+                    Debug.Log("SB: Coin and progress save failed");
                 }
             }
         }
@@ -266,6 +278,19 @@ public class RwUpgradeController : MonoBehaviour
             costGO.SetActive(false);
             buyGO.SetActive(false);
 
+        }
+    }
+
+
+    private void TryPlayerDataStore(int index)
+    {
+        try
+        {
+            PlayerDataControl.Instance.SetRailwayPuzzleData(index, true);
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("SB: Player data store failed...");
         }
     }
 

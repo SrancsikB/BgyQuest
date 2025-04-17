@@ -78,7 +78,7 @@ public class PlayerDataControl : MonoBehaviour
                 {
                     {"CoinData",0},
                     {"PuzzleData_rw",new List<bool>() { false, false, false, false, false, false, false, false, false }},
-                    {"ProgressData_rw",new RailwayPogressData(1,1,5,1,0,0)}
+                    {"ProgressData_rw",new RailwayPogressData(1,1,1,1,1,1)}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
         LoadData();

@@ -26,16 +26,22 @@ public class QuizProcess : MonoBehaviour
         {
             case MapFlag.GameGroup.Railway:
                 if (quizLevel == 1 && answer == "0028")
+                {
+                    TryPlayerDataStore(0);
                     return true;
+                }
                 else if (quizLevel == 2 && answer == "1896")
+                {
+                    TryPlayerDataStore(5);
                     return true;
+                }
                 else if (quizLevel == 3 && answer == "0008")
+                {
+                    TryPlayerDataStore(6);
                     return true;
+                }
                 break;
-            case MapFlag.GameGroup.Soldier:
-                break;
-            case MapFlag.GameGroup.Hero:
-                break;
+           
             default:
                 break;
         }
@@ -60,6 +66,19 @@ public class QuizProcess : MonoBehaviour
 
         }
         gameObject.SetActive(false);
+    }
+
+
+    private void TryPlayerDataStore(int index)
+    {
+        try
+        {
+            PlayerDataControl.Instance.SetRailwayPuzzleData(index, true);
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("SB: Player data store failed...");
+        }
     }
 
 }

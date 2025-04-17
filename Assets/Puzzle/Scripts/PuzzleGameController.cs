@@ -2,11 +2,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class PuzzleProcess : MonoBehaviour
+public class PuzzleGameController : MonoBehaviour
 {
     [SerializeField] Sprite[] railwaySprites;
+    [SerializeField] List<bool> savedData = new List<bool>();
     PuzzleCard[] puzzleCards;
-    List<bool> savedData = new List<bool>();
+    
     public MapFlag.GameGroup gameGroup;
 
     
@@ -77,18 +78,24 @@ public class PuzzleProcess : MonoBehaviour
 
     void LoadData()
     {
-        savedData = new List<bool>();
+       
 
         switch (gameGroup)
         {
             
             case MapFlag.GameGroup.Railway:
-                savedData = PlayerDataControl.Instance.GetRailwayPuzzleData();
+                try
+                {
+                    //savedData = new List<bool>();
+                    savedData = PlayerDataControl.Instance.GetRailwayPuzzleData();
+                }
+                catch (System.Exception)
+                {
+                                        
+                }
+                
                 break;
-            case MapFlag.GameGroup.Soldier:
-                break;
-            case MapFlag.GameGroup.Hero:
-                break;
+           
             default:
                 break;
         }

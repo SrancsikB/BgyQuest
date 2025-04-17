@@ -5,10 +5,11 @@ public class MapIconClick : MonoBehaviour
 {
     public enum MapIcon
     {
-        Quiz,Game,Puzzle
+        Quiz, Game, Puzzle, Upgrade
     }
     public MapFlag.GameGroup gameGroup;
     public MapIcon mapIcon;
+    [SerializeField] int level = 1;
 
     private void OnMouseDown()
     {
@@ -18,22 +19,34 @@ public class MapIconClick : MonoBehaviour
                 switch (mapIcon)
                 {
                     case MapIcon.Quiz:
+                        SceneManager.LoadScene("Quiz");
                         break;
                     case MapIcon.Game:
-                        SceneManager.LoadScene("RailwayLevel");
+                        try
+                        {
+                            PlayerDataControl.RailwayPogressData rwPD;
+                            rwPD = PlayerDataControl.Instance.GetRailwayProgressData();
+                            level = rwPD.rwMapLevel;
+                        }
+                        catch (System.Exception)
+                        {
+                            Debug.Log("SB: Cannot load map level");
+                        }
+                        SceneManager.LoadScene("RailwayLevel" + level.ToString());
                         break;
                     case MapIcon.Puzzle:
-                        
+
                         SceneManager.LoadScene("Puzzle");
                         break;
+                    case MapIcon.Upgrade:
+                        SceneManager.LoadScene("RailwayUpgrade");
+                        break;
+
                     default:
                         break;
                 }
                 break;
-            case MapFlag.GameGroup.Soldier:
-                break;
-            case MapFlag.GameGroup.Hero:
-                break;
+
             default:
                 break;
         }

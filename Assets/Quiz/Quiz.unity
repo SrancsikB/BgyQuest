@@ -5808,7 +5808,7 @@ MonoBehaviour:
   gg: 0
   quizLevel: 3
   quizMsg: {fileID: 1935630012}
-  rvRewardSprites:
+  rwRewardSprites:
   - {fileID: 86740071, guid: c68be5d80949d444ca4d9a11c9262ef9, type: 3}
   - {fileID: 822095551, guid: c68be5d80949d444ca4d9a11c9262ef9, type: 3}
   - {fileID: 369509266, guid: c68be5d80949d444ca4d9a11c9262ef9, type: 3}
