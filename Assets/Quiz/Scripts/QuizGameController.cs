@@ -16,7 +16,6 @@ public class QuizGameController : MonoBehaviour
     void Awake()
     {
 
-
         qar = FindFirstObjectByType<QuizAnimReward>(FindObjectsInactive.Include);
 
 
@@ -26,6 +25,9 @@ public class QuizGameController : MonoBehaviour
                 try //try to get Player data
                 {
                     PlayerDataControl pDC = PlayerDataControl.Instance;
+                    coinQuantity = pDC.coins;
+     
+
                     if (pDC.GetRailwayPuzzleData()[0] == false)
                         quizLevel = 1;
                     else if (pDC.GetRailwayPuzzleData()[5] == false)
@@ -70,6 +72,11 @@ public class QuizGameController : MonoBehaviour
         qp.quizLevel = quizLevel;
         
 
+    }
+
+    private void Update()
+    {
+        FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
     }
 
 }

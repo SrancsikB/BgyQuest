@@ -70,6 +70,7 @@ public class RwGameController : MonoBehaviour
         trains[0].SelectTrain(); //Select 1st train by default
         foreach (RwTrainControllerGrid train in trains)
         {
+            train.GetComponent<RwTrainControllerGrid>().maxSpeed = globalTrainSpeed;
             train.GetComponent<RwTrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
             train.GetComponent<RwTrainControllerGrid>().minReward = transportMinReward;
             train.GetComponent<RwTrainControllerGrid>().maxReward = transportMaxReward;

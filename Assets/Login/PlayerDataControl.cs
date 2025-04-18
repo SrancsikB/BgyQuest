@@ -77,8 +77,8 @@ public class PlayerDataControl : MonoBehaviour
         var data = new Dictionary<string, object>
                 {
                     {"CoinData",0},
-                    {"PuzzleData_rw",new List<bool>() { false, false, false, false, false, false, false, false, false }},
-                    {"ProgressData_rw",new RailwayPogressData(1,1,1,1,1,1)}
+                    {"PuzzleData_Railway",new List<bool>() { false, false, false, false, false, false, false, false, false }},
+                    {"ProgressData_Railway",new RailwayPogressData(1,1,1,1,1,1)}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
         LoadData();
@@ -92,13 +92,13 @@ public class PlayerDataControl : MonoBehaviour
         var data = new HashSet<string>
             {
                 "CoinData",
-                "PuzzleData_rw",
-                "ProgressData_rw"
+                "PuzzleData_Railway",
+                "ProgressData_Railway"
             };
         var LoadedData = await CloudSaveService.Instance.Data.Player.LoadAsync(data);
         coins = LoadedData["CoinData"].Value.GetAs<int>();
-        rwPuzzleData = LoadedData["PuzzleData_rw"].Value.GetAs<List<bool>>();
-        rwProgressData = LoadedData["ProgressData_rw"].Value.GetAs<RailwayPogressData>();
+        rwPuzzleData = LoadedData["PuzzleData_Railway"].Value.GetAs<List<bool>>();
+        rwProgressData = LoadedData["ProgressData_Railway"].Value.GetAs<RailwayPogressData>();
 
     }
 
@@ -106,7 +106,7 @@ public class PlayerDataControl : MonoBehaviour
 
     public async void SaveCoinData(int savedData)
     {
-
+        coins = savedData;
         var data = new Dictionary<string, object>
                 {
                     {"CoinData",savedData}
@@ -122,7 +122,7 @@ public class PlayerDataControl : MonoBehaviour
 
         var data = new Dictionary<string, object>
                 {
-                    {"ProgressData_rw",railwayPD}
+                    {"ProgressData_Railway",railwayPD}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
 

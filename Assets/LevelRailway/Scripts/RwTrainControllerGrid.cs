@@ -13,7 +13,6 @@ public class RwTrainControllerGrid : MonoBehaviour
     [SerializeField] GameObject parentTrain;
     [SerializeField] GameObject coalHeap;
     [SerializeField] GameObject coinHeap;
-    [SerializeField] float maxSpeed = 1;
     [SerializeField] float accelerationSpeed = 0.05f;
     float angularSpeed = 90;
     float accelerationFactor = 1;
@@ -30,6 +29,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     public bool isSelectedTrain;
 
     //Setup by GameController
+    public float maxSpeed = 1;
     public int startCoalQuantity;
     int actualCoalQuantity;
     public int minReward;
@@ -607,6 +607,14 @@ public class RwTrainControllerGrid : MonoBehaviour
             coinHeapShowActTimer = coinHeapShowTime;
             coinHeapHideActTimer = coinHeapHideTime;
             CoinHeapRandomize();
+            try
+            {
+                PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("Coin save failed");
+            }
 
         }
     }

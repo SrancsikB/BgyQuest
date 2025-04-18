@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PuzzleGameController : MonoBehaviour
 {
+    public int coinQuantity;
     [SerializeField] Sprite[] railwaySprites;
     [SerializeField] List<bool> savedData = new List<bool>();
     PuzzleCard[] puzzleCards;
@@ -50,8 +51,9 @@ public class PuzzleGameController : MonoBehaviour
 
     void Update()
     {
-       
-       
+
+        FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
+
         bool allCardsInPlace = true;
         foreach (PuzzleCard item in puzzleCards)
         {
@@ -86,12 +88,13 @@ public class PuzzleGameController : MonoBehaviour
             case MapFlag.GameGroup.Railway:
                 try
                 {
-                    //savedData = new List<bool>();
+                    PlayerDataControl pDC = PlayerDataControl.Instance;
+                    coinQuantity = pDC.coins;
                     savedData = PlayerDataControl.Instance.GetRailwayPuzzleData();
                 }
                 catch (System.Exception)
                 {
-                                        
+                    Debug.Log("SB: Player data cannot be aquired, using public data");
                 }
                 
                 break;
