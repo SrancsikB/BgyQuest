@@ -150,16 +150,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  stations: {fileID: 0}
   parentTrain: {fileID: 0}
-  maxSpeed: 1
+  coalHeap: {fileID: 0}
+  coinHeap: {fileID: 0}
   accelerationSpeed: 0.005
   smoke: {fileID: -3821105827692706628, guid: 26d39de4d328a254db4d6f6a84ba2932, type: 3}
   smokeFreq: 1
-  stations: {fileID: 0}
   isWagon: 0
   isSelectedTrain: 0
+  maxSpeed: 1
   startCoalQuantity: 0
-  actualCoalQuantity: 0
+  minReward: 0
+  maxReward: 0
+  maxTimeToDecreaseReward: 0
+  wagonNumber: 0
+  coalHeapShowTime: 0
+  coalHeapHideTime: 0
+  coalHeapQuantity: 0
+  coinHeapShowTime: 0
+  coinHeapHideTime: 0
+  coinHeapQuantity: 0
   stopMovement: 0
   targetStation: 1
 --- !u!61 &7925522830017341451

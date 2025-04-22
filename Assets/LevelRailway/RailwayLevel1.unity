@@ -8447,6 +8447,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1653559347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1658390922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658390924}
+  - component: {fileID: 1658390923}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1658390923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658390922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa703028ab61b842a6c207fddd407ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 4176261350513725689, guid: a8bfe1e00fdcd1b4a8cf4e7f6a452b74, type: 3}
+  trainStartClip: {fileID: 8300000, guid: 503d94e637d3caf4e91fa9026c883504, type: 3}
+  trainRunningClip: {fileID: 8300000, guid: 405b621738f6bfd4c9eb3b16eb0e3b0e, type: 3}
+  trainStopCoinClip: {fileID: 8300000, guid: ff4b4406e356fb341a6c53d765a7d146, type: 3}
+  soundFXVolume: 1
+--- !u!4 &1658390924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658390922}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 932.64655, y: 467.47446, z: -5.0334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1659486362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11641,6 +11690,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 880514198}
+  - {fileID: 1658390924}
   - {fileID: 1446299244}
   - {fileID: 545681320}
   - {fileID: 1307194892}

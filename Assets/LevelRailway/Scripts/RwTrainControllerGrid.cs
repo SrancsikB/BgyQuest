@@ -26,7 +26,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     //Behaviour
     RwTrainControllerGrid parentTrainController;
     public bool isWagon;
-    
+
     public bool isSelectedTrain;
 
 
@@ -59,7 +59,6 @@ public class RwTrainControllerGrid : MonoBehaviour
 
 
     //For movement
-    private float startTime;
     private float movementLength;
     public RwStationController.StationNames targetStation;
     RwStationController.StationNames reachedStation = RwStationController.StationNames.None;
@@ -78,7 +77,6 @@ public class RwTrainControllerGrid : MonoBehaviour
     void Start()
     {
         currentDirection = Direction.Up;
-        startTime = Time.time;
         targetPos = transform.position;
 
 
@@ -140,6 +138,7 @@ public class RwTrainControllerGrid : MonoBehaviour
             //Out of coal
             if (actualCoalQuantity <= 0)
             {
+                RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
                 this.enabled = false;
             }
 
@@ -305,7 +304,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
             movementLength = Vector3.Distance(startPos, targetPos);
 
-            startTime = Time.time;
+
         }
 
 
@@ -354,6 +353,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
                         gc.coinQuantity += minReward + bonusReward; //Temp 100
                         bonusReward = maxReward;
+                        RwSoundFXManager.Instance.PlayTrainStop(transform);
                         try
                         {
                             PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
@@ -551,6 +551,9 @@ public class RwTrainControllerGrid : MonoBehaviour
 
             }
             targetStation = newRandomStation;
+            
+            RwSoundFXManager.Instance.PlayTrainStart(transform);
+            
         }
 
 

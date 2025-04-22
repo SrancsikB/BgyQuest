@@ -12,7 +12,11 @@ public class PlayerDataControl : MonoBehaviour
     public static PlayerDataControl Instance;
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
     }
 
 

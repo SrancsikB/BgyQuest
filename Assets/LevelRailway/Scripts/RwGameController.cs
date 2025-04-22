@@ -81,14 +81,14 @@ public class RwGameController : MonoBehaviour
             train.coinHeapShowTime = coinHeapShowTime;
             train.coinHeapHideTime = coinHeapHideTime;
             train.coinHeapQuantity = coinHeapQuantity;
-            if (train.wagonNumber>globalWagonLevel)
+            if (train.wagonNumber > globalWagonLevel)
             {
                 train.gameObject.SetActive(false);
             }
-            if (train.wagonNumber==globalWagonLevel)
+            if (train.wagonNumber == globalWagonLevel)
             {
                 RwChainController chain = train.transform.GetComponentInChildren<RwChainController>();
-                if (chain!=null)
+                if (chain != null)
                     chain.gameObject.SetActive(false);
             }
         }
@@ -106,24 +106,24 @@ public class RwGameController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
 
         RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid train in trains)
         {
 
-            if (train.isWagon == false)
+            if (train.isWagon == false && train.enabled == true)
             {
                 train.FixedUpdateRemote();
             }
-            
+
         }
 
         RwTrainControllerGrid[] wagons = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid wagon in wagons)
         {
 
-            if (wagon.isWagon == true)
+            if (wagon.isWagon == true && wagon.enabled == true)
             {
                 wagon.FixedUpdateRemote();
             }
@@ -138,8 +138,8 @@ public class RwGameController : MonoBehaviour
 
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
 
-       
+
     }
 
-   
+
 }
