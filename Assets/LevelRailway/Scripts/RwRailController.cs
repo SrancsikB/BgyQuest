@@ -19,7 +19,8 @@ public class RwRailController : MonoBehaviour
         TurnUpFromLeft, TurnUpFromRight, TurnUpFromBoth,
         TurnDownFromLeft, TurnDownFromRight, TurnDownFromBoth,
         TurnRightFromUp, TurnRightFromDown, TurnRightFromBoth,
-        TurnLeftFromUp, TurnLeftFromDown, TurnLeftFromBoth
+        TurnLeftFromUp, TurnLeftFromDown, TurnLeftFromBoth,
+        StartUp
 
     }
 
@@ -137,6 +138,11 @@ public class RwRailController : MonoBehaviour
                 case RailStyle.TurnLeftFromBoth:
                     spRail.sprite = rails[15];
                     spArrow.sprite = arrows[15];
+                    railType = RailType.TurnLeft;
+                    break;
+                case RailStyle.StartUp:
+                    spRail.sprite = rails[16];
+                    spArrow.sprite = arrows[16];
                     railType = RailType.TurnLeft;
                     break;
                 default:

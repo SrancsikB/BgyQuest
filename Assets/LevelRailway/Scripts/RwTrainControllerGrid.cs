@@ -26,7 +26,9 @@ public class RwTrainControllerGrid : MonoBehaviour
     //Behaviour
     RwTrainControllerGrid parentTrainController;
     public bool isWagon;
+    
     public bool isSelectedTrain;
+
 
     //Setup by GameController
     public float maxSpeed = 1;
@@ -37,6 +39,8 @@ public class RwTrainControllerGrid : MonoBehaviour
     int bonusReward;
     public float maxTimeToDecreaseReward;
     float timeToDecreaseReward;
+
+    public int wagonNumber;
 
     public float coalHeapShowTime;
     float coalHeapShowActTimer;
@@ -51,7 +55,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     public int coinHeapQuantity;
 
     public bool stopMovement;
-    bool releaseStopMovement; //Space key or this
+    bool releaseStopMovement; //Space key or set this to true
 
 
     //For movement
@@ -69,7 +73,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     bool targetIsStation;
     Direction currentDirection;
     Direction lastDirection;
-
+    int wagonDecelSyncCounter = 0;
 
     void Start()
     {
@@ -114,7 +118,7 @@ public class RwTrainControllerGrid : MonoBehaviour
             angularSpeed = parentTrainController.angularSpeed;
             maxSpeed = parentTrainController.maxSpeed;
             this.enabled = parentTrain.GetComponent<RwTrainControllerGrid>().enabled;
-            
+
         }
         else
         {
@@ -214,11 +218,11 @@ public class RwTrainControllerGrid : MonoBehaviour
             FindFirstObjectByType<UIStation>().stationName = targetStation.ToString();
             FindFirstObjectByType<UIReward>().reward = minReward + bonusReward;
         }
-       
+
     }
 
 
-    void FixedUpdate()
+    public void FixedUpdateRemote()
     {
         //Acceleration
         if (!isWagon)
@@ -242,10 +246,17 @@ public class RwTrainControllerGrid : MonoBehaviour
         else
         {
             accelerationFactor = parentTrainController.accelerationFactor;
+
             //Wagon movement sync
-            if (accelerationFactor < accelerationSpeed * 10)
+            if (accelerationFactor < 0.9f)//decel started by train
             {
-                stopMovement = parentTrainController.stopMovement;
+                wagonDecelSyncCounter += 1;
+                if (wagonDecelSyncCounter > 40 / maxSpeed) //Totally experience value...
+                    stopMovement = parentTrainController.stopMovement;
+            }
+            else
+            {
+                wagonDecelSyncCounter = 0;
             }
 
         }
@@ -592,30 +603,35 @@ public class RwTrainControllerGrid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<RwCoalHeapController>() != null)
+        if (!isWagon)
         {
-            actualCoalQuantity += coalHeapQuantity;
-            coalHeapShowActTimer = coalHeapShowTime;
-            coalHeapHideActTimer = coalHeapHideTime;
-            CoalHeapRandomize();
 
-        }
-        if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
-        {
-            RwGameController gc = FindFirstObjectByType<RwGameController>();
-            gc.coinQuantity += coinHeapQuantity;
-            coinHeapShowActTimer = coinHeapShowTime;
-            coinHeapHideActTimer = coinHeapHideTime;
-            CoinHeapRandomize();
-            try
-            {
-                PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
-            }
-            catch (System.Exception)
-            {
-                Debug.Log("Coin save failed");
-            }
 
+            if (collision.gameObject.GetComponent<RwCoalHeapController>() != null)
+            {
+                actualCoalQuantity += coalHeapQuantity;
+                coalHeapShowActTimer = coalHeapShowTime;
+                coalHeapHideActTimer = coalHeapHideTime;
+                CoalHeapRandomize();
+
+            }
+            if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
+            {
+                RwGameController gc = FindFirstObjectByType<RwGameController>();
+                gc.coinQuantity += coinHeapQuantity;
+                coinHeapShowActTimer = coinHeapShowTime;
+                coinHeapHideActTimer = coinHeapHideTime;
+                CoinHeapRandomize();
+                try
+                {
+                    PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
+                }
+                catch (System.Exception)
+                {
+                    Debug.Log("Coin save failed");
+                }
+
+            }
         }
     }
 

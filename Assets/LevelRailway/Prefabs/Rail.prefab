@@ -206,6 +206,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 60c7ec92b56d7c94aa14ef75eb770765, type: 3}
   - {fileID: 21300000, guid: 7462a07b4e9a27447b4ddb59e8488c1e, type: 3}
   - {fileID: 21300000, guid: f8a2965ab9704f047a61d6efe34e21c0, type: 3}
+  - {fileID: 21300000, guid: ba916bccd6b7793468a38e53dfcaf28a, type: 3}
   arrows:
   - {fileID: 21300000, guid: c2ec0ec8ddd6d3e4ca0f4bb8caec56bc, type: 3}
   - {fileID: 21300000, guid: c511d81ab5aeb4546a2ec8c8a8e2ef9e, type: 3}
@@ -227,6 +228,7 @@ MonoBehaviour:
   railType: 0
   isStationForTrain: 0
   isStationCoalMine: 0
+  coalMineRechargeTime: 0
 --- !u!61 &7363600248542945862
 BoxCollider2D:
   m_ObjectHideFlags: 0

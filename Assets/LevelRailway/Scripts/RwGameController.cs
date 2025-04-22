@@ -47,7 +47,7 @@ public class RwGameController : MonoBehaviour
         globalSwitchingTime = 6 - rwPD.rwSwitchingTime;
         globalWagonLevel = rwPD.rwWagonLevel;
         globalCoalQuantity = 50 + rwPD.rwWagonLevel * 50;
-        transportMinReward = 25 + rwPD.rwWagonLevel * 25;
+        transportMinReward = 15 + rwPD.rwWagonLevel * 15;
         transportMaxReward = 25 + rwPD.rwWagonLevel * 25;
 
         coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 10;
@@ -70,17 +70,27 @@ public class RwGameController : MonoBehaviour
         trains[0].SelectTrain(); //Select 1st train by default
         foreach (RwTrainControllerGrid train in trains)
         {
-            train.GetComponent<RwTrainControllerGrid>().maxSpeed = globalTrainSpeed;
-            train.GetComponent<RwTrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
-            train.GetComponent<RwTrainControllerGrid>().minReward = transportMinReward;
-            train.GetComponent<RwTrainControllerGrid>().maxReward = transportMaxReward;
-            train.GetComponent<RwTrainControllerGrid>().maxTimeToDecreaseReward = transportTimeToDecreaseReward;
-            train.GetComponent<RwTrainControllerGrid>().coalHeapShowTime = coalHeapShowTime;
-            train.GetComponent<RwTrainControllerGrid>().coalHeapHideTime = coalHeapHideTime;
-            train.GetComponent<RwTrainControllerGrid>().coalHeapQuantity = coalHeapQuantity;
-            train.GetComponent<RwTrainControllerGrid>().coinHeapShowTime = coinHeapShowTime;
-            train.GetComponent<RwTrainControllerGrid>().coinHeapHideTime = coinHeapHideTime;
-            train.GetComponent<RwTrainControllerGrid>().coinHeapQuantity = coinHeapQuantity;
+            train.maxSpeed = globalTrainSpeed;
+            train.startCoalQuantity = globalCoalQuantity;
+            train.minReward = transportMinReward;
+            train.maxReward = transportMaxReward;
+            train.maxTimeToDecreaseReward = transportTimeToDecreaseReward;
+            train.coalHeapShowTime = coalHeapShowTime;
+            train.coalHeapHideTime = coalHeapHideTime;
+            train.coalHeapQuantity = coalHeapQuantity;
+            train.coinHeapShowTime = coinHeapShowTime;
+            train.coinHeapHideTime = coinHeapHideTime;
+            train.coinHeapQuantity = coinHeapQuantity;
+            if (train.wagonNumber>globalWagonLevel)
+            {
+                train.gameObject.SetActive(false);
+            }
+            if (train.wagonNumber==globalWagonLevel)
+            {
+                RwChainController chain = train.transform.GetComponentInChildren<RwChainController>();
+                if (chain!=null)
+                    chain.gameObject.SetActive(false);
+            }
         }
 
 
@@ -94,45 +104,42 @@ public class RwGameController : MonoBehaviour
         //SetNextStation();
     }
 
+    private void FixedUpdate()
+    {
+        
+
+        RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
+        foreach (RwTrainControllerGrid train in trains)
+        {
+
+            if (train.isWagon == false)
+            {
+                train.FixedUpdateRemote();
+            }
+            
+        }
+
+        RwTrainControllerGrid[] wagons = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
+        foreach (RwTrainControllerGrid wagon in wagons)
+        {
+
+            if (wagon.isWagon == true)
+            {
+                wagon.FixedUpdateRemote();
+            }
+
+        }
+
+
+    }
+
     void Update()
     {
 
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
 
-        ////Release movement
-        //if (train.GetComponent<TrainControllerGrid>().stopMovement == true && Input.GetKeyDown(KeyCode.Space))
-        //{
-
-        //    SetNextStation();
-        //    train.GetComponent<TrainControllerGrid>().stopMovement = false;
-        //    wagon.GetComponent<TrainControllerGrid>().stopMovement = false;
-        //}
-
-
-        //foreach (Transform goStation in stations.transform)
-        //{
-        //    if (goStation.GetComponent<StationController>().stationName == train.GetComponent<TrainControllerGrid>().targetStation)
-        //    {
-        //        goStation.GetChild(0).gameObject.SetActive(true);
-        //    }
-        //    else
-        //    {
-        //        goStation.GetChild(0).gameObject.SetActive(false);
-        //    }
-        //}
+       
     }
 
-    //public void SetNextStation()
-    //{
-    //    StationController.StationNames newRandomStation = train.GetComponent<TrainControllerGrid>().targetStation;
-
-    //    while (newRandomStation== train.GetComponent<TrainControllerGrid>().targetStation) //Avoid same seed
-    //    {
-    //        int index = Random.Range(0, stations.transform.childCount);
-    //        newRandomStation = stations.transform.GetChild(index).GetComponent<StationController>().stationName;
-
-    //    }
-    //    train.GetComponent<TrainControllerGrid>().targetStation = newRandomStation;
-    //    wagon.GetComponent<TrainControllerGrid>().targetStation = newRandomStation;
-    //}
+   
 }
