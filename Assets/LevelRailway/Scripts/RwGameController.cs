@@ -6,6 +6,11 @@ public class RwGameController : MonoBehaviour
 
     //RV specific
     [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
+    [SerializeField] Sprite outOfCoalTrainSprite;
+    [SerializeField] Sprite outOfCoalWagonSprite;
+    [SerializeField] GameObject stations;
+    [SerializeField] GameObject gameOverUI;
+
     public float globalSwitchingTime;
 
     public float globalTrainSpeed;
@@ -31,6 +36,7 @@ public class RwGameController : MonoBehaviour
 
         try //try to get Player data
         {
+            PlayerDataControl.Instance.lockQuiz = false; //New game started, unlock quiz
             PlayerDataControl pDC = PlayerDataControl.Instance;
             coinQuantity = pDC.coins;
             rwPD = pDC.GetRailwayProgressData();
@@ -67,7 +73,7 @@ public class RwGameController : MonoBehaviour
         }
 
         RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
-        trains[0].SelectTrain(); //Select 1st train by default
+        //trains[0].SelectTrain(); //Select 1st train by default
         foreach (RwTrainControllerGrid train in trains)
         {
             train.maxSpeed = globalTrainSpeed;
@@ -91,6 +97,15 @@ public class RwGameController : MonoBehaviour
                 if (chain != null)
                     chain.gameObject.SetActive(false);
             }
+
+            //Turn sprite if out of coal
+            if (train.enabled == false)
+            {
+                if (!train.isWagon)
+                    train.GetComponent<SpriteRenderer>().sprite = outOfCoalTrainSprite;
+                else
+                    train.GetComponent<SpriteRenderer>().sprite = outOfCoalWagonSprite;
+            }
         }
 
 
@@ -106,30 +121,44 @@ public class RwGameController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
+        bool isGameOver = true; //All train is disabled, crashed or out of coal
+        //Make sure that all train updates first
         RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid train in trains)
         {
 
-            if (train.isWagon == false && train.enabled == true)
+            if (train.isWagon == false)
             {
-                train.FixedUpdateRemote();
+                if (train.enabled)
+                {
+                    train.FixedUpdateRemote();
+                    isGameOver = false;
+                }
+                else
+                    train.GetComponent<SpriteRenderer>().sprite = outOfCoalTrainSprite;
             }
 
         }
 
+        //And wagons later
         RwTrainControllerGrid[] wagons = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid wagon in wagons)
         {
 
-            if (wagon.isWagon == true && wagon.enabled == true)
+            if (wagon.isWagon == true)
             {
-                wagon.FixedUpdateRemote();
+                if (wagon.enabled)
+                    wagon.FixedUpdateRemote();
+                else
+                    wagon.GetComponent<SpriteRenderer>().sprite = outOfCoalWagonSprite;
             }
 
         }
 
+        if (isGameOver)
+        {
+            gameOverUI.SetActive(true);
+        }
 
     }
 
@@ -139,7 +168,37 @@ public class RwGameController : MonoBehaviour
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
 
 
+        //Show target stations
+
+        foreach (Transform goStation in stations.transform)
+        {
+            goStation.GetChild(0).gameObject.SetActive(false);  //Hide stop sign
+        }
+
+        foreach (Transform goStation in stations.transform)
+        {
+
+            RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
+            foreach (RwTrainControllerGrid train in trains)
+            {
+
+                if (train.isWagon == false)
+                {
+                    if (train.enabled)
+                    {
+                        if (goStation.GetComponent<RwStationController>().stationName == train.targetStation)
+                        {
+                            goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
+                        }
+                    }
+                }
+            }
+
+        }
+
+
     }
-
-
 }
+
+
+

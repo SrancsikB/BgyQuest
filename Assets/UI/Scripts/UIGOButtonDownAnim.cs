@@ -8,21 +8,29 @@ public class UIGOButtonDownAnim : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GetComponent<SpriteRenderer>().sprite = pushedSprite;
-        foreach (Transform child in transform)
+        if (enabled)
         {
-            Vector3 CurrentPos = child.transform.position;
-            child.transform.position = CurrentPos - new Vector3(0, textOffset, 0);
+            GetComponent<SpriteRenderer>().sprite = pushedSprite;
+            foreach (Transform child in transform)
+            {
+                Vector3 CurrentPos = child.transform.position;
+                child.transform.position = CurrentPos - new Vector3(0, textOffset, 0);
+            }
         }
+
     }
 
     private void OnMouseUp()
     {
-        GetComponent<SpriteRenderer>().sprite = normalSprite;
-        foreach (Transform child in transform)
+        if (enabled)
         {
-            Vector3 CurrentPos = child.transform.position;
-            child.transform.position = CurrentPos - new Vector3(0, -textOffset, 0);
+            GetComponent<SpriteRenderer>().sprite = normalSprite;
+            foreach (Transform child in transform)
+            {
+                Vector3 CurrentPos = child.transform.position;
+                child.transform.position = CurrentPos - new Vector3(0, -textOffset, 0);
+            }
         }
+
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,37 @@ public class MapIconClick : MonoBehaviour
     public MapFlag.GameGroup gameGroup;
     public MapIcon mapIcon;
     [SerializeField] int level = 1;
+    [SerializeField] bool lockQuiz;
+    [SerializeField] GameObject[] quizButtons;
+
+
+    private void Start()
+    {
+        try
+        {
+            lockQuiz = PlayerDataControl.Instance.lockQuiz;
+
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("SB: Cannot load quiz lock, use field value");
+        }
+
+
+        foreach (GameObject quizButton in quizButtons)
+        {
+            if (lockQuiz == true)
+            {
+                quizButton.GetComponent<UIGOButtonDownAnim>().enabled = false;
+                quizButton.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
+            }
+            else
+            {
+                quizButton.GetComponent<UIGOButtonDownAnim>().enabled = true;
+                quizButton.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.black;
+            }
+        }
+    }
 
     private void OnMouseDown()
     {
@@ -19,7 +51,8 @@ public class MapIconClick : MonoBehaviour
                 switch (mapIcon)
                 {
                     case MapIcon.Quiz:
-                        SceneManager.LoadScene("Quiz");
+                        if (lockQuiz == false)
+                            SceneManager.LoadScene("Quiz");
                         break;
                     case MapIcon.Game:
                         try

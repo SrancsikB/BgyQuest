@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 55.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8838f12500ffec5499f72324c60572ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: 20
+  Offset: 10
 --- !u!114 &867696211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,6 +1878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: 
   coins: 0
+  lockQuiz: 0
 --- !u!1 &1324025840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,7 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8838f12500ffec5499f72324c60572ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: 20
+  Offset: 10
 --- !u!114 &1825752071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2541,7 +2542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -14.999901, y: 167.99998}
+  m_AnchoredPosition: {x: -14.999878, y: 167.99998}
   m_SizeDelta: {x: -71.064, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1940122474
@@ -2788,7 +2789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8838f12500ffec5499f72324c60572ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: 20
+  Offset: 10
 --- !u!114 &2130640503
 MonoBehaviour:
   m_ObjectHideFlags: 0

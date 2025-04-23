@@ -22,6 +22,7 @@ public class PlayerDataControl : MonoBehaviour
 
     public string playerName;
     public int coins;
+    public bool lockQuiz; //Lock quiz button after NOK answer, release it after game start
 
     //Railway
     [System.Serializable]
@@ -80,6 +81,7 @@ public class PlayerDataControl : MonoBehaviour
     {
         var data = new Dictionary<string, object>
                 {
+                    {"PlayerName",playerName},
                     {"CoinData",0},
                     {"PuzzleData_Railway",new List<bool>() { false, false, false, false, false, false, false, false, false }},
                     {"ProgressData_Railway",new RailwayPogressData(1,1,1,1,1,1)}

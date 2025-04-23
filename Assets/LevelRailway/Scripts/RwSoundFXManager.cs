@@ -8,6 +8,7 @@ public class RwSoundFXManager : MonoBehaviour
     [SerializeField] AudioClip trainStartClip;
     [SerializeField] AudioClip trainRunningClip;
     [SerializeField] AudioClip trainStopCoinClip;
+    [SerializeField] AudioClip trainStopEmptyClip;
     [SerializeField] float soundFXVolume;
     void Awake()
     {
@@ -61,7 +62,13 @@ public class RwSoundFXManager : MonoBehaviour
         {
             Destroy(soundFX);
         }
-
+        AudioSource audioSource = Instantiate(soundFXObject, parent);
+        audioSource.clip = trainStopEmptyClip;
+        audioSource.volume = soundFXVolume;
+        audioSource.Play();
+        float clipLength = audioSource.clip.length;
+        Destroy(audioSource.gameObject, clipLength);
+        
 
     }
 

@@ -208,6 +208,8 @@ MonoBehaviour:
   gameGroup: 0
   mapIcon: 2
   level: 1
+  lockQuiz: 0
+  quizButtons: []
 --- !u!1001 &329666582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,6 +301,8 @@ MonoBehaviour:
   gameGroup: 0
   mapIcon: 3
   level: 1
+  lockQuiz: 0
+  quizButtons: []
 --- !u!1 &359353962
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +477,9 @@ MonoBehaviour:
   gameGroup: 0
   mapIcon: 0
   level: 1
+  lockQuiz: 1
+  quizButtons:
+  - {fileID: 405483199}
 --- !u!1 &407006320
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +914,8 @@ MonoBehaviour:
   gameGroup: 0
   mapIcon: 1
   level: 1
+  lockQuiz: 0
+  quizButtons: []
 --- !u!1 &1187281833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1293,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313971870518192466, guid: d3d5cddb65ff96b48a81ff1f27e98eba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870962386626557347, guid: d3d5cddb65ff96b48a81ff1f27e98eba, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

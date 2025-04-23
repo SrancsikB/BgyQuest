@@ -22,6 +22,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     [SerializeField] RwSmoke smoke;
     [SerializeField] float smokeFreq = 1;
     float timeToSmoke;
+    [SerializeField] GameObject flameAnim;
 
     //Behaviour
     RwTrainControllerGrid parentTrainController;
@@ -194,17 +195,17 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
 
         //Show target station
-        foreach (Transform goStation in stations.transform)
-        {
-            if (goStation.GetComponent<RwStationController>().stationName == targetStation)
-            {
-                goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
-            }
-            else
-            {
-                goStation.GetChild(0).gameObject.SetActive(false);  //Hide stop sign
-            }
-        }
+        //foreach (Transform goStation in stations.transform)
+        //{
+        //    if (goStation.GetComponent<RwStationController>().stationName == targetStation)
+        //    {
+        //        goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
+        //    }
+        //    else
+        //    {
+        //        goStation.GetChild(0).gameObject.SetActive(false);  //Hide stop sign
+        //    }
+        //}
 
 
 
@@ -213,9 +214,9 @@ public class RwTrainControllerGrid : MonoBehaviour
         if (!isWagon && isSelectedTrain)
         {
 
-            FindFirstObjectByType<UICoal>().coalQuantity = actualCoalQuantity;
-            FindFirstObjectByType<UIStation>().stationName = targetStation.ToString();
-            FindFirstObjectByType<UIReward>().reward = minReward + bonusReward;
+            FindFirstObjectByType<UICoal>().UpdateValue(actualCoalQuantity);
+            FindFirstObjectByType<UIStation>().UpdateValue(targetStation.ToString());
+            FindFirstObjectByType<UIReward>().UpdateValue(minReward + bonusReward);
         }
 
     }
@@ -551,9 +552,9 @@ public class RwTrainControllerGrid : MonoBehaviour
 
             }
             targetStation = newRandomStation;
-            
+
             RwSoundFXManager.Instance.PlayTrainStart(transform);
-            
+
         }
 
 
@@ -571,14 +572,21 @@ public class RwTrainControllerGrid : MonoBehaviour
     {
         if (!isWagon)
         {
-            RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
-            foreach (RwTrainControllerGrid item in trains)
+            DeselectTrains();
+            Animator anim; //Only the selection sprite has anim
+
+            isSelectedTrain = !isSelectedTrain;
+
+            anim = GetComponentInChildren<Animator>(true);
+            if (anim != null)
+                anim.gameObject.SetActive(isSelectedTrain);
+
+            if (isSelectedTrain == false)
             {
-                item.isSelectedTrain = false;
-                item.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                FindFirstObjectByType<UICoal>().ClearValue();
+                FindFirstObjectByType<UIStation>().ClearValue();
+                FindFirstObjectByType<UIReward>().ClearValue();
             }
-            isSelectedTrain = true;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0.0f, 1f);
 
             //Release movement
             if (stopMovement == true)
@@ -586,6 +594,23 @@ public class RwTrainControllerGrid : MonoBehaviour
                 //releaseStopMovement = true;
                 SetNextStation();
                 stopMovement = false;
+            }
+        }
+    }
+
+
+    public void DeselectTrains()
+    {
+        Animator anim; //Only the selection sprite has anim
+        RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
+        foreach (RwTrainControllerGrid train in trains)
+        {
+            if (train != this)
+            {
+                train.isSelectedTrain = false;
+                anim = train.GetComponentInChildren<Animator>(true);
+                if (anim != null)
+                    anim.gameObject.SetActive(false);
             }
         }
     }
@@ -634,6 +659,29 @@ public class RwTrainControllerGrid : MonoBehaviour
                     Debug.Log("Coin save failed");
                 }
 
+            }
+
+            if (collision.gameObject.GetComponent<RwTrainControllerGrid>() != null)
+            {
+                RwTrainControllerGrid otherTrain = collision.gameObject.GetComponent<RwTrainControllerGrid>();
+                if (otherTrain.isWagon == false)
+                {
+                    Debug.Log("Crash train");
+                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
+                    this.enabled = false;
+                    otherTrain.enabled = false;
+                    Instantiate(flameAnim, transform);
+                    Instantiate(flameAnim, otherTrain.transform);
+                }
+                else if (otherTrain.parentTrain.name != name) // This should work, but NOK at start: else if (otherTrain.parentTrain != this)
+                {
+                    Debug.Log("Crash other wagon");
+                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
+                    this.enabled = false;
+                    otherTrain.parentTrain.GetComponent<RwTrainControllerGrid>().enabled = false;
+                    Instantiate(flameAnim, transform);
+                    Instantiate(flameAnim, otherTrain.transform);
+                }
             }
         }
     }

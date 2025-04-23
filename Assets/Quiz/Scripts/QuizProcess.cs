@@ -35,13 +35,13 @@ public class QuizProcess : MonoBehaviour
                     TryPlayerDataStore(5);
                     return true;
                 }
-                else if (quizLevel == 3 && answer == "0008")
+                else if (quizLevel == 3 && answer == "0009")
                 {
                     TryPlayerDataStore(6);
                     return true;
                 }
                 break;
-           
+
             default:
                 break;
         }
@@ -54,7 +54,7 @@ public class QuizProcess : MonoBehaviour
     {
         if (ProcessAnswer() == true)
         {
-            instructionText.color = Color.green;
+            instructionText.color = new Color(0, 0.5f, 0, 1); //Green
             instructionText.text = "Correct answer!";
             qar.StartFlipAnim();
 
@@ -63,6 +63,15 @@ public class QuizProcess : MonoBehaviour
         {
             instructionText.color = Color.red;
             instructionText.text = "Incorrect answer!\r\nYou can retry it later...";
+
+            try
+            {
+                PlayerDataControl.Instance.lockQuiz = true;
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("SB: Lock quiz failed...");
+            }
 
         }
         gameObject.SetActive(false);
