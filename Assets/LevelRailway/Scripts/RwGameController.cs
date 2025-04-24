@@ -30,7 +30,7 @@ public class RwGameController : MonoBehaviour
     public float coinHeapHideTime;
     public int coinHeapQuantity;
 
-    private void Start()
+    private void Awake()
     {
 
 
@@ -84,9 +84,9 @@ public class RwGameController : MonoBehaviour
             train.coalHeapShowTime = coalHeapShowTime;
             train.coalHeapHideTime = coalHeapHideTime;
             train.coalHeapQuantity = coalHeapQuantity;
-            train.coinHeapShowTime = coinHeapShowTime;
-            train.coinHeapHideTime = coinHeapHideTime;
-            train.coinHeapQuantity = coinHeapQuantity;
+            //train.coinHeapShowTime = coinHeapShowTime;
+            //train.coinHeapHideTime = coinHeapHideTime;
+            //train.coinHeapQuantity = coinHeapQuantity;
             if (train.wagonNumber > globalWagonLevel)
             {
                 train.gameObject.SetActive(false);
@@ -99,13 +99,13 @@ public class RwGameController : MonoBehaviour
             }
 
             //Turn sprite if out of coal
-            if (train.enabled == false)
-            {
-                if (!train.isWagon)
-                    train.GetComponent<SpriteRenderer>().sprite = outOfCoalTrainSprite;
-                else
-                    train.GetComponent<SpriteRenderer>().sprite = outOfCoalWagonSprite;
-            }
+            //if (train.enabled == false)
+            //{
+            //    if (!train.isWagon)
+            //        train.GetComponent<SpriteRenderer>().sprite = outOfCoalTrainSprite;
+            //    else
+            //        train.GetComponent<SpriteRenderer>().sprite = outOfCoalWagonSprite;
+            //}
         }
 
 
@@ -197,6 +197,13 @@ public class RwGameController : MonoBehaviour
         }
 
 
+        //Coin heap
+        RwCoinHeapController[] coinHeaps = FindObjectsOfType<RwCoinHeapController>(true);
+            
+        foreach (RwCoinHeapController coinHeap in coinHeaps)
+        {
+            coinHeap.UpdateRemote();
+        }
     }
 }
 

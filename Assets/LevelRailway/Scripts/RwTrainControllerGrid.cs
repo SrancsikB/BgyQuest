@@ -15,6 +15,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     [SerializeField] GameObject parentTrain;
     [SerializeField] GameObject coalHeap;
     [SerializeField] GameObject coinHeap;
+
     [SerializeField] float accelerationSpeed = 0.05f;
     float angularSpeed = 90;
     float accelerationFactor = 1;
@@ -51,11 +52,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     float coalHeapHideActTimer;
     public int coalHeapQuantity;
 
-    public float coinHeapShowTime;
-    float coinHeapShowActTimer;
-    public float coinHeapHideTime;
-    float coinHeapHideActTimer;
-    public int coinHeapQuantity;
+   
 
     public bool stopMovement;
     bool releaseStopMovement; //Space key or set this to true
@@ -99,14 +96,21 @@ public class RwTrainControllerGrid : MonoBehaviour
             coalHeap = Instantiate(coalHeap);
             CoalHeapRandomize(coalHeap);
 
-            coinHeapShowActTimer = coinHeapShowTime;
-            coinHeapHideActTimer = coinHeapHideTime;
-            coinHeap = Instantiate(coinHeap);
-            CoinHeapRandomize(coinHeap);
+            //Coinheap init
+            RwGameController gc = FindFirstObjectByType<RwGameController>();
+
+            RwCoinHeapController ch = Instantiate(coinHeap).GetComponent<RwCoinHeapController>();
+            ch.map = map;
+            ch.coinHeapShowTime = gc.coinHeapShowTime;
+            ch.coinHeapHideTime = gc.coinHeapHideTime;
+            ch.coinHeapQuantity = gc.coinHeapQuantity;
+            ch.CoinHeapRandomize();
+
         }
 
         SetNextStation();
 
+        
     }
 
 
@@ -171,20 +175,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 }
             }
 
-            //Coin heap show / hide
-            coinHeapShowActTimer -= Time.deltaTime;
-            if (coinHeapShowActTimer < 0)
-            {
-                coinHeap.SetActive(true);
-                coinHeapHideActTimer -= Time.deltaTime;
-                if (coinHeapHideActTimer < 0)
-                {
-                    //coinHeap.SetActive(false);
-                    CoinHeapRandomize(coinHeap);
-                    coinHeapShowActTimer = coinHeapShowTime;
-                    coinHeapHideActTimer = coinHeapHideTime;
-                }
-            }
+           
         }
 
 
@@ -627,13 +618,7 @@ public class RwTrainControllerGrid : MonoBehaviour
         coalHeap.SetActive(false); //Will show after timer 
     }
 
-    private void CoinHeapRandomize(GameObject coinHeap)
-    {
-        int rndMapTile = Random.Range(0, map.transform.childCount);
-        coinHeap.transform.position = map.transform.GetChild(rndMapTile).position;
-        coinHeap.SetActive(false); //Will show after timer 
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isWagon)
@@ -651,10 +636,10 @@ public class RwTrainControllerGrid : MonoBehaviour
             if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
             {
                 RwGameController gc = FindFirstObjectByType<RwGameController>();
-                gc.coinQuantity += coinHeapQuantity;
-                coinHeapShowActTimer = coinHeapShowTime;
-                coinHeapHideActTimer = coinHeapHideTime;
-                CoinHeapRandomize(collision.gameObject);
+                RwCoinHeapController coinHC = collision.gameObject.GetComponent<RwCoinHeapController>();
+                gc.coinQuantity += coinHC.coinHeapQuantity;
+                
+                coinHC.CoinHeapRandomize();
                 try
                 {
                     PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);

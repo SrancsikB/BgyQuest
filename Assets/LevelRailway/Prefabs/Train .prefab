@@ -154,8 +154,8 @@ MonoBehaviour:
   stations: {fileID: 0}
   stationColor: 0
   parentTrain: {fileID: 0}
-  coalHeap: {fileID: 0}
-  coinHeap: {fileID: 0}
+  coalHeap: {fileID: 7383493489966035819, guid: 84982827555c29b48b73bf360f9e566a, type: 3}
+  coinHeap: {fileID: 7383493489966035819, guid: 91ba0e7287747aa45ab8d5a0be215eaf, type: 3}
   accelerationSpeed: 0.005
   smoke: {fileID: -3821105827692706628, guid: 26d39de4d328a254db4d6f6a84ba2932, type: 3}
   smokeFreq: 1
@@ -171,9 +171,6 @@ MonoBehaviour:
   coalHeapShowTime: 0
   coalHeapHideTime: 0
   coalHeapQuantity: 0
-  coinHeapShowTime: 0
-  coinHeapHideTime: 0
-  coinHeapQuantity: 0
   stopMovement: 0
   targetStation: 1
 --- !u!61 &7925522830017341451
