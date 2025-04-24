@@ -299,11 +299,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 36372854}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &84745285 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 998180826}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &89110211
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +779,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7499825329746851993, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SortingOrder
       value: 12
@@ -835,10 +834,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1079490893}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &120292859 stripped
 Transform:
@@ -981,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946912753366072208, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4036011632567569603, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: map
@@ -1300,11 +1296,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168487135}
   m_CullTransparentMesh: 1
---- !u!1 &170816831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 1943923020}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &223302153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1947,7 +1938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946912753366072208, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4036011632567569603, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: map
@@ -2272,11 +2263,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1949102291757185097, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
   m_PrefabInstance: {fileID: 377733228}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &384362855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 1408321098}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &386585807
 PrefabInstance:
@@ -4160,6 +4146,10 @@ PrefabInstance:
       propertyPath: parentTrain
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6121526862654381774, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
+      propertyPath: stationColor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6441533055956242601, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4172,6 +4162,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1639195089}
+    - target: {fileID: 7925522830017341451, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.515
+      objectReference: {fileID: 0}
     - target: {fileID: 8290919215253888986, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4333,7 +4327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207787387709937308, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6121526862654381774, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: map
@@ -4362,7 +4356,7 @@ PrefabInstance:
     - target: {fileID: 6441533055956242601, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 38065462cb4195447b12d4342bca42a2, type: 3}
+      objectReference: {fileID: 21300000, guid: b48c26c461d748741b24f430550cda35, type: 3}
     - target: {fileID: 6441533055956242601, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_SortingOrder
       value: 200
@@ -4371,6 +4365,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1960002086}
+    - target: {fileID: 7925522830017341451, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.515
+      objectReference: {fileID: 0}
     - target: {fileID: 8290919215253888986, guid: 61bcaf72e38a5004895bdcc08757d598, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4746,6 +4744,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7499825329746851993, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SortingOrder
       value: 9
@@ -4797,10 +4799,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1552863235}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &798830921 stripped
 Transform:
@@ -6299,6 +6298,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.015
@@ -6362,32 +6365,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 998180831}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &998180827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 998180826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &998180831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84745285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 2
-  goStop: {fileID: 0}
 --- !u!1001 &1002716497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6650,27 +6634,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1044091025}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1079490889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 120292858}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1079490893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079490889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 4
-  goStop: {fileID: 0}
 --- !u!1001 &1114958114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6843,7 +6806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.0075
+      value: 1.015
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -7066,11 +7029,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1155439653}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1168910902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 2096297671}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1192729739
 GameObject:
@@ -7709,6 +7667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2402743594260664913, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 193bd8c557a395a4cbe428a3fa7d946a, type: 3}
     - target: {fileID: 2946912753366072208, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: m_Name
       value: Wagon11
@@ -7865,6 +7827,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0125
@@ -7928,32 +7894,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408321103}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &1408321099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1408321098}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1408321103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384362855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 6
-  goStop: {fileID: 0}
 --- !u!1001 &1413417868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8130,11 +8077,11 @@ MonoBehaviour:
   coinQuantity: 0
   rwPD:
     rwMapLevel: 1
-    rwTrainSpeed: 1
+    rwTrainSpeed: 2
     rwSwitchingTime: 5
-    rwWagonLevel: 1
-    rwCoalHeapLevel: 1
-    rwBonusCoinLevel: 1
+    rwWagonLevel: 4
+    rwCoalHeapLevel: 4
+    rwBonusCoinLevel: 4
   outOfCoalTrainSprite: {fileID: 21300000, guid: 1819abb4839d0304188f39ec38ddf5dd, type: 3}
   outOfCoalWagonSprite: {fileID: 21300000, guid: 418e5894f3b76904bbe383213d3087d2, type: 3}
   stations: {fileID: 1307194891}
@@ -8315,7 +8262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946912753366072208, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4036011632567569603, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: map
@@ -8710,6 +8657,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.015
@@ -8773,37 +8724,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1491512989}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &1491512987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1491512986}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1491512988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 1491512986}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1491512989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491512988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 1
-  goStop: {fileID: 0}
 --- !u!1001 &1521221334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8984,27 +8911,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1529990988}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1552863231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-  m_PrefabInstance: {fileID: 798830920}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1552863235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552863231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 2
-  stationName: 3
-  goStop: {fileID: 0}
 --- !u!1001 &1559521552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9163,7 +9069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.01
+      value: 1.0075
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -11660,6 +11566,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7499825329746851993, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SortingOrder
       value: 7
@@ -11711,32 +11621,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1943923025}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &1943923021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 1943923020}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1943923025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170816831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 5
-  goStop: {fileID: 0}
 --- !u!1001 &1956506852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11759,7 +11650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.0075
+      value: 1.0125
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -11971,7 +11862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946912753366072208, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4036011632567569603, guid: fc0ba942787774f48ac8f0e5a161ade8, type: 3}
       propertyPath: map
@@ -12671,6 +12562,10 @@ PrefabInstance:
       propertyPath: isStationForTrain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0075
@@ -12734,32 +12629,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8958899830801175127, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2096297676}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
 --- !u!4 &2096297672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9058651477813281147, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
   m_PrefabInstance: {fileID: 2096297671}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2096297676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168910902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16511020ca59c9e4e96209a03c2b473a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  stationOrientation: 0
-  stationName: 7
-  goStop: {fileID: 0}
 --- !u!1 &2097363650
 GameObject:
   m_ObjectHideFlags: 0

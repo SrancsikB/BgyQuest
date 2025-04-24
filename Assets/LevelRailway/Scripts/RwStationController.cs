@@ -5,7 +5,12 @@ public class RwStationController : MonoBehaviour
     [SerializeField] Sprite[] sprites;
     public StationOrientation stationOrientation = StationOrientation.Up;
     public StationNames stationName = StationNames.BalassaDallas;
-    public GameObject goStop;
+    StationColor stationStopColor;
+    public GameObject goStopRed;
+    public GameObject goStopBlue;
+    public GameObject goStopGreen;
+    public GameObject goStopYellow;
+    public GameObject goStopPurple;
     Vector3 startScale;
     float scaler = -0.1f;
 
@@ -18,6 +23,11 @@ public class RwStationController : MonoBehaviour
     public enum StationOrientation
     {
         Up, Left, Down, Right
+    }
+
+    public enum StationColor
+    {
+        Red, Blue, Green, Yellow, Purple
     }
 
 
@@ -57,7 +67,7 @@ public class RwStationController : MonoBehaviour
     void Update()
     {
         float scaleRate = 0.8f;
-        if (goStop != null && goStop.activeSelf == true)
+        if (goStopRed.activeSelf || goStopBlue.activeSelf || goStopGreen.activeSelf || goStopYellow.activeSelf || goStopPurple.activeSelf) //if target of any train
         {
             transform.localScale -= transform.localScale * scaler * Time.deltaTime;
             if (transform.localScale.x < scaleRate)
@@ -71,6 +81,43 @@ public class RwStationController : MonoBehaviour
                 scaler *= -1;
             }
         }
+        else
+        {
+            transform.localScale = startScale;
+        }
+    }
+
+    public void ShowStopSign(StationColor stationColor, bool isShow)
+    {
+        switch (stationColor)
+        {
+            case StationColor.Red:
+                goStopRed.SetActive(isShow);
+                break;
+            case StationColor.Blue:
+                goStopBlue.SetActive(isShow);
+                break;
+            case StationColor.Green:
+                goStopGreen.SetActive(isShow);
+                break;
+            case StationColor.Yellow:
+                goStopYellow.SetActive(isShow);
+                break;
+            case StationColor.Purple:
+                goStopPurple.SetActive(isShow);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void HideAllStopSign()
+    {
+        goStopRed.SetActive(false);
+        goStopBlue.SetActive(false);
+        goStopGreen.SetActive(false);
+        goStopYellow.SetActive(false);
+        goStopPurple.SetActive(false);
     }
 
     private void OnDrawGizmos()

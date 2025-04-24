@@ -8,8 +8,10 @@ public class RwTrainControllerGrid : MonoBehaviour
     }
 
     //Train map and speed, setup by Railway level
+    
     [SerializeField] GameObject map;
     public GameObject stations;
+    public RwStationController.StationColor stationColor;
     [SerializeField] GameObject parentTrain;
     [SerializeField] GameObject coalHeap;
     [SerializeField] GameObject coinHeap;
@@ -95,12 +97,12 @@ public class RwTrainControllerGrid : MonoBehaviour
             coalHeapShowActTimer = coalHeapShowTime;
             coalHeapHideActTimer = coalHeapHideTime;
             coalHeap = Instantiate(coalHeap);
-            CoalHeapRandomize();
+            CoalHeapRandomize(coalHeap);
 
             coinHeapShowActTimer = coinHeapShowTime;
             coinHeapHideActTimer = coinHeapHideTime;
             coinHeap = Instantiate(coinHeap);
-            CoinHeapRandomize();
+            CoinHeapRandomize(coinHeap);
         }
 
         SetNextStation();
@@ -162,8 +164,8 @@ public class RwTrainControllerGrid : MonoBehaviour
                 coalHeapHideActTimer -= Time.deltaTime;
                 if (coalHeapHideActTimer < 0)
                 {
-                    coalHeap.SetActive(false);
-                    CoalHeapRandomize();
+                    //coalHeap.SetActive(false);
+                    CoalHeapRandomize(coalHeap);
                     coalHeapShowActTimer = coalHeapShowTime;
                     coalHeapHideActTimer = coalHeapHideTime;
                 }
@@ -177,8 +179,8 @@ public class RwTrainControllerGrid : MonoBehaviour
                 coinHeapHideActTimer -= Time.deltaTime;
                 if (coinHeapHideActTimer < 0)
                 {
-                    coinHeap.SetActive(false);
-                    CoinHeapRandomize();
+                    //coinHeap.SetActive(false);
+                    CoinHeapRandomize(coinHeap);
                     coinHeapShowActTimer = coinHeapShowTime;
                     coinHeapHideActTimer = coinHeapHideTime;
                 }
@@ -407,7 +409,10 @@ public class RwTrainControllerGrid : MonoBehaviour
                 RwRailController.RailType railType = goTile.GetComponent<RwRailController>().railType;
                 if (!isWagon)
                 {
-                    targetIsStation = goTile.GetComponent<RwRailController>().isStationForTrain;
+                    if (goTile.GetComponent<RwRailController>().stationToStartDecel != RwStationController.StationNames.None)
+                        targetIsStation = true;
+                    else
+                        targetIsStation = false;
 
                 }
                 //else
@@ -415,7 +420,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
                 if (targetIsStation)
                 {
-                    reachedStation = goTile.GetComponent<RwStationController>().stationName;
+                    reachedStation = goTile.GetComponent<RwRailController>().stationToStartDecel;
                     if (reachedStation == targetStation)
                     {
                         activateDeceleration = true;
@@ -615,14 +620,14 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
     }
 
-    private void CoalHeapRandomize()
+    private void CoalHeapRandomize(GameObject coalHeap)
     {
         int rndMapTile = Random.Range(0, map.transform.childCount);
         coalHeap.transform.position = map.transform.GetChild(rndMapTile).position;
         coalHeap.SetActive(false); //Will show after timer 
     }
 
-    private void CoinHeapRandomize()
+    private void CoinHeapRandomize(GameObject coinHeap)
     {
         int rndMapTile = Random.Range(0, map.transform.childCount);
         coinHeap.transform.position = map.transform.GetChild(rndMapTile).position;
@@ -640,7 +645,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 actualCoalQuantity += coalHeapQuantity;
                 coalHeapShowActTimer = coalHeapShowTime;
                 coalHeapHideActTimer = coalHeapHideTime;
-                CoalHeapRandomize();
+                CoalHeapRandomize(collision.gameObject);
 
             }
             if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
@@ -649,7 +654,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 gc.coinQuantity += coinHeapQuantity;
                 coinHeapShowActTimer = coinHeapShowTime;
                 coinHeapHideActTimer = coinHeapHideTime;
-                CoinHeapRandomize();
+                CoinHeapRandomize(collision.gameObject);
                 try
                 {
                     PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);

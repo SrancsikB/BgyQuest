@@ -29,11 +29,11 @@ public class RwRailController : MonoBehaviour
     [SerializeField] Sprite[] arrows;
     public RwRailController.RailStyle railStyle;
     public RwRailController.RailType railType;
-
-    public bool isStationForTrain = false;
+    public RwStationController.StationNames stationToStartDecel = RwStationController.StationNames.None;
+    //public bool isStationForTrain = false;
     //public bool isStationForWagon = false;
-    public bool isStationCoalMine = false;
-    public float coalMineRechargeTime = 0;
+    //public bool isStationCoalMine = false;
+    //public float coalMineRechargeTime = 0;
     private void Start()
     {
         try

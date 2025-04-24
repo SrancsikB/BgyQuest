@@ -172,7 +172,7 @@ public class RwGameController : MonoBehaviour
 
         foreach (Transform goStation in stations.transform)
         {
-            goStation.GetChild(0).gameObject.SetActive(false);  //Hide stop sign
+            goStation.GetComponent<RwStationController>().HideAllStopSign();  //Hide stop sign
         }
 
         foreach (Transform goStation in stations.transform)
@@ -188,7 +188,7 @@ public class RwGameController : MonoBehaviour
                     {
                         if (goStation.GetComponent<RwStationController>().stationName == train.targetStation)
                         {
-                            goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
+                            goStation.GetComponent<RwStationController>().ShowStopSign(train.stationColor, true); //Show stop sign
                         }
                     }
                 }
