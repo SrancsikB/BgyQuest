@@ -4,11 +4,10 @@ public class RwTrainControllerGrid : MonoBehaviour
 {
     enum Direction
     {
-        Up, Left, Down, Right //, TurningUp, TurningLeft, TurningDown, TurningRight
+        Up, Left, Down, Right
     }
 
-    //Train map and speed, setup by Railway level
-    
+    //Game object control
     [SerializeField] GameObject map;
     public GameObject stations;
     public RwStationController.StationColor stationColor;
@@ -16,10 +15,6 @@ public class RwTrainControllerGrid : MonoBehaviour
     [SerializeField] GameObject coalHeap;
     [SerializeField] GameObject coinHeap;
 
-    [SerializeField] float accelerationSpeed = 0.05f;
-    float angularSpeed = 90;
-    float accelerationFactor = 1;
-    bool activateDeceleration = false;
 
     //Fx
     [SerializeField] RwSmoke smoke;
@@ -30,11 +25,10 @@ public class RwTrainControllerGrid : MonoBehaviour
     //Behaviour
     RwTrainControllerGrid parentTrainController;
     public bool isWagon;
-
     public bool isSelectedTrain;
 
 
-    //Setup by GameController
+    //Setup by GameController, Player progression
     public float maxSpeed = 1;
     public int startCoalQuantity;
     int actualCoalQuantity;
@@ -43,22 +37,18 @@ public class RwTrainControllerGrid : MonoBehaviour
     int bonusReward;
     public float maxTimeToDecreaseReward;
     float timeToDecreaseReward;
-
     public int wagonNumber;
 
-    public float coalHeapShowTime;
-    float coalHeapShowActTimer;
-    public float coalHeapHideTime;
-    float coalHeapHideActTimer;
-    public int coalHeapQuantity;
 
-   
-
-    public bool stopMovement;
-    bool releaseStopMovement; //Space key or set this to true
 
 
     //For movement
+    [SerializeField] float accelerationSpeed = 0.05f;
+    [SerializeField] Direction startDirection = Direction.Up;
+    float angularSpeed = 90;
+    float accelerationFactor = 1;
+    bool activateDeceleration = false;
+
     private float movementLength;
     public RwStationController.StationNames targetStation;
     RwStationController.StationNames reachedStation = RwStationController.StationNames.None;
@@ -74,16 +64,23 @@ public class RwTrainControllerGrid : MonoBehaviour
     Direction lastDirection;
     int wagonDecelSyncCounter = 0;
 
+    public bool stopMovement;
+    bool releaseStopMovement; //Space key or select
+
+
+
+
+
     void Start()
     {
-        currentDirection = Direction.Up;
+        currentDirection = startDirection;
         targetPos = transform.position;
 
 
         if (isWagon)
         {
             parentTrainController = parentTrain.GetComponent<RwTrainControllerGrid>();
-            currentDirection = parentTrainController.currentDirection;
+            //currentDirection = parentTrainController.currentDirection;
             stations = parentTrainController.stations;
         }
         else
@@ -91,26 +88,29 @@ public class RwTrainControllerGrid : MonoBehaviour
             actualCoalQuantity = startCoalQuantity;
             bonusReward = maxReward;
             timeToDecreaseReward = maxTimeToDecreaseReward;
-            coalHeapShowActTimer = coalHeapShowTime;
-            coalHeapHideActTimer = coalHeapHideTime;
-            coalHeap = Instantiate(coalHeap);
-            CoalHeapRandomize(coalHeap);
 
-            //Coinheap init
+            //Coal and Coin heap init
             RwGameController gc = FindFirstObjectByType<RwGameController>();
 
-            RwCoinHeapController ch = Instantiate(coinHeap).GetComponent<RwCoinHeapController>();
-            ch.map = map;
-            ch.coinHeapShowTime = gc.coinHeapShowTime;
-            ch.coinHeapHideTime = gc.coinHeapHideTime;
-            ch.coinHeapQuantity = gc.coinHeapQuantity;
-            ch.CoinHeapRandomize();
+            RwCoinHeapController coinHeapInit = Instantiate(coinHeap).GetComponent<RwCoinHeapController>();
+            coinHeapInit.map = map;
+            coinHeapInit.coinHeapShowTime = gc.coinHeapShowTime;
+            coinHeapInit.coinHeapHideTime = gc.coinHeapHideTime;
+            coinHeapInit.coinHeapQuantity = gc.coinHeapQuantity;
+            coinHeapInit.CoinHeapRandomize();
+
+            RwCoalHeapController coalHeapInit = Instantiate(coalHeap).GetComponent<RwCoalHeapController>();
+            coalHeapInit.map = map;
+            coalHeapInit.coalHeapShowTime = gc.coalHeapShowTime;
+            coalHeapInit.coalHeapHideTime = gc.coalHeapHideTime;
+            coalHeapInit.coalHeapQuantity = gc.coalHeapQuantity;
+            coalHeapInit.CoalHeapRandomize();
 
         }
 
         SetNextStation();
 
-        
+
     }
 
 
@@ -160,22 +160,9 @@ public class RwTrainControllerGrid : MonoBehaviour
             }
 
 
-            //Coal heap show / hide
-            coalHeapShowActTimer -= Time.deltaTime;
-            if (coalHeapShowActTimer < 0)
-            {
-                coalHeap.SetActive(true);
-                coalHeapHideActTimer -= Time.deltaTime;
-                if (coalHeapHideActTimer < 0)
-                {
-                    //coalHeap.SetActive(false);
-                    CoalHeapRandomize(coalHeap);
-                    coalHeapShowActTimer = coalHeapShowTime;
-                    coalHeapHideActTimer = coalHeapHideTime;
-                }
-            }
 
-           
+
+
         }
 
 
@@ -187,23 +174,8 @@ public class RwTrainControllerGrid : MonoBehaviour
             releaseStopMovement = false;
         }
 
-        //Show target station
-        //foreach (Transform goStation in stations.transform)
-        //{
-        //    if (goStation.GetComponent<RwStationController>().stationName == targetStation)
-        //    {
-        //        goStation.GetChild(0).gameObject.SetActive(true); //Show stop sign
-        //    }
-        //    else
-        //    {
-        //        goStation.GetChild(0).gameObject.SetActive(false);  //Hide stop sign
-        //    }
-        //}
-
-
-
-
-        //Coal handling and UI in foot
+       
+        //UI in foot
         if (!isWagon && isSelectedTrain)
         {
 
@@ -215,7 +187,7 @@ public class RwTrainControllerGrid : MonoBehaviour
     }
 
 
-    public void FixedUpdateRemote()
+    public void FixedUpdateRemote()  //Updated remotly by GameController to make sure that Trains step first and Wagons later
     {
         //Acceleration
         if (!isWagon)
@@ -255,19 +227,14 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
 
 
-        if (tileMovementActive == false)
+        if (tileMovementActive == false)  //New tile arrives, lets setup new movement
         {
-            //if (isWagon)
-            //{
-            //    stopMovement = parentTrainController.stopMovement;
-            //}
-
+            
             tileMovementActive = true;
 
             angularSpeed = maxSpeed * 90; //+ angulerSpeedFactor;
 
             actualCoalQuantity -= 1; //Decrease coal
-
 
 
             targetPos = GetNextTile();
@@ -302,11 +269,7 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
 
 
-        //angulerSpeed = maxSpeed * 90 + angulerSpeedFactor;
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, angulerSpeed * Time.deltaTime);
-
-        //float distCovered = (Time.time - startTime) * maxSpeed * accelerationFactor;
-        //float percentOfMovement = distCovered / movementLength;
+        
 
         if (doTurn)
         {
@@ -420,27 +383,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 else
                     reachedStation = RwStationController.StationNames.None;
 
-                //if (goTile.GetComponent<RailController>().isStationCoalMine == true)
-                //{
-                //    int coalMineLevel = PlayerDataControl.Instance.GetRailwayCoalMineLevel;
-                //    switch (coalMineLevel)
-                //    {
-                //        case 1:
-                //            actualCoalQuantity += Random.Range(10, 20);
-                //            break;
-                //        case 2:
-                //            actualCoalQuantity += Random.Range(20, 50);
-                //            break;
-                //        case 3:
-                //            actualCoalQuantity += Random.Range(50, 100);
-                //            break;
-                //        default:
-                //            break;
-                //    }
-
-                //    if (actualCoalQuantity > startCoalQuantity)
-                //        actualCoalQuantity = startCoalQuantity;
-                //}
+                
 
                 rotateDirection = 1;
                 switch (railType)
@@ -611,34 +554,27 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
     }
 
-    private void CoalHeapRandomize(GameObject coalHeap)
-    {
-        int rndMapTile = Random.Range(0, map.transform.childCount);
-        coalHeap.transform.position = map.transform.GetChild(rndMapTile).position;
-        coalHeap.SetActive(false); //Will show after timer 
-    }
-
-    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isWagon)
         {
 
-
+            //Collect coal
             if (collision.gameObject.GetComponent<RwCoalHeapController>() != null)
             {
-                actualCoalQuantity += coalHeapQuantity;
-                coalHeapShowActTimer = coalHeapShowTime;
-                coalHeapHideActTimer = coalHeapHideTime;
-                CoalHeapRandomize(collision.gameObject);
+                RwCoalHeapController coalHC = collision.gameObject.GetComponent<RwCoalHeapController>();
+                actualCoalQuantity += coalHC.coalHeapQuantity;
+                coalHC.CoalHeapRandomize();
 
             }
+
+            //Collect coin
             if (collision.gameObject.GetComponent<RwCoinHeapController>() != null)
             {
                 RwGameController gc = FindFirstObjectByType<RwGameController>();
                 RwCoinHeapController coinHC = collision.gameObject.GetComponent<RwCoinHeapController>();
                 gc.coinQuantity += coinHC.coinHeapQuantity;
-                
+
                 coinHC.CoinHeapRandomize();
                 try
                 {
@@ -651,6 +587,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
             }
 
+            //Crash
             if (collision.gameObject.GetComponent<RwTrainControllerGrid>() != null)
             {
                 RwTrainControllerGrid otherTrain = collision.gameObject.GetComponent<RwTrainControllerGrid>();

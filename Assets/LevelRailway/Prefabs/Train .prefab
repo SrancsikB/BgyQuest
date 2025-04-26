@@ -168,11 +168,8 @@ MonoBehaviour:
   maxReward: 0
   maxTimeToDecreaseReward: 0
   wagonNumber: 0
-  coalHeapShowTime: 0
-  coalHeapHideTime: 0
-  coalHeapQuantity: 0
-  stopMovement: 0
   targetStation: 1
+  stopMovement: 0
 --- !u!61 &7925522830017341451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +204,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.091977715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -217,7 +214,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 1.22}
+  m_Size: {x: 0.5175, y: 1.1964555}
   m_EdgeRadius: 0
 --- !u!50 &4192838100247407980
 Rigidbody2D:

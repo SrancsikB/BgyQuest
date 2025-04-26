@@ -6,7 +6,6 @@ public class TrainController : MonoBehaviour
 
 {
     [SerializeField] float Speed = 5;
-    [SerializeField] float TurnSpeed = 5;
     Vector3 targetLocation;
     Dictionary<string, Vector3> Targets = new Dictionary<string, Vector3>();
     public bool mapInitDone = false;

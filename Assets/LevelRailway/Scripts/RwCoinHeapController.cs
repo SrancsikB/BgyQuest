@@ -15,6 +15,8 @@ public class RwCoinHeapController : MonoBehaviour
     }
 
 
+
+    //Updated by GameController, because inactive GO update stops
     public void UpdateRemote()
     {
         //Coin heap show / hide

@@ -8,8 +8,11 @@ public class RwGameController : MonoBehaviour
     [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
     [SerializeField] Sprite outOfCoalTrainSprite;
     [SerializeField] Sprite outOfCoalWagonSprite;
-    [SerializeField] GameObject stations;
+    //[SerializeField] GameObject stations;
+    [SerializeField] GameObject canvasUI;
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] int mapLevel = 1;
+
 
     public float globalSwitchingTime;
 
@@ -32,7 +35,8 @@ public class RwGameController : MonoBehaviour
 
     private void Awake()
     {
-
+        canvasUI.SetActive(true);
+        gameOverUI.SetActive(false);
 
         try //try to get Player data
         {
@@ -49,12 +53,13 @@ public class RwGameController : MonoBehaviour
             Debug.Log("SB: Player data cannot be aquired, using public progress data");
         }
 
+        //Setup of game progression effects
         globalTrainSpeed = 0.5f + (float)rwPD.rwTrainSpeed * 0.5f;
         globalSwitchingTime = 6 - rwPD.rwSwitchingTime;
         globalWagonLevel = rwPD.rwWagonLevel;
         globalCoalQuantity = 50 + rwPD.rwWagonLevel * 50;
-        transportMinReward = 15 + rwPD.rwWagonLevel * 15;
-        transportMaxReward = 25 + rwPD.rwWagonLevel * 25;
+        transportMinReward = 15 + (rwPD.rwWagonLevel + mapLevel) * 5;
+        transportMaxReward = 25 + (rwPD.rwWagonLevel + mapLevel) * 10;
 
         coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 10;
         coalHeapShowTime = 60 / rwPD.rwCoalHeapLevel;
@@ -73,7 +78,7 @@ public class RwGameController : MonoBehaviour
         }
 
         RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
-        //trains[0].SelectTrain(); //Select 1st train by default
+
         foreach (RwTrainControllerGrid train in trains)
         {
             train.maxSpeed = globalTrainSpeed;
@@ -81,12 +86,7 @@ public class RwGameController : MonoBehaviour
             train.minReward = transportMinReward;
             train.maxReward = transportMaxReward;
             train.maxTimeToDecreaseReward = transportTimeToDecreaseReward;
-            train.coalHeapShowTime = coalHeapShowTime;
-            train.coalHeapHideTime = coalHeapHideTime;
-            train.coalHeapQuantity = coalHeapQuantity;
-            //train.coinHeapShowTime = coinHeapShowTime;
-            //train.coinHeapHideTime = coinHeapHideTime;
-            //train.coinHeapQuantity = coinHeapQuantity;
+
             if (train.wagonNumber > globalWagonLevel)
             {
                 train.gameObject.SetActive(false);
@@ -98,25 +98,13 @@ public class RwGameController : MonoBehaviour
                     chain.gameObject.SetActive(false);
             }
 
-            //Turn sprite if out of coal
-            //if (train.enabled == false)
-            //{
-            //    if (!train.isWagon)
-            //        train.GetComponent<SpriteRenderer>().sprite = outOfCoalTrainSprite;
-            //    else
-            //        train.GetComponent<SpriteRenderer>().sprite = outOfCoalWagonSprite;
-            //}
+           
         }
 
 
 
 
 
-        //wagon.GetComponent<TrainControllerGrid>().startCoalQuantity = globalCoalQuantity;
-
-        //coinQuantity = startCoinQuantity;
-
-        //SetNextStation();
     }
 
     private void FixedUpdate()
@@ -169,13 +157,14 @@ public class RwGameController : MonoBehaviour
 
 
         //Show target stations
+        RwStationController[] stations = FindObjectsByType<RwStationController>(FindObjectsSortMode.None);
 
-        foreach (Transform goStation in stations.transform)
+        foreach (RwStationController station in stations)
         {
-            goStation.GetComponent<RwStationController>().HideAllStopSign();  //Hide stop sign
+            station.HideAllStopSign();  //Hide stop sign
         }
 
-        foreach (Transform goStation in stations.transform)
+        foreach (RwStationController station in stations)
         {
 
             RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
@@ -186,9 +175,9 @@ public class RwGameController : MonoBehaviour
                 {
                     if (train.enabled)
                     {
-                        if (goStation.GetComponent<RwStationController>().stationName == train.targetStation)
+                        if (station.stationName == train.targetStation)
                         {
-                            goStation.GetComponent<RwStationController>().ShowStopSign(train.stationColor, true); //Show stop sign
+                            station.ShowStopSign(train.stationColor, true); //Show stop sign
                         }
                     }
                 }
@@ -197,9 +186,17 @@ public class RwGameController : MonoBehaviour
         }
 
 
+        //Coal heap
+        RwCoalHeapController[] coalHeaps = FindObjectsOfType<RwCoalHeapController>(true);
+
+        foreach (RwCoalHeapController coalHeap in coalHeaps)
+        {
+            coalHeap.UpdateRemote();
+        }
+
         //Coin heap
         RwCoinHeapController[] coinHeaps = FindObjectsOfType<RwCoinHeapController>(true);
-            
+
         foreach (RwCoinHeapController coinHeap in coinHeaps)
         {
             coinHeap.UpdateRemote();

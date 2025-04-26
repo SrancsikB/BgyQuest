@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Quiz/Quiz.unity
     guid: 17c6b5a4d8801e74e8d18a4d9357d7dd
   - enabled: 1
-    path: Assets/LevelRailway/RailwayLevel1.unity
+    path: Assets/LevelRailway/RailwayLevelTest.unity
     guid: 9d966312d04bf3f4dbbf29be40340a07
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

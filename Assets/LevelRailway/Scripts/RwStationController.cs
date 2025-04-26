@@ -16,7 +16,7 @@ public class RwStationController : MonoBehaviour
 
     public enum StationNames
     {
-        None, BalassaDallas, Szög, Ditroit, Palánk, Sudice, Nándor, Guta
+        None, BalassaDallas, Orhalom, Szog, Ditroit, Palank, Sudice, Nandor, Guta, Hall, Park, Hospital
 
     }
 
