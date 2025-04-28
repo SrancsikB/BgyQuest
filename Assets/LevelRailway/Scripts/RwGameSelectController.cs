@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class RwGameSelectController : MonoBehaviour
 {
     [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
@@ -47,4 +48,7 @@ public class RwGameSelectController : MonoBehaviour
     {
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
     }
+
+
+   
 }

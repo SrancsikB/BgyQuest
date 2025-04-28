@@ -207,7 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameGroup: 0
   mapIcon: 2
-  level: 1
   lockQuiz: 0
   quizButtons: []
 --- !u!1001 &329666582
@@ -300,7 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameGroup: 0
   mapIcon: 3
-  level: 1
   lockQuiz: 0
   quizButtons: []
 --- !u!1 &359353962
@@ -476,8 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameGroup: 0
   mapIcon: 0
-  level: 1
-  lockQuiz: 1
+  lockQuiz: 0
   quizButtons:
   - {fileID: 405483199}
 --- !u!1 &407006320
@@ -913,7 +910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameGroup: 0
   mapIcon: 1
-  level: 1
   lockQuiz: 0
   quizButtons: []
 --- !u!1 &1187281833

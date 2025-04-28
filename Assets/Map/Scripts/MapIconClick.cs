@@ -10,7 +10,6 @@ public class MapIconClick : MonoBehaviour
     }
     public MapFlag.GameGroup gameGroup;
     public MapIcon mapIcon;
-    [SerializeField] int level = 1;
     [SerializeField] bool lockQuiz;
     [SerializeField] GameObject[] quizButtons;
 
@@ -55,17 +54,7 @@ public class MapIconClick : MonoBehaviour
                             SceneManager.LoadScene("Quiz");
                         break;
                     case MapIcon.Game:
-                        try
-                        {
-                            PlayerDataControl.RailwayPogressData rwPD;
-                            rwPD = PlayerDataControl.Instance.GetRailwayProgressData();
-                            level = rwPD.rwMapLevel;
-                        }
-                        catch (System.Exception)
-                        {
-                            Debug.Log("SB: Cannot load map level");
-                        }
-                        SceneManager.LoadScene("RailwayLevel" + level.ToString());
+                        SceneManager.LoadScene("RailwayLevelSelect");
                         break;
                     case MapIcon.Puzzle:
 
