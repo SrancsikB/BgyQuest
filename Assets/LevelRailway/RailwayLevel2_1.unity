@@ -7874,12 +7874,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinQuantity: 0
   rwPD:
-    rwMapLevel: 1
-    rwTrainSpeed: 1
-    rwSwitchingTime: 1
-    rwWagonLevel: 1
-    rwCoalHeapLevel: 1
-    rwBonusCoinLevel: 1
+    rwMapLevel: 2
+    rwTrainSpeed: 2
+    rwSwitchingTime: 2
+    rwWagonLevel: 2
+    rwCoalHeapLevel: 2
+    rwBonusCoinLevel: 2
   outOfCoalTrainSprite: {fileID: 21300000, guid: 1819abb4839d0304188f39ec38ddf5dd, type: 3}
   outOfCoalWagonSprite: {fileID: 21300000, guid: 418e5894f3b76904bbe383213d3087d2, type: 3}
   canvasUI: {fileID: 1448612608}

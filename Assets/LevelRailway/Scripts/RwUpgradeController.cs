@@ -147,17 +147,17 @@ public class RwUpgradeController : MonoBehaviour
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
 
         CheckUpgradeLevel(rwPD.rwTrainSpeed, rwTrainSpeedUpgradeCost, rwTrainSpeedUpgradeLevel, rwTrainSpeedGOCost, rwTrainSpeedGOBuy, 
-            new int[] { 1000, 2500, 5000 });
-        CheckUpgradeLevel(rwPD.rwSwitchingTime, rwSwitchingTimeUpgradeCost, rwSwitchingTimeUpgradeLevel, rwSwitchingTimeGOCost, rwSwitchingTimeGOBuy,
             new int[] { 500, 1000, 2500 });
+        CheckUpgradeLevel(rwPD.rwSwitchingTime, rwSwitchingTimeUpgradeCost, rwSwitchingTimeUpgradeLevel, rwSwitchingTimeGOCost, rwSwitchingTimeGOBuy,
+            new int[] { 200, 500, 800 });
         CheckUpgradeLevel(rwPD.rwWagonLevel, rwWagonLevelUpgradeCost, rwWagonLevelUpgradeLevel, rwWagonLevelGOCost, rwWagonLevelGOBuy,
-            new int[] { 1000, 2500, 5000 });
+            new int[] { 500, 1000, 2000 });
         CheckUpgradeLevel(rwPD.rwMapLevel, rwMapLevelUpgradeCost, rwMapLevelUpgradeLevel, rwMapLevelGOCost, rwMapLevelGOBuy,
-            new int[] { 2000, 5000, 10000 });
+            new int[] { 500, 2000, 5000 });
         CheckUpgradeLevel(rwPD.rwCoalHeapLevel, rwCoalHeapUpgradeCost, rwCoalHeapUpgradeLevel, rwCoalHeapGOCost, rwCoalHeapGOBuy,
-            new int[] { 200, 500, 800 });
+            new int[] { 100, 250, 500 });
         CheckUpgradeLevel(rwPD.rwBonusCoinLevel, rwCoinHeapUpgradeCost, rwCoinHeapUpgradeLevel, rwCoinHeapGOCost, rwCoinHeapGOBuy,
-            new int[] { 200, 500, 800 });
+            new int[] { 100, 250, 500 });
 
 
 

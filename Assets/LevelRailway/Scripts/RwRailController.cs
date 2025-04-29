@@ -30,10 +30,7 @@ public class RwRailController : MonoBehaviour
     public RwRailController.RailStyle railStyle;
     public RwRailController.RailType railType;
     public RwStationController.StationNames stationToStartDecel = RwStationController.StationNames.None;
-    //public bool isStationForTrain = false;
-    //public bool isStationForWagon = false;
-    //public bool isStationCoalMine = false;
-    //public float coalMineRechargeTime = 0;
+    [SerializeField] bool specialCross;  //For special cases where 2 trains share the same rail
     private void Start()
     {
         try
@@ -52,7 +49,7 @@ public class RwRailController : MonoBehaviour
     private void OnValidate()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-       
+
         try
         {
 
@@ -81,7 +78,11 @@ public class RwRailController : MonoBehaviour
                     railType = RailType.Right;
                     break;
                 case RailStyle.TurnUpFromLeft:
-                    spRail.sprite = rails[4];
+                    if (specialCross)
+                        spRail.sprite = rails[15]; //Special rail sprite view
+                    else
+                        spRail.sprite = rails[4];
+
                     spArrow.sprite = arrows[4];
                     railType = RailType.TurnUp;
                     break;

@@ -4,7 +4,7 @@ public class RwStationController : MonoBehaviour
 {
     [SerializeField] Sprite[] sprites;
     public StationOrientation stationOrientation = StationOrientation.Up;
-    public StationNames stationName = StationNames.BalassaDallas;
+    public StationNames stationName = StationNames.Balassagyarmat;
     StationColor stationStopColor;
     public GameObject goStopRed;
     public GameObject goStopBlue;
@@ -16,7 +16,10 @@ public class RwStationController : MonoBehaviour
 
     public enum StationNames
     {
-        None, BalassaDallas, Orhalom, Szog, Ditroit, Palank, Sudice, Nandor, Guta, Hall, Park, Hospital
+        None, Balassagyarmat, Orhalom, Ipolyszog, Dejtar, Degelypalank, Szugy, Magyarnandor, Galgaguta,
+        Hall, Park, Hospital,
+        Kaposvar, Pecs, Szeged, Szolnok, Bekescsaba, Eger, Miskolc, Nyiregyhaza, Debrecen
+
 
     }
 

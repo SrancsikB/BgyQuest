@@ -7,7 +7,12 @@ public class UILevelSelector : MonoBehaviour
 
     void OnMouseDown()
     {
-        int rnd = Random.Range(1, 3);
+        int rnd = 1;
+        if (levelNumber<=2)
+        {
+            rnd = Random.Range(1, 3);
+        }
+        
         SceneManager.LoadScene("RailwayLevel" + levelNumber.ToString() + "_" + rnd.ToString());
     }
 }
