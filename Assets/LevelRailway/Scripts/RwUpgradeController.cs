@@ -5,43 +5,49 @@ using UnityEngine;
 public class RwUpgradeController : MonoBehaviour
 {
     public int coinQuantity;
-    public PlayerDataControl.RailwayPogressData rwPD;
+    public PlayerDataControl.RailwayProgressData rwPD;
 
     [SerializeField] TextMeshProUGUI rwMapLevelUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwMapLevelUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwMapLevelUpgradeCost;
     [SerializeField] GameObject rwMapLevelGOCost;
     [SerializeField] GameObject rwMapLevelGOBuy;
+    [SerializeField] GameObject rwRewardMapLevelGO;
 
     [SerializeField] TextMeshProUGUI rwTrainSpeedUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwTrainSpeedUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwTrainSpeedUpgradeCost;
     [SerializeField] GameObject rwTrainSpeedGOCost;
     [SerializeField] GameObject rwTrainSpeedGOBuy;
+    [SerializeField] GameObject rwRewardSpeedGO;
 
     [SerializeField] TextMeshProUGUI rwWagonLevelUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwWagonLevelUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwWagonLevelUpgradeCost;
     [SerializeField] GameObject rwWagonLevelGOCost;
     [SerializeField] GameObject rwWagonLevelGOBuy;
+    [SerializeField] GameObject rwRewardWagonLevelGO;
 
     [SerializeField] TextMeshProUGUI rwSwitchingTimeUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwSwitchingTimeUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwSwitchingTimeUpgradeCost;
     [SerializeField] GameObject rwSwitchingTimeGOCost;
     [SerializeField] GameObject rwSwitchingTimeGOBuy;
+    [SerializeField] GameObject rwRewardSwitchingTimeGO;
 
     [SerializeField] TextMeshProUGUI rwCoalHeapUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwCoalHeapUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwCoalHeapUpgradeCost;
     [SerializeField] GameObject rwCoalHeapGOCost;
     [SerializeField] GameObject rwCoalHeapGOBuy;
+    [SerializeField] GameObject rwRewardCoalHeapGO;
 
     [SerializeField] TextMeshProUGUI rwCoinHeapUpgradeInfo;
     [SerializeField] TextMeshProUGUI rwCoinHeapUpgradeLevel;
     [SerializeField] TextMeshProUGUI rwCoinHeapUpgradeCost;
     [SerializeField] GameObject rwCoinHeapGOCost;
     [SerializeField] GameObject rwCoinHeapGOBuy;
+    [SerializeField] GameObject rwRewardCoinHeapGO;
 
     private void Start()
     {
@@ -87,42 +93,62 @@ public class RwUpgradeController : MonoBehaviour
                     coinQuantity -= int.Parse(rwMapLevelUpgradeCost.text);
                     rwPD.rwMapLevel += 1;
                     if (rwPD.rwMapLevel > 3)
+                    {
                         TryPlayerDataStore(1);
+                        rwRewardMapLevelGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
                 }
                 else if (hit.transform.gameObject == rwTrainSpeedGOBuy)
                 {
                     coinQuantity -= int.Parse(rwTrainSpeedUpgradeCost.text);
                     rwPD.rwTrainSpeed += 1;
                     if (rwPD.rwTrainSpeed > 3)
+                    {
                         TryPlayerDataStore(2);
+                        rwRewardSpeedGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
+
                 }
                 else if (hit.transform.gameObject == rwWagonLevelGOBuy)
                 {
                     coinQuantity -= int.Parse(rwWagonLevelUpgradeCost.text);
                     rwPD.rwWagonLevel += 1;
                     if (rwPD.rwWagonLevel > 3)
+                    {
                         TryPlayerDataStore(3);
+                        rwRewardWagonLevelGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
                 }
                 else if (hit.transform.gameObject == rwSwitchingTimeGOBuy)
                 {
                     coinQuantity -= int.Parse(rwSwitchingTimeUpgradeCost.text);
                     rwPD.rwSwitchingTime += 1;
                     if (rwPD.rwSwitchingTime > 3)
+                    {
                         TryPlayerDataStore(4);
+                        rwRewardSwitchingTimeGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
                 }
                 else if (hit.transform.gameObject == rwCoalHeapGOBuy)
                 {
                     coinQuantity -= int.Parse(rwCoalHeapUpgradeCost.text);
                     rwPD.rwCoalHeapLevel += 1;
                     if (rwPD.rwCoalHeapLevel > 3)
+                    {
                         TryPlayerDataStore(7);
+                        rwRewardCoalHeapGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
+
                 }
                 else if (hit.transform.gameObject == rwCoinHeapGOBuy)
                 {
                     coinQuantity -= int.Parse(rwCoinHeapUpgradeCost.text);
                     rwPD.rwBonusCoinLevel += 1;
                     if (rwPD.rwBonusCoinLevel > 3)
+                    { 
                         TryPlayerDataStore(8);
+                        rwRewardCoinHeapGO.GetComponent<QuizAnimReward>().StartFlipAnim();
+                    }
                 }
                 else if (hit.transform.gameObject.name == "ButtonGimme1000")
                 {
@@ -146,7 +172,7 @@ public class RwUpgradeController : MonoBehaviour
 
         FindFirstObjectByType<UICoin>().coinQuantity = coinQuantity;
 
-        CheckUpgradeLevel(rwPD.rwTrainSpeed, rwTrainSpeedUpgradeCost, rwTrainSpeedUpgradeLevel, rwTrainSpeedGOCost, rwTrainSpeedGOBuy, 
+        CheckUpgradeLevel(rwPD.rwTrainSpeed, rwTrainSpeedUpgradeCost, rwTrainSpeedUpgradeLevel, rwTrainSpeedGOCost, rwTrainSpeedGOBuy,
             new int[] { 500, 1000, 2500 });
         CheckUpgradeLevel(rwPD.rwSwitchingTime, rwSwitchingTimeUpgradeCost, rwSwitchingTimeUpgradeLevel, rwSwitchingTimeGOCost, rwSwitchingTimeGOBuy,
             new int[] { 200, 500, 800 });
@@ -229,7 +255,7 @@ public class RwUpgradeController : MonoBehaviour
 
     private void CheckUpgradeLevel(int level, TextMeshProUGUI costUI, TextMeshProUGUI levelUI, GameObject costGO, GameObject buyGO, int[] costs)
     {
-        
+
         int cost = 0;
         bool hasCoinsToBuy = false;
 

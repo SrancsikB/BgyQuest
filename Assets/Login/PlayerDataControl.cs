@@ -26,7 +26,7 @@ public class PlayerDataControl : MonoBehaviour
 
     //Railway
     [System.Serializable]
-    public struct RailwayPogressData
+    public struct RailwayProgressData
     {
         public int rwMapLevel; //Level of map/scene
         public int rwTrainSpeed; //Speed of the train
@@ -35,7 +35,7 @@ public class PlayerDataControl : MonoBehaviour
         public int rwCoalHeapLevel; //Size and freq of coal heaps
         public int rwBonusCoinLevel; //Level of bonus coin
 
-        public RailwayPogressData(int rwMapLevel, int rwTrainSpeed, int rwSwitchingTime, int rwWagonLevel, int rwCoalHeapLevel, int rwBonusCoinLevel)
+        public RailwayProgressData(int rwMapLevel, int rwTrainSpeed, int rwSwitchingTime, int rwWagonLevel, int rwCoalHeapLevel, int rwBonusCoinLevel)
         {
             this.rwMapLevel = rwMapLevel;
             this.rwTrainSpeed = rwTrainSpeed;
@@ -46,7 +46,7 @@ public class PlayerDataControl : MonoBehaviour
         }
     }
     private List<bool> rwPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true }; //Collected cards
-    private RailwayPogressData rwProgressData;
+    private RailwayProgressData rwProgressData;
 
     public List<bool> GetRailwayPuzzleData()
     {
@@ -58,13 +58,13 @@ public class PlayerDataControl : MonoBehaviour
         SavePuzzleData(MapFlag.GameGroup.Railway, rwPuzzleData);
     }
 
-    public RailwayPogressData GetRailwayProgressData()
+    public RailwayProgressData GetRailwayProgressData()
     {
         return rwProgressData;
 
     }
 
-    public void SetRailwayProgressData(RailwayPogressData railwayPD)
+    public void SetRailwayProgressData(RailwayProgressData railwayPD)
     {
         rwProgressData = railwayPD;
         SaveRailwayProgressData(rwProgressData);
@@ -84,7 +84,7 @@ public class PlayerDataControl : MonoBehaviour
                     {"PlayerName",playerName},
                     {"CoinData",0},
                     {"PuzzleData_Railway",new List<bool>() { false, false, false, false, false, false, false, false, false }},
-                    {"ProgressData_Railway",new RailwayPogressData(1,1,1,1,1,1)}
+                    {"ProgressData_Railway",new RailwayProgressData(1,1,1,1,1,1)}
                 };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
         LoadData();
@@ -104,7 +104,7 @@ public class PlayerDataControl : MonoBehaviour
         var LoadedData = await CloudSaveService.Instance.Data.Player.LoadAsync(data);
         coins = LoadedData["CoinData"].Value.GetAs<int>();
         rwPuzzleData = LoadedData["PuzzleData_Railway"].Value.GetAs<List<bool>>();
-        rwProgressData = LoadedData["ProgressData_Railway"].Value.GetAs<RailwayPogressData>();
+        rwProgressData = LoadedData["ProgressData_Railway"].Value.GetAs<RailwayProgressData>();
 
     }
 
@@ -123,7 +123,7 @@ public class PlayerDataControl : MonoBehaviour
 
 
 
-    public async void SaveRailwayProgressData(RailwayPogressData railwayPD)
+    public async void SaveRailwayProgressData(RailwayProgressData railwayPD)
     {
 
         var data = new Dictionary<string, object>

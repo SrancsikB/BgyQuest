@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RwGameSelectController : MonoBehaviour
 {
-    [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
+    [SerializeField] PlayerDataControl.RailwayProgressData rwPD;
     [SerializeField] GameObject canvasUI;
 
     public int coinQuantity;

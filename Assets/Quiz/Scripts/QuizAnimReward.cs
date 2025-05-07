@@ -18,6 +18,7 @@ public class QuizAnimReward : MonoBehaviour
 
     public void StartFlipAnim()
     {
+               
         transform.gameObject.SetActive(true);
         doFlipAnimation = true;
     }
@@ -27,7 +28,7 @@ public class QuizAnimReward : MonoBehaviour
     {
         if (doFlipAnimation)
         {
-            ps.gameObject.SetActive(true);
+            
             transform.RotateAround(transform.position, new Vector3(0, 1, 0), Time.deltaTime * animFlipSpeed);
             if (transform.rotation.eulerAngles.y >= 260)
             {
@@ -40,15 +41,15 @@ public class QuizAnimReward : MonoBehaviour
                 //Finish rotation
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 doFlipAnimation = false;
-                
+                ps.gameObject.SetActive(true);
             }
         }
 
-        if(doCollectAnimation)
+        if (doCollectAnimation)
         {
-            
+
             transform.localScale -= Vector3.one * Time.deltaTime * animCollectSpeed;
-            if (transform.localScale.x<0.05f)
+            if (transform.localScale.x < 0.05f)
             {
                 gameObject.SetActive(false);
                 doCollectAnimation = false;

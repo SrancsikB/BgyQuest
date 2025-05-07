@@ -5,7 +5,7 @@ public class RwGameController : MonoBehaviour
     public int coinQuantity;
 
     //RV specific
-    [SerializeField] PlayerDataControl.RailwayPogressData rwPD;
+    [SerializeField] PlayerDataControl.RailwayProgressData rwPD;
     [SerializeField] Sprite outOfCoalTrainSprite;
     [SerializeField] Sprite outOfCoalWagonSprite;
     //[SerializeField] GameObject stations;

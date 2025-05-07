@@ -443,6 +443,12 @@ MonoBehaviour:
   MatOff: {fileID: 2100000, guid: 8ca5b9aaf472076408f1af57c7c12627, type: 2}
   MatActive: {fileID: 2100000, guid: 6ef07cd2d82d23145858794a22236b26, type: 2}
   MatDone: {fileID: 2100000, guid: d4d595a2f5263d6499b51563fe1f0c08, type: 2}
+  Direction1: -1
+  Direction2: 1
+  MaxMove: 0
+  MinMove: -0.1
+  Puzzle1: {fileID: 0}
+  Puzzle2: {fileID: 0}
 --- !u!1 &916197066
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +750,13 @@ MonoBehaviour:
   MatActive: {fileID: 2100000, guid: 6ef07cd2d82d23145858794a22236b26, type: 2}
   MatDone: {fileID: 2100000, guid: d4d595a2f5263d6499b51563fe1f0c08, type: 2}
   PopUp: {fileID: 1253536271}
+  ScaleDirection: 1
+  MaxScale: 1.5
+  MinScale: 1
+  RotDir: 0
+  RotMax: 5
+  RotMin: -5
+  Star: {fileID: 0}
 --- !u!4 &1028232746
 Transform:
   m_ObjectHideFlags: 0
@@ -1035,6 +1048,13 @@ MonoBehaviour:
   MatActive: {fileID: 2100000, guid: 6ef07cd2d82d23145858794a22236b26, type: 2}
   MatDone: {fileID: 2100000, guid: d4d595a2f5263d6499b51563fe1f0c08, type: 2}
   PopUp: {fileID: 1253536271}
+  ScaleDirection: 1
+  MaxScale: 1.5
+  MinScale: 1
+  RotDir: 0
+  RotMax: 5
+  RotMin: -5
+  Star: {fileID: 0}
 --- !u!4 &1699935019
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class UICurrentUser : MonoBehaviour
         catch (System.Exception)
         {
 
-            Debug.Log("Player name finding issue");
+            Debug.Log("SB: Player name finding issue");
         }
         
 

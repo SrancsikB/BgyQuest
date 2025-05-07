@@ -317,7 +317,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                         }
                         catch (System.Exception)
                         {
-                            Debug.Log("Coin save failed");
+                            Debug.Log("SB: Coin save failed");
                         }
 
                     }
@@ -582,7 +582,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 }
                 catch (System.Exception)
                 {
-                    Debug.Log("Coin save failed");
+                    Debug.Log("SB: Coin save failed");
                 }
 
             }
@@ -593,7 +593,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 RwTrainControllerGrid otherTrain = collision.gameObject.GetComponent<RwTrainControllerGrid>();
                 if (otherTrain.isWagon == false)
                 {
-                    Debug.Log("Crash train");
+                    Debug.Log("SB: Crash train");
                     RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
                     this.enabled = false;
                     otherTrain.enabled = false;
@@ -602,7 +602,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 }
                 else if (otherTrain.parentTrain.name != name) // This should work, but NOK at start: else if (otherTrain.parentTrain != this)
                 {
-                    Debug.Log("Crash other wagon");
+                    Debug.Log("SB: Crash other wagon");
                     RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
                     this.enabled = false;
                     otherTrain.parentTrain.GetComponent<RwTrainControllerGrid>().enabled = false;
