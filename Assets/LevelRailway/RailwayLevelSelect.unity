@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rwPD:
-    rwMapLevel: 2
+    rwMapLevel: 4
     rwTrainSpeed: 1
     rwSwitchingTime: 1
     rwWagonLevel: 1

@@ -1081,7 +1081,9 @@ MonoBehaviour:
     up to access more content and store your game progression.
 
 
-    v250429.1'
+    DEMO
+
+    v250507.1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88a557c22f4028e4fb5ac96005f07781, type: 2}
   m_sharedMaterial: {fileID: 5649145682449579339, guid: 88a557c22f4028e4fb5ac96005f07781, type: 2}
