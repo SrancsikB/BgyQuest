@@ -6,9 +6,6 @@ using UnityEngine;
 public class PlayerDataControl : MonoBehaviour
 {
 
-
-
-    //private static PlayerDataControl playerDataControl;
     public static PlayerDataControl Instance;
     void Awake()
     {
@@ -136,7 +133,7 @@ public class PlayerDataControl : MonoBehaviour
 
 
 
-    #region "Puzzle"
+
 
 
 
@@ -150,5 +147,5 @@ public class PlayerDataControl : MonoBehaviour
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
 
     }
-    #endregion
+
 }

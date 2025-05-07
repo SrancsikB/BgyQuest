@@ -5,7 +5,7 @@ public class PuzzleCard : MonoBehaviour
     public int order;
     public Vector3 correctPosition;
     public bool aquired = false;
-    
+
     bool hovered = false;
     Vector3 startPos;
     Quaternion startRot;
@@ -19,15 +19,13 @@ public class PuzzleCard : MonoBehaviour
         startRot = transform.rotation;
 
     }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         startPos = transform.position;
         startRot = transform.rotation;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (hovered && aquired)

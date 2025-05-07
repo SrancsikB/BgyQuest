@@ -187,66 +187,6 @@ public class RwUpgradeController : MonoBehaviour
 
 
 
-        /*
-        int cost;
-        bool hasCoinsToBuy;
-
-
-
-
-        //MapLevel
-
-
-
-        cost = 0;
-        hasCoinsToBuy = false;
-        switch (rwPD.rwTrainSpeed)
-        {
-            case 1:
-                cost = 1000;
-                if (coinQuantity >= cost) hasCoinsToBuy = true;
-                rwTrainSpeedUpgradeCost.text = cost.ToString();
-                break;
-            case 2:
-                cost = 2500;
-                if (coinQuantity >= cost) hasCoinsToBuy = true;
-                rwTrainSpeedUpgradeCost.text = cost.ToString();
-                break;
-            case 3:
-                cost = 5000;
-                if (coinQuantity >= cost) hasCoinsToBuy = true;
-                rwTrainSpeedUpgradeCost.text = cost.ToString();
-                break;
-            default:
-                rwTrainSpeedUpgradeCost.text = cost.ToString();
-                break;
-        }
-
-
-        if (rwPD.rwTrainSpeed < 4)
-        {
-            rwTrainSpeedUpgradeLevel.text = rwPD.rwTrainSpeed.ToString();
-            rwTrainSpeedGOCost.SetActive(true);
-            rwTrainSpeedGOBuy.SetActive(true);
-            if (hasCoinsToBuy)
-            { 
-                rwTrainSpeedGOBuy.GetComponent<Collider2D>().enabled = true;
-                rwTrainSpeedGOBuy.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.black;
-            }
-            else
-            {
-                rwTrainSpeedGOBuy.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
-                rwTrainSpeedGOBuy.GetComponent<Collider2D>().enabled = false;
-            }
-        }
-        else
-        {
-            rwTrainSpeedUpgradeLevel.text = "Max";
-            rwTrainSpeedGOCost.SetActive(false);
-            rwTrainSpeedGOBuy.SetActive(false);
-
-        }*/
-
 
     }
 
@@ -308,7 +248,7 @@ public class RwUpgradeController : MonoBehaviour
     }
 
 
-    private void TryPlayerDataStore(int index)
+    private void TryPlayerDataStore(int index) //Stores which puzzle piece has been collected 
     {
         try
         {

@@ -58,7 +58,7 @@ public class QuizGameController : MonoBehaviour
                         qar.rewardSprite = rwRewardSprites[2];
                         break;
                     default:
-                        quizMsg.text = "Congratulations! You have asnwered all quiz questions! Puzzle rewards granted!";
+                        quizMsg.text = "Congratulations! You have answered all quiz questions! Puzzle rewards granted!";
                         quizMsg.color = new Color(0, 0.5f, 0, 1);//Green
                         buttonOK.SetActive(false);
                         break;

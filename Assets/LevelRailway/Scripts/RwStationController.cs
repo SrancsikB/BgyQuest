@@ -18,8 +18,8 @@ public class RwStationController : MonoBehaviour
     {
         None, Balassagyarmat, Orhalom, Ipolyszog, Dejtar, Degelypalank, Szugy, Magyarnandor, Galgaguta,
         Hall, Park, Hospital,
-        Kaposvar, Pecs, Szeged, Szolnok, Bekescsaba, Eger, Miskolc, Nyiregyhaza, Debrecen
-
+        Kaposvar, Pecs, Szeged, Szolnok, Bekescsaba, Eger, Miskolc, Nyiregyhaza, Debrecen,
+        Paris, Berlin, Praha, Wien, Belgrad, Rome, Budapest
 
     }
 
@@ -70,6 +70,7 @@ public class RwStationController : MonoBehaviour
     void Update()
     {
         float scaleRate = 0.8f;
+        //Bumping effect
         if (goStopRed.activeSelf || goStopBlue.activeSelf || goStopGreen.activeSelf || goStopYellow.activeSelf || goStopPurple.activeSelf) //if target of any train
         {
             transform.localScale -= transform.localScale * scaler * Time.deltaTime;

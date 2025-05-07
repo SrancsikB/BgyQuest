@@ -9,7 +9,7 @@ public class MapFlag : MonoBehaviour
 
     public enum GameGroup
     {
-        Railway, Soldier, Hero
+        Railway, Park
     }
 
     [SerializeField] Sprite[] sprites;
@@ -18,7 +18,7 @@ public class MapFlag : MonoBehaviour
 
     void Start()
     {
-        Sprite sp=GetComponent<SpriteRenderer>().sprite;
+        Sprite sp = GetComponent<SpriteRenderer>().sprite;
         switch (flagType)
         {
             case FlagType.Disabled:
@@ -50,5 +50,5 @@ public class MapFlag : MonoBehaviour
     }
 
 
-    
+
 }

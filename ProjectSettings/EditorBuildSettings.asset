@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/LevelRailway/RailwayLevel2_2.unity
     guid: 25ea7d5d4ba596546bb2d8546642181a
   - enabled: 1
+    path: Assets/LevelRailway/RailwayLevel3_1.unity
+    guid: e2de6c7e5dd8ed84b8d9f12893c3bf58
+  - enabled: 1
     path: Assets/LevelRailway/RailwayLevel4_1.unity
     guid: a0aa47e28d6ddfa4c84bbad9068634c4
   m_configObjects:

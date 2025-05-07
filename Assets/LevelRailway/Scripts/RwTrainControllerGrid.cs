@@ -174,7 +174,7 @@ public class RwTrainControllerGrid : MonoBehaviour
             releaseStopMovement = false;
         }
 
-       
+
         //UI in foot
         if (!isWagon && isSelectedTrain)
         {
@@ -210,9 +210,10 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
         else
         {
+            //Wagon accel/decel sync...
             accelerationFactor = parentTrainController.accelerationFactor;
 
-            //Wagon movement sync
+            //Wagon movement sync, working, but not the best solution...
             if (accelerationFactor < 0.9f)//decel started by train
             {
                 wagonDecelSyncCounter += 1;
@@ -229,7 +230,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
         if (tileMovementActive == false)  //New tile arrives, lets setup new movement
         {
-            
+
             tileMovementActive = true;
 
             angularSpeed = maxSpeed * 90; //+ angulerSpeedFactor;
@@ -269,9 +270,9 @@ public class RwTrainControllerGrid : MonoBehaviour
         }
 
 
-        
 
-        if (doTurn)
+
+        if (doTurn) //Turning movement
         {
             transform.RotateAround(rotPos, new Vector3(0, 0, rotateDirection), Time.fixedDeltaTime * angularSpeed * accelerationFactor);
 
@@ -287,14 +288,14 @@ public class RwTrainControllerGrid : MonoBehaviour
             }
 
         }
-        else
+        else //Linear movement
         {
             if (movementLength != 0)
-                //transform.position = Vector3.Lerp(startPos, targetPos, percentOfMovement);
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.fixedDeltaTime * maxSpeed * accelerationFactor);
         }
 
-        if (transform.position == targetPos && stopMovement == false)
+        
+        if (transform.position == targetPos && stopMovement == false) //Tile movement finished
         {
             tileMovementActive = false;
             if (targetIsStation)
@@ -369,8 +370,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                         targetIsStation = false;
 
                 }
-                //else
-                //  targetIsStation = goTile.GetComponent<RailController>().isStationForWagon;
+                
 
                 if (targetIsStation)
                 {
@@ -383,7 +383,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 else
                     reachedStation = RwStationController.StationNames.None;
 
-                
+
 
                 rotateDirection = 1;
                 switch (railType)

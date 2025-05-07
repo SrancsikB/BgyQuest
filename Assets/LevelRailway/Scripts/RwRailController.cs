@@ -30,13 +30,13 @@ public class RwRailController : MonoBehaviour
     public RwRailController.RailStyle railStyle;
     public RwRailController.RailType railType;
     public RwStationController.StationNames stationToStartDecel = RwStationController.StationNames.None;
-    [SerializeField] bool specialCross;  //For special cases where 2 trains share the same rail
+    [SerializeField] bool specialCross;  //For special cases where 2 trains share the same rail (only on Level 3)
     private void Start()
     {
         try
         {
 
-            transform.GetChild(0).gameObject.SetActive(false); //Remove arrow
+            transform.GetChild(0).gameObject.SetActive(false); //Remove arrow sprite during game
 
         }
         catch (System.Exception)
@@ -79,7 +79,7 @@ public class RwRailController : MonoBehaviour
                     break;
                 case RailStyle.TurnUpFromLeft:
                     if (specialCross)
-                        spRail.sprite = rails[15]; //Special rail sprite view
+                        spRail.sprite = rails[15]; //Special rail sprite view (Only on Level 3)
                     else
                         spRail.sprite = rails[4];
 
@@ -169,6 +169,8 @@ public class RwRailController : MonoBehaviour
         //Debug.Log(name);
     }
 
+
+
     private void OnDrawGizmos()
     {
 
@@ -180,6 +182,8 @@ public class RwRailController : MonoBehaviour
         int Y = Mathf.RoundToInt(transform.position.y);
         transform.position = new Vector3(X, Y, 0);
 
+        //Gizmo draw has been replaced by arrow sprites
+        /*
         float gizmoLength = 0.40f;
         Vector3 drawFrom = Vector3.one;
         Vector3 drawTo = Vector3.one;
@@ -227,6 +231,6 @@ public class RwRailController : MonoBehaviour
         Gizmos.DrawLine(drawFrom, drawTo);
         Gizmos.DrawSphere(drawFrom, gizmoLength / 4);
         Gizmos.DrawSphere(drawTo, gizmoLength / 10);
-
+        */
     }
 }

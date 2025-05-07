@@ -15,17 +15,14 @@ public class Authentication : MonoBehaviour
     string UserNameText = "User";
     string PasswordText = "User1234!";
 
-    //async void Awake()
-    //{
-    //    await UnityServices.InitializeAsync();
-    //}
+   
 
     async void Start()
     {
         pdc = PlayerDataControl.Instance;
         InputPassWord.contentType = TMP_InputField.ContentType.Password;
         await UnityServices.InitializeAsync();
-        AuthenticationService.Instance.SignOut(true);//Temp
+        AuthenticationService.Instance.SignOut(true);//Temp, avoid auto login
         if (AuthenticationService.Instance.SessionTokenExists)
         {
             try
@@ -69,12 +66,11 @@ public class Authentication : MonoBehaviour
 
     }
 
-    async Task SignUpWithUsernamePasswordAsync(string username, string password)
+    async Task SignUpWithUsernamePasswordAsync(string username, string password) //New user creation
     {
         try
         {
             await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync(username, password);
-            //Debug.Log("SignUp is successful. " + AuthenticationService.Instance.PlayerId);
             ShowSuccessMessage("SignUp is successful. " + AuthenticationService.Instance.PlayerId + "/n" + AuthenticationService.Instance.PlayerInfo.Username);
             pdc.playerName = AuthenticationService.Instance.PlayerInfo.Username;
             pdc.InitData();
@@ -82,18 +78,10 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            // Compare error code to AuthenticationErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
-            //Debug.Log(ex.ErrorCode + " " + ex.Message);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
-            //Debug.Log(ex.ErrorCode + " " + ex.Message);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
         }
         finally
@@ -103,12 +91,11 @@ public class Authentication : MonoBehaviour
     }
 
 
-    async Task SignInWithUsernamePasswordAsync(string username, string password)
+    async Task SignInWithUsernamePasswordAsync(string username, string password) //User with authentication already
     {
         try
         {
             await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(username, password);
-            //Debug.Log("SignIn is successful." + AuthenticationService.Instance.PlayerId);
             ShowSuccessMessage("SignIn is successful. " + AuthenticationService.Instance.PlayerId);
             pdc.playerName = AuthenticationService.Instance.PlayerInfo.Username;
             pdc.LoadData();
@@ -116,17 +103,10 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            // Compare error code to AuthenticationErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
-
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
         }
         finally
@@ -136,12 +116,11 @@ public class Authentication : MonoBehaviour
     }
 
 
-    async Task SignInGuestAsync()
+    async Task SignInGuestAsync() //Guest login, handle as new player
     {
         try
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            //Debug.Log("SignIn is successful." + AuthenticationService.Instance.PlayerId);
             ShowSuccessMessage("SignIn as guest successful. " + AuthenticationService.Instance.PlayerId);
             pdc.playerName = "Guest";
             pdc.InitData();
@@ -149,17 +128,11 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            // Compare error code to AuthenticationErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
 
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
-            //Debug.LogException(ex);
             ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
         }
         finally
@@ -183,19 +156,5 @@ public class Authentication : MonoBehaviour
         ErrorMessage.text = message;
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.N))
-    //        CreateUser();
-    //    if (Input.GetKeyDown(KeyCode.S))
-    //        SignInUser();
-    //    if (Input.GetKeyDown(KeyCode.E))
-    //    {
 
-
-
-    //    }
-
-    //}
 }

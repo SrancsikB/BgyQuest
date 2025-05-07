@@ -110,7 +110,7 @@ public class RwGameController : MonoBehaviour
     private void FixedUpdate()
     {
         bool isGameOver = true; //All train is disabled, crashed or out of coal
-        //Make sure that all train updates first
+        //Make sure that all train updates first...
         RwTrainControllerGrid[] trains = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid train in trains)
         {
@@ -128,7 +128,7 @@ public class RwGameController : MonoBehaviour
 
         }
 
-        //And wagons later
+        //...and wagons later
         RwTrainControllerGrid[] wagons = FindObjectsByType<RwTrainControllerGrid>(FindObjectsSortMode.None);
         foreach (RwTrainControllerGrid wagon in wagons)
         {

@@ -18,7 +18,7 @@ public class RwRailSwitch : MonoBehaviour
 
     GameObject Canvas;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         defaultSprite = GetComponent<SpriteRenderer>().sprite;
@@ -48,7 +48,7 @@ public class RwRailSwitch : MonoBehaviour
         alternateSprite = alterRail[1].GetComponent<SpriteRenderer>().sprite;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         try

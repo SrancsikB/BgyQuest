@@ -3,10 +3,10 @@ using UnityEngine;
 public class GameSelect : MonoBehaviour
 {
 
-   
+
     void Start()
     {
-        gameObject.SetActive(false);    
+        gameObject.SetActive(false);
     }
 
     public void Show(MapFlag.GameGroup gg)
@@ -16,9 +16,7 @@ public class GameSelect : MonoBehaviour
             case MapFlag.GameGroup.Railway:
                 transform.position = new Vector3(5, -4, 0);
                 break;
-            case MapFlag.GameGroup.Soldier:
-                break;
-            case MapFlag.GameGroup.Hero:
+            case MapFlag.GameGroup.Park:
                 break;
             default:
                 break;
@@ -26,5 +24,5 @@ public class GameSelect : MonoBehaviour
 
         gameObject.SetActive(true);
     }
-    
+
 }
