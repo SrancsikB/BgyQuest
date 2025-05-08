@@ -4,7 +4,7 @@ public class PaPush : MonoBehaviour
 {
     enum CatState
     {
-        idle, dash, jump, climb, fall
+        idle, dash, jump, hang, fall,climb
     }
 
 
@@ -96,16 +96,29 @@ public class PaPush : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        PaHangable ph = collision.transform.GetComponent<PaHangable>();
+
+        if (ph != null)
+        {
+            rd.linearVelocity = Vector2.zero;
+            rd.gravityScale = ph.gravityModifier;
+            catState = CatState.hang;
+        }
+
+        
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         PaClimbable pc = collision.transform.GetComponent<PaClimbable>();
 
         if (pc != null)
         {
             rd.linearVelocity = Vector2.zero;
-            rd.gravityScale = pc.gravityModifier;
+            rd.gravityScale = 0;
             catState = CatState.climb;
         }
-
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)

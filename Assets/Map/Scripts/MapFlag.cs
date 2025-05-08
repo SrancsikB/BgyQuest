@@ -40,13 +40,17 @@ public class MapFlag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameSelect gs = FindObjectsByType<GameSelect>(FindObjectsInactive.Include, FindObjectsSortMode.None)[0];
-        gs.Show(gameGroup);
-        MapIconClick[] icons = FindObjectsByType<MapIconClick>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (MapIconClick item in icons)
+        if (flagType!=FlagType.Disabled)
         {
-            item.gameGroup = gameGroup;
+            GameSelect gs = FindObjectsByType<GameSelect>(FindObjectsInactive.Include, FindObjectsSortMode.None)[0];
+            gs.Show(gameGroup);
+            MapIconClick[] icons = FindObjectsByType<MapIconClick>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (MapIconClick item in icons)
+            {
+                item.gameGroup = gameGroup;
+            }
         }
+        
     }
 
 
