@@ -10,6 +10,7 @@ public class RwSoundFXManager : MonoBehaviour
     [SerializeField] AudioClip trainStopCoinClip;
     [SerializeField] AudioClip trainStopEmptyClip;
     [SerializeField] float soundFXVolume;
+    [SerializeField] float soundFXVolumeNotSelected;
     void Awake()
     {
         if (Instance == null)
@@ -19,27 +20,27 @@ public class RwSoundFXManager : MonoBehaviour
 
     }
 
-    public void PlayTrainStart(Transform parent)
+    public void PlayTrainStart(Transform parent, bool isSelected)
     {
         AudioSource audioSource = Instantiate(soundFXObject, parent);
         audioSource.clip = trainStartClip;
-        audioSource.volume = soundFXVolume;
+        audioSource.volume = SetSoundFXVolume(isSelected);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
-        PlayTrainRunning(parent);
+        PlayTrainRunning(parent, isSelected);
     }
 
-    void PlayTrainRunning(Transform parent)
+    void PlayTrainRunning(Transform parent, bool isSelected)
     {
         AudioSource audioSource = Instantiate(soundFXObject, parent);
         audioSource.clip = trainRunningClip;
-        audioSource.volume = soundFXVolume;
+        audioSource.volume = SetSoundFXVolume(isSelected);
         audioSource.loop = true;
         audioSource.Play();
     }
 
-    public void PlayTrainStop(Transform parent)
+    public void PlayTrainStop(Transform parent, bool isSelected)
     {
         GameObject soundFX = parent.GetComponentInChildren<AudioSource>().gameObject;
         if (soundFX != null)
@@ -48,14 +49,14 @@ public class RwSoundFXManager : MonoBehaviour
         }
         AudioSource audioSource = Instantiate(soundFXObject, parent);
         audioSource.clip = trainStopCoinClip;
-        audioSource.volume = soundFXVolume;
+        audioSource.volume = SetSoundFXVolume(isSelected);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
 
     }
 
-    public void PlayTrainStopEmpty(Transform parent)
+    public void PlayTrainStopEmpty(Transform parent, bool isSelected)
     {
         GameObject soundFX = parent.GetComponentInChildren<AudioSource>().gameObject;
         if (soundFX != null)
@@ -64,12 +65,24 @@ public class RwSoundFXManager : MonoBehaviour
         }
         AudioSource audioSource = Instantiate(soundFXObject, parent);
         audioSource.clip = trainStopEmptyClip;
-        audioSource.volume = soundFXVolume;
+        audioSource.volume = SetSoundFXVolume(isSelected);
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
         
 
+    }
+
+    private float SetSoundFXVolume(bool isSelected)
+    {
+        if (isSelected)
+        {
+            return soundFXVolume;
+        }
+        else
+        {
+            return soundFXVolumeNotSelected;
+        }
     }
 
 }

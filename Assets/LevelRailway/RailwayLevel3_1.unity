@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: stationToStartDecel
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363600248542945862, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -3605,6 +3605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 545681320}
     m_Modifications:
+    - target: {fileID: 1884954103469212386, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
+      propertyPath: stationToStartDecel
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7499825329746851993, guid: fedad38309a966c4ca6b16367b6e92d5, type: 3}
       propertyPath: m_SortingOrder
       value: 7
@@ -12560,6 +12564,7 @@ MonoBehaviour:
   trainStopCoinClip: {fileID: 8300000, guid: ff4b4406e356fb341a6c53d765a7d146, type: 3}
   trainStopEmptyClip: {fileID: 8300000, guid: e23d1a716d62a204fa351ad6070d72ce, type: 3}
   soundFXVolume: 1
+  soundFXVolumeNotSelected: 0
 --- !u!4 &1658390924
 Transform:
   m_ObjectHideFlags: 0
@@ -14201,7 +14206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1949102291757185097, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1949102291757185097, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14242,7 +14247,7 @@ PrefabInstance:
     - target: {fileID: 5733559807324372915, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1d88b0db1cf5d60408ad36700cb4f551, type: 3}
+      objectReference: {fileID: 21300000, guid: 128b0277a52f7b44c91b75635d72e481, type: 3}
     - target: {fileID: 5733559807324372915, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
       propertyPath: m_SortingOrder
       value: 6
@@ -14257,7 +14262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8188525795756719731, guid: ce2a5532c1cc20944b1eab2522776a4d, type: 3}
       propertyPath: stationOrientation
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

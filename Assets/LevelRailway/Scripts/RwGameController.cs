@@ -61,7 +61,7 @@ public class RwGameController : MonoBehaviour
         transportMinReward = 15 + (rwPD.rwWagonLevel + mapLevel * 2) * 5;
         transportMaxReward = 25 + (rwPD.rwWagonLevel + mapLevel * 2) * 10;
 
-        coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 10;
+        coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 5;
         coalHeapShowTime = 60 / rwPD.rwCoalHeapLevel;
         coalHeapHideTime = rwPD.rwCoalHeapLevel * 10;
 

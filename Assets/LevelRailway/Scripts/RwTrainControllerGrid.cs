@@ -145,7 +145,7 @@ public class RwTrainControllerGrid : MonoBehaviour
             //Out of coal
             if (actualCoalQuantity <= 0)
             {
-                RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
+                RwSoundFXManager.Instance.PlayTrainStopEmpty(transform, isSelectedTrain);
                 this.enabled = false;
             }
 
@@ -311,7 +311,7 @@ public class RwTrainControllerGrid : MonoBehaviour
 
                         gc.coinQuantity += minReward + bonusReward; //Temp 100
                         bonusReward = maxReward;
-                        RwSoundFXManager.Instance.PlayTrainStop(transform);
+                        RwSoundFXManager.Instance.PlayTrainStop(transform, isSelectedTrain);
                         try
                         {
                             PlayerDataControl.Instance.SaveCoinData(gc.coinQuantity);
@@ -492,7 +492,7 @@ public class RwTrainControllerGrid : MonoBehaviour
             }
             targetStation = newRandomStation;
 
-            RwSoundFXManager.Instance.PlayTrainStart(transform);
+            RwSoundFXManager.Instance.PlayTrainStart(transform, isSelectedTrain);
 
         }
 
@@ -598,7 +598,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 if (otherTrain.isWagon == false)
                 {
                     Debug.Log("SB: Crash train");
-                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
+                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform, isSelectedTrain);
                     this.enabled = false;
                     otherTrain.enabled = false;
                     Instantiate(flameAnim, transform);
@@ -607,7 +607,7 @@ public class RwTrainControllerGrid : MonoBehaviour
                 else if (otherTrain.parentTrain.name != name) // This should work, but NOK at start: else if (otherTrain.parentTrain != this)
                 {
                     Debug.Log("SB: Crash other wagon");
-                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform);
+                    RwSoundFXManager.Instance.PlayTrainStopEmpty(transform, isSelectedTrain);
                     this.enabled = false;
                     otherTrain.parentTrain.GetComponent<RwTrainControllerGrid>().enabled = false;
                     Instantiate(flameAnim, transform);

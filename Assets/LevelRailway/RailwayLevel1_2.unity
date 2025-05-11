@@ -5304,6 +5304,7 @@ MonoBehaviour:
   trainStopCoinClip: {fileID: 8300000, guid: ff4b4406e356fb341a6c53d765a7d146, type: 3}
   trainStopEmptyClip: {fileID: 8300000, guid: e23d1a716d62a204fa351ad6070d72ce, type: 3}
   soundFXVolume: 1
+  soundFXVolumeNotSelected: 0.2
 --- !u!4 &1658390924
 Transform:
   m_ObjectHideFlags: 0
