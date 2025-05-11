@@ -58,8 +58,8 @@ public class RwGameController : MonoBehaviour
         globalSwitchingTime = 6 - rwPD.rwSwitchingTime;
         globalWagonLevel = rwPD.rwWagonLevel;
         globalCoalQuantity = 50 + rwPD.rwWagonLevel * 50;
-        transportMinReward = 15 + (rwPD.rwWagonLevel + mapLevel) * 5;
-        transportMaxReward = 25 + (rwPD.rwWagonLevel + mapLevel) * 10;
+        transportMinReward = 15 + (rwPD.rwWagonLevel + mapLevel * 2) * 5;
+        transportMaxReward = 25 + (rwPD.rwWagonLevel + mapLevel * 2) * 10;
 
         coalHeapQuantity = 10 + rwPD.rwCoalHeapLevel * 10;
         coalHeapShowTime = 60 / rwPD.rwCoalHeapLevel;
@@ -98,7 +98,7 @@ public class RwGameController : MonoBehaviour
                     chain.gameObject.SetActive(false);
             }
 
-           
+
         }
 
 

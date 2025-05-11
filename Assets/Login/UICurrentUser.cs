@@ -3,7 +3,7 @@ using UnityEngine;
 public class UICurrentUser : MonoBehaviour
 {
 
-    void Update()
+    void Start()
     {
         try
         {

@@ -9,7 +9,7 @@ public class MapFlag : MonoBehaviour
 
     public enum GameGroup
     {
-        Railway, Park
+        Railway, Park, Hero, Soldier
     }
 
     [SerializeField] Sprite[] sprites;

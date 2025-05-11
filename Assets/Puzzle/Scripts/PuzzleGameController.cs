@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using TMPro;
 
 public class PuzzleGameController : MonoBehaviour
 {
     public int coinQuantity;
     [SerializeField] Sprite[] railwaySprites;
     [SerializeField] List<bool> savedData = new List<bool>();
+    [SerializeField] GameObject secretNumber;
     PuzzleCard[] puzzleCards;
     
     public MapFlag.GameGroup gameGroup;
@@ -70,6 +72,7 @@ public class PuzzleGameController : MonoBehaviour
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
+            secretNumber.SetActive(true);
         }
 
 
@@ -80,12 +83,17 @@ public class PuzzleGameController : MonoBehaviour
 
     void LoadData()
     {
-       
-
+        TextMeshProUGUI secretText = secretNumber.GetComponent<TextMeshProUGUI>();
+        secretNumber.SetActive(false);
         switch (gameGroup)
         {
             
+
             case MapFlag.GameGroup.Railway:
+
+
+                secretText.text = "7";
+
                 try
                 {
                     PlayerDataControl pDC = PlayerDataControl.Instance;

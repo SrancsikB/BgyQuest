@@ -503,7 +503,11 @@ public class RwTrainControllerGrid : MonoBehaviour
 
     public void OnMouseDown()
     {
-        SelectTrain();
+        if (this.enabled)
+        {
+            SelectTrain();
+        }
+        
 
     }
 

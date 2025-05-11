@@ -1,10 +1,10 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 public class PaPush : MonoBehaviour
 {
     enum CatState
     {
-        idle, dash, jump, hang, fall,climb
+        idle, dash, jump, hang, fall, climb, walk, run, crunch
     }
 
 
@@ -13,17 +13,19 @@ public class PaPush : MonoBehaviour
     Vector3 gameStartPos;
     Vector3 startPos;
     Vector3 endPos;
+    Vector3 startScale;
     float startGravity;
     CatState catState;
 
-    Rigidbody2D rd;
+    Rigidbody2D rb;
 
     private void Start()
     {
         catState = CatState.idle;
         gameStartPos = transform.position;
-        rd = GetComponent<Rigidbody2D>();
-        startGravity = rd.gravityScale;
+        rb = GetComponent<Rigidbody2D>();
+        startGravity = rb.gravityScale;
+        startScale = transform.localScale;
         line.enabled = false;
     }
 
@@ -42,30 +44,65 @@ public class PaPush : MonoBehaviour
 
     private void OnMouseUp()
     {
-        line.enabled = false;
 
+
+        line.enabled = false;
         Vector2 forceVector = new Vector2(startPos.x - endPos.x, startPos.y - endPos.y);
-        rd.AddForce(forceVector * force, ForceMode2D.Impulse);
-        rd.gravityScale = startGravity;
+
+        rb.gravityScale = startGravity;
+        if (catState == CatState.idle)
+        {
+            if (forceVector.y < -1)
+            {
+                catState = CatState.crunch;
+                transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
+            }
+            else
+            {
+                rb.AddForce(forceVector * force, ForceMode2D.Force);
+            }
+        }
+        else if (catState == CatState.crunch)
+        {
+            if (forceVector.y > 0.2)
+            {
+                catState = CatState.idle;
+                transform.localScale = startScale;
+            }
+            else
+            {
+                rb.AddForce(forceVector * force, ForceMode2D.Force);
+            }
+        }
+        else
+        {
+
+            rb.AddForce(forceVector * force, ForceMode2D.Force);
+            catState = CatState.idle;
+        }
 
     }
 
 
     private void Update()
     {
-        if (catState != CatState.climb)
+        if (catState != CatState.climb && catState != CatState.hang && catState != CatState.crunch)
         {
-            if (rd.linearVelocity != Vector2.zero)
+            if (rb.linearVelocity != Vector2.zero)
             {
-                if (rd.linearVelocity.y > 1 && rd.linearVelocity.y <= 2)
+                if (rb.linearVelocity.y > 1 && rb.linearVelocity.y <= 2)
                     catState = CatState.dash;
-                else if (rd.linearVelocity.y > 2)
+                else if (rb.linearVelocity.y > 2)
                     catState = CatState.jump;
-                else if (rd.linearVelocity.y < -0.5)
+                else if (rb.linearVelocity.y < -0.5)
                     catState = CatState.fall;
+                else if (Mathf.Abs(rb.linearVelocity.x) > 1 && Mathf.Abs(rb.linearVelocity.x) <= 4)
+                    catState = CatState.walk;
+                else if (Mathf.Abs(rb.linearVelocity.x) > 4)
+                    catState = CatState.run;
                 else
                     catState = CatState.idle;
-                Debug.Log(rd.linearVelocity);
+                //Debug.Log(rd.linearVelocity);
             }
             else
             {
@@ -86,13 +123,14 @@ public class PaPush : MonoBehaviour
 
         if (transform.position.y < -5)
         {
-            rd.gravityScale = startGravity;
-            rd.linearVelocity = Vector2.zero;
+            rb.gravityScale = startGravity;
+            rb.linearVelocity = Vector2.zero;
             transform.position = gameStartPos;
 
         }
 
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -100,12 +138,30 @@ public class PaPush : MonoBehaviour
 
         if (ph != null)
         {
-            rd.linearVelocity = Vector2.zero;
-            rd.gravityScale = ph.gravityModifier;
+            rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = ph.gravityModifier;
             catState = CatState.hang;
+            Debug.Log("ColEnter" + ph.name);
         }
 
-        
+
+
+        //Debug.Log(collision.GetContact(0).point);
+
+        if (collision.GetContact(0).point.y>transform.position.y) //Head collide
+        {
+            Debug.Log("Head col");
+            catState = CatState.crunch;
+            transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //rd.gravityScale = startGravity;
+        //catState = CatState.jump;
+        Debug.Log("ColExit");
     }
 
 
@@ -115,16 +171,22 @@ public class PaPush : MonoBehaviour
 
         if (pc != null)
         {
-            rd.linearVelocity = Vector2.zero;
-            rd.gravityScale = 0;
+            rb.linearVelocity = Vector2.zero;
+            rb.gravityScale = 0;
             catState = CatState.climb;
+            Debug.Log("TrgEnter" + pc.name);
         }
+
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        rd.gravityScale = startGravity;
-        catState = CatState.jump;
+        rb.gravityScale = startGravity;
+        catState = CatState.walk;
+        Debug.Log("TrgExit");
     }
+
 
 }

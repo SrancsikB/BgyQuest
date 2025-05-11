@@ -21,8 +21,15 @@ public class GameSelect : MonoBehaviour
             default:
                 break;
         }
-
-        gameObject.SetActive(true);
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+        
     }
 
 }

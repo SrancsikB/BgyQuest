@@ -8,7 +8,7 @@ public class UILevelSelector : MonoBehaviour
     void OnMouseDown()
     {
         int rnd = 1;
-        if (levelNumber<=2)
+        if (levelNumber<=2)  //Random map if more available
         {
             rnd = Random.Range(1, 3);
         }
