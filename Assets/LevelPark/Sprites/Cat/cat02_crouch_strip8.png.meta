@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,12 +134,188 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 7
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8241e03d6777244b57962b360a5356
+      internalID: -1408210273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df8601dfd3594d4b92bd12ebf22a3e7
+      internalID: 1225898521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ead3f096288c649ab9821f60485864
+      internalID: -1762150806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 7
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76e952801e85ed488276d499712a808
+      internalID: 72938631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 7
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c940ad82218f72a469da21f0f264b6d7
+      internalID: -1283189089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 7
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66e9541da279984a94f4655c80654eb
+      internalID: -983547689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_6
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 7
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b5f4b2a6d1ad142a4fa30800f7e45a
+      internalID: 1308634328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_crouch_strip8_7
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 7
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858c40177b58d2b4dbf05293d6d2aecf
+      internalID: -1577332021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0ffc664118f83e2479f2a524c33e0627
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +324,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_crouch_strip8_0: -1408210273
+      cat02_crouch_strip8_1: 1225898521
+      cat02_crouch_strip8_2: -1762150806
+      cat02_crouch_strip8_3: 72938631
+      cat02_crouch_strip8_4: -1283189089
+      cat02_crouch_strip8_5: -983547689
+      cat02_crouch_strip8_6: 1308634328
+      cat02_crouch_strip8_7: -1577332021
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

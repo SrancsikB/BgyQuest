@@ -4,7 +4,7 @@ public class PaCat : MonoBehaviour
 {
     enum CatState
     {
-        idle, dash, jump, wallGrab, fall, climb, walk, run, crunch
+        idle, dash, jump, wallGrab, fall, ledgeGrab, ledgeStruggle, ledgeClimb, walk, run, crouch, sneak, sleep
     }
 
     public enum Direction
@@ -14,6 +14,7 @@ public class PaCat : MonoBehaviour
 
     [SerializeField] LineRenderer line;
     [SerializeField] float force = 100;
+    [SerializeField] float hangGravityModifier = 0.0f;
     [SerializeField] float maxForceVectorLength = 4;
     Vector3 gameStartPos;
     Vector3 startPos;
@@ -21,7 +22,8 @@ public class PaCat : MonoBehaviour
     Vector3 startScale;
     float startGravity;
     CatState catState;
-    
+    CatState catStateLast;
+
 
     bool addForce;
     Vector3 addForceVector;
@@ -34,6 +36,8 @@ public class PaCat : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    BoxCollider2D boxCollider;
+    Vector2 boxColliderOrigiSize;
 
     Animator animator;
 
@@ -43,6 +47,8 @@ public class PaCat : MonoBehaviour
         gameStartPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        boxColliderOrigiSize = boxCollider.size;
         startGravity = rb.gravityScale;
         startScale = transform.localScale;
         line.enabled = false;
@@ -119,10 +125,12 @@ public class PaCat : MonoBehaviour
         switch (catState)
         {
             case CatState.idle or CatState.wallGrab:
-                
+
                 animator.SetBool("Jump", false);
                 animator.SetBool("Fall", false);
-                
+                animator.SetBool("Run", false);
+                animator.SetBool("Crouch", false);
+
                 if (addForce)
                 {
                     addForce = false;
@@ -137,9 +145,9 @@ public class PaCat : MonoBehaviour
 
 
 
-                    if (addForceVector.y < -2)
+                    if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1)
                     {
-                        catState = CatState.crunch;
+                        catState = CatState.crouch;
                         break;
                     }
                     else
@@ -155,7 +163,7 @@ public class PaCat : MonoBehaviour
                 else if (rb.linearVelocity.y < -0.5)
                     catState = CatState.fall;
                 else if (Mathf.Abs(rb.linearVelocity.x) > 0.5)
-                    catState = CatState.walk;
+                    catState = CatState.run;
 
                 break;
             case CatState.dash:
@@ -165,15 +173,16 @@ public class PaCat : MonoBehaviour
                 if (rb.linearVelocity.y < -0.5)
                 {
                     catState = CatState.fall;
-                    
+
                 }
                 break;
 
             case CatState.fall:
                 animator.SetBool("WallGrab", false);
                 animator.SetBool("Jump", false);
+                animator.SetBool("Sneak", false);
                 animator.SetBool("Fall", true);
-                if (rb.linearVelocity == Vector2.zero)
+                if (Mathf.Abs(rb.linearVelocity.x) < 0.1 && Mathf.Abs(rb.linearVelocity.y) < 0.1)
                 {
                     catState = CatState.idle;
                     animator.SetBool("Fall", false);
@@ -182,41 +191,157 @@ public class PaCat : MonoBehaviour
 
 
                 break;
-            case CatState.climb:
-                actClimbingTime += Time.deltaTime;
-                if (actClimbingTime >= totalClimbingTime)
+            case CatState.ledgeGrab:
+                transform.position = new Vector3(climbPos.x, climbPos.y);
+                if (climbDirection == Direction.Left)
+                    sr.flipX = false;
+                else
+                    sr.flipX = true;
+
+                if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Cat02_LedgeGrab") && animator.GetCurrentAnimatorStateInfo(0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
                 {
-                    catState = CatState.idle;
-                    actClimbingTime = 0;
-                    if (climbDirection == Direction.Left)
-                    {
-                        transform.position = new Vector3(climbPos.x + transform.localScale.x / 2, climbPos.y + transform.localScale.y / 2);
-                    }
-                    rb.gravityScale = startGravity;
+                    //Anim ended
+                    animator.SetBool("WallGrab", false);
+                    animator.SetBool("Run", false);
+                    animator.SetBool("LedgeStruggle", true);
+                    animator.SetBool("LedgeGrab", false);
+                    catState = CatState.ledgeStruggle;
+                }
+                else
+                {
+                    animator.SetBool("LedgeGrab", true);
+                }
+                //actClimbingTime += Time.deltaTime;
+                //if (actClimbingTime >= totalClimbingTime)
+                //{
+                //    catState = CatState.idle;
+                //    actClimbingTime = 0;
+                //    if (climbDirection == Direction.Left)
+                //    {
+                //        transform.position = new Vector3(climbPos.x + transform.localScale.x / 2, climbPos.y + transform.localScale.y / 2);
+                //    }
+                //    rb.gravityScale = startGravity;
+                //}
+                break;
+
+            case CatState.ledgeStruggle:
+                //transform.position = new Vector3(climbPos.x + transform.localScale.x / 2, climbPos.y + transform.localScale.y / 2);
+                if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Cat02_LedgeStruggle") && animator.GetCurrentAnimatorStateInfo(0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+                {
+                    //Anim ended
+                    animator.SetBool("WallGrab", false);
+                    animator.SetBool("LedgeStruggle", false);
+                    animator.SetBool("LedgeClimb", true);
+                    catState = CatState.ledgeClimb;
+
                 }
                 break;
-            case CatState.walk:
-                if (Mathf.Abs(rb.linearVelocity.x) > 1)
-                    catState = CatState.run;
-                else if (Mathf.Abs(rb.linearVelocity.x) < 0.1)
+
+            case CatState.ledgeClimb:
+                //transform.position = new Vector3(climbPos.x + transform.localScale.x / 2, climbPos.y + transform.localScale.y / 2);
+                if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Cat02_LedgeClimb") && animator.GetCurrentAnimatorStateInfo(0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+                {
+                    //Anim ended
+                    animator.SetBool("WallGrab", false);
+                    animator.SetBool("LedgeClimb", false);
                     catState = CatState.idle;
+                    if (climbDirection == Direction.Left)
+                        transform.position = new Vector3(climbPos.x + transform.localScale.x / 4, climbPos.y + transform.localScale.y / 4);
+                    else
+                        transform.position = new Vector3(climbPos.x - transform.localScale.x / 4, climbPos.y + transform.localScale.y / 4);
+                    boxCollider.enabled = true;
+                }
+                break;
+
+            case CatState.walk:
+                //if (Mathf.Abs(rb.linearVelocity.x) > 1)
+                //    catState = CatState.run;
+                //else if (Mathf.Abs(rb.linearVelocity.x) < 0.1)
+                //    catState = CatState.idle;
                 break;
             case CatState.run:
+                animator.SetBool("Run", true);
                 if (Mathf.Abs(rb.linearVelocity.x) < 0.5)
-                    catState = CatState.walk;
+                {
+                    catState = CatState.idle;
+                    animator.SetBool("Run", false);
+                }
+                if (rb.linearVelocity.y < -0.5)
+                {
+                    catState = CatState.fall;
+                    animator.SetBool("Run", false);
+                }
                 break;
-            case CatState.crunch:
-                transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
+            case CatState.crouch:
+                //transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
+
+                //ResetColldier();
+                //sr.size = new Vector2(1f, 0.5f);
+                boxCollider.size = new Vector2(boxColliderOrigiSize.x, boxColliderOrigiSize.y * 0.7f);
+                animator.SetBool("Sleep", false);
+                animator.SetBool("Crouch", true);
                 if (addForce)
                 {
                     addForce = false;
-                    if (addForceVector.y > 2)
+                    //Flip sprite
+                    if (addForceVector.x >= 0)
+                        sr.flipX = false;
+                    else
+                        sr.flipX = true;
+
+                    if (addForceVector.y / force > 2)
                     {
                         catState = CatState.idle;
+                        boxCollider.size = boxColliderOrigiSize;
                         transform.localScale = startScale;
                         break;
                     }
+                    else if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1)
+                    {
+                        catState = CatState.sleep;
+                        break;
+                    }
+                    else
+                    {
+                        rb.AddForce(addForceVector / 2, ForceMode2D.Force);
+                        addForce = false;
+                    }
+
                 }
+                if (Mathf.Abs(rb.linearVelocity.x) > 0.5)
+                    catState = CatState.sneak;
+                break;
+            case CatState.sneak:
+                animator.SetBool("Sneak", true);
+                if (Mathf.Abs(rb.linearVelocity.x) < 0.5)
+                {
+                    catState = CatState.crouch;
+                    animator.SetBool("Sneak", false);
+                }
+                if (rb.linearVelocity.y < -0.5)
+                {
+                    catState = CatState.fall;
+                    boxCollider.size = boxColliderOrigiSize;
+
+                }
+                break;
+            case CatState.sleep:
+
+                animator.SetBool("Sleep", true);
+
+                if (addForce)
+                {
+                    addForce = false;
+
+                    if (addForceVector.y / force > 2)
+                    {
+                        catState = CatState.crouch;
+                        break;
+                    }
+
+
+                }
+
                 break;
             default:
                 break;
@@ -284,7 +409,18 @@ public class PaCat : MonoBehaviour
 
         }
 
+
+
+        if (catState != catStateLast)
+        {
+            Debug.Log("CatState " + catState.ToString());
+            catStateLast = catState;
+        }
+
     }
+
+
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -293,46 +429,50 @@ public class PaCat : MonoBehaviour
 
         if (ph != null)
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.gravityScale = ph.gravityModifier;
-            catState = CatState.wallGrab;
-            animator.SetBool("WallGrab", true);
-            Debug.Log("ColEnter" + ph.name);
+            if (catState != CatState.ledgeGrab && catState != CatState.ledgeStruggle && catState != CatState.ledgeClimb && catState != CatState.idle)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.gravityScale = hangGravityModifier;
+                catState = CatState.wallGrab;
+                animator.SetBool("WallGrab", true);
+                Debug.Log("ColEnter" + ph.name);
+            }
+
         }
 
-
-
-        ////Debug.Log(collision.GetContact(0).point);
-
-        //if (collision.GetContact(0).point.y > transform.position.y) //Head collide
-        //{
-        //    Debug.Log("Head col");
-        //    catState = CatState.crunch;
-        //    transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
-        //    rb.linearVelocity = Vector2.zero;
-        //}
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //rd.gravityScale = startGravity;
-        //catState = CatState.jump;
-        //Debug.Log("ColExit");
+        //rb.gravityScale = startGravity;
+
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        //Climb
         PaClimbable pc = collision.transform.GetComponent<PaClimbable>();
 
         if (pc != null)
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.gravityScale = 0;
-            climbDirection = pc.climbDirection;
-            climbPos = pc.transform.position;
-            catState = CatState.climb;
-            Debug.Log("TrgEnter" + pc.name);
+            if (catState == CatState.jump || catState == CatState.fall)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.gravityScale = 0;
+                boxCollider.enabled = false;
+                climbDirection = pc.climbDirection;
+                if (climbDirection == Direction.Left)
+                    sr.flipX = false;
+                else
+                    sr.flipX = true;
+
+                climbPos = pc.transform.position;
+                catState = CatState.ledgeGrab;
+                animator.SetBool("LedgeGrab", true);
+                Debug.Log("TrgEnter" + pc.name);
+            }
         }
 
 

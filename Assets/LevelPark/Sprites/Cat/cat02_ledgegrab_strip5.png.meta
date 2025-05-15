@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,12 +134,122 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cat02_ledgegrab_strip5_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 8
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b4dd8d5c1cacd4bb7f9718427a3ac9
+      internalID: -1551817491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgegrab_strip5_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 8
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f5f9cf8149b594bb5079651ea441b2
+      internalID: -1335380446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgegrab_strip5_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 7
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78a4a787a9ed66418896fb6b2734258
+      internalID: 79317309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgegrab_strip5_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 7
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85de4ed41b75a3e40868b5effa0855be
+      internalID: -2117748322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgegrab_strip5_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 7
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4f60a9bc8e10a42a55502166308f13
+      internalID: 1601132279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 731cd4ba635be3440b78e06baf3311aa
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +258,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_ledgegrab_strip5_0: -1551817491
+      cat02_ledgegrab_strip5_1: -1335380446
+      cat02_ledgegrab_strip5_2: 79317309
+      cat02_ledgegrab_strip5_3: -2117748322
+      cat02_ledgegrab_strip5_4: 1601132279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

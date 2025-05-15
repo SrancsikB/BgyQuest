@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,12 +134,276 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 7
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9f534c981e51042ac63130e6713feb
+      internalID: -240650408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 6
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac70c695d6bca9543b060e7cea5695ed
+      internalID: 1850367678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 7
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99ebf466facb9d4299a53ae8af5e4fe
+      internalID: -1108644974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_3
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 8
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa510f2498514e4187c01a7dddc750f
+      internalID: 451686899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_4
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 9
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea2becdea1a6264baf4324f828ff6d8
+      internalID: -249769327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 7
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72b0ffcf0533334eaa170d7c6f1a75a
+      internalID: -642826201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 6
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587945a8afd96f640a08c9db090d0628
+      internalID: -1629383485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_7
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 7
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49cf0b3a5224a84393022c53aab935e
+      internalID: 219644992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_8
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 8
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3f73567fae229418831fec46ee9d5c
+      internalID: -129232275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_9
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 7
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64780a0a5d68f484a997d496108055d8
+      internalID: -1081074368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_10
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 6
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84508e1fe2ac2f147a316dfa5956b240
+      internalID: -2071959232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_ledgeclimb_struggle_strip12_11
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 7
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce71b73a6ef25b49be9f1724d8f1974
+      internalID: 129745675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f39fc1910d46df49b10a4b7d5047c7e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +412,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_ledgeclimb_struggle_strip12_0: -240650408
+      cat02_ledgeclimb_struggle_strip12_1: 1850367678
+      cat02_ledgeclimb_struggle_strip12_10: -2071959232
+      cat02_ledgeclimb_struggle_strip12_11: 129745675
+      cat02_ledgeclimb_struggle_strip12_2: -1108644974
+      cat02_ledgeclimb_struggle_strip12_3: 451686899
+      cat02_ledgeclimb_struggle_strip12_4: -249769327
+      cat02_ledgeclimb_struggle_strip12_5: -642826201
+      cat02_ledgeclimb_struggle_strip12_6: -1629383485
+      cat02_ledgeclimb_struggle_strip12_7: 219644992
+      cat02_ledgeclimb_struggle_strip12_8: -129232275
+      cat02_ledgeclimb_struggle_strip12_9: -1081074368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

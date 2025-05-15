@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,12 +134,188 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb2c88b0efb3904bb54d0e679944c6c
+      internalID: -1969760369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f2240a4ba181f4dbcaf61eb6981d70
+      internalID: -1343669118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 7
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a71362f61724ca4c8bd1fee38cf2a6d
+      internalID: -609415330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 7
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1a38b3c48227e43949fbaa5c710f9b
+      internalID: 427068049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_4
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227247702aaf91742bfd2f226f94002d
+      internalID: -1332600076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_5
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 7
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd12c4b8aba5e5b4ea10455f583be0ce
+      internalID: -1638239686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_6
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 7
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52da7f0a862fd584fbd8574fdb5eeaad
+      internalID: -248379521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sleep_strip8_7
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 7
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0317913d1469c4b83da20ace6a6a4b
+      internalID: -697213329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7757d086921eec34a94c0d5d7bf8b48f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +324,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_sleep_strip8_0: -1969760369
+      cat02_sleep_strip8_1: -1343669118
+      cat02_sleep_strip8_2: -609415330
+      cat02_sleep_strip8_3: 427068049
+      cat02_sleep_strip8_4: -1332600076
+      cat02_sleep_strip8_5: -1638239686
+      cat02_sleep_strip8_6: -248379521
+      cat02_sleep_strip8_7: -697213329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

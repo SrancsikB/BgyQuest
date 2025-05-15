@@ -10,6 +10,7 @@ public class PaPush : MonoBehaviour
 
     [SerializeField] LineRenderer line;
     [SerializeField] float force = 1;
+    [SerializeField] float hangGravityModifier;
     Vector3 gameStartPos;
     Vector3 startPos;
     Vector3 endPos;
@@ -134,12 +135,14 @@ public class PaPush : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        //Hang
         PaHangable ph = collision.transform.GetComponent<PaHangable>();
 
         if (ph != null)
         {
             rb.linearVelocity = Vector2.zero;
-            rb.gravityScale = ph.gravityModifier;
+            rb.gravityScale = hangGravityModifier;
             catState = CatState.hang;
             Debug.Log("ColEnter" + ph.name);
         }
@@ -159,7 +162,7 @@ public class PaPush : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //rd.gravityScale = startGravity;
+        rb.gravityScale = startGravity;
         //catState = CatState.jump;
         Debug.Log("ColExit");
     }

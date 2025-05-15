@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,12 +134,188 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 7
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cae8b566b36e84b939424d13ac9668
+      internalID: -437334596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 7
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f262b330cd39e7147bbee0b599b2b14c
+      internalID: -1532809043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 7
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771749bb334e1124893a76c8b27f19cf
+      internalID: 550132203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 7
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672dde6fcd1bf274db9cc5d9203e7d8d
+      internalID: -1521212967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 7
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecb182684cc78647949ecd74f188660
+      internalID: 1919933125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_5
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 7
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b010bdc4c88aa7b489e24b3b380c9893
+      internalID: -1373117520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_6
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 7
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb5b906285d2294fba175db9ef716fd
+      internalID: 1587346927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_sneak_strip8_7
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 7
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3362d7ebdc7a5b469784aad272dcbd4
+      internalID: -195694549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e1e1118762823cf42aee2aaf6d1fa779
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +324,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_sneak_strip8_0: -437334596
+      cat02_sneak_strip8_1: -1532809043
+      cat02_sneak_strip8_2: 550132203
+      cat02_sneak_strip8_3: -1521212967
+      cat02_sneak_strip8_4: 1919933125
+      cat02_sneak_strip8_5: -1373117520
+      cat02_sneak_strip8_6: 1587346927
+      cat02_sneak_strip8_7: -195694549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
