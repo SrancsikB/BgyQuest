@@ -92,37 +92,7 @@ public class PaCat : MonoBehaviour
         addForceVector = forceVector * force;
 
         currentEnergy -= forceVector.magnitude;
-
-        //if (catState == CatState.idle)
-        //{
-        //    if (forceVector.y < -1)
-        //    {
-        //        catState = CatState.crunch;
-        //        transform.localScale = new Vector3(startScale.x, startScale.y / 2, startScale.z);
-        //    }
-        //    else
-        //    {
-        //        rb.AddForce(forceVector * force, ForceMode2D.Force);
-        //    }
-        //}
-        //else if (catState == CatState.crunch)
-        //{
-        //    if (forceVector.y > 0.2)
-        //    {
-        //        catState = CatState.idle;
-        //        transform.localScale = startScale;
-        //    }
-        //    else
-        //    {
-        //        rb.AddForce(forceVector * force, ForceMode2D.Force);
-        //    }
-        //}
-        //else
-        //{
-
-        //    rb.AddForce(forceVector * force, ForceMode2D.Force);
-        //    catState = CatState.idle;
-        //}
+              
 
     }
 
@@ -229,17 +199,7 @@ public class PaCat : MonoBehaviour
                 {
                     animator.SetBool("LedgeGrab", true);
                 }
-                //actClimbingTime += Time.deltaTime;
-                //if (actClimbingTime >= totalClimbingTime)
-                //{
-                //    catState = CatState.idle;
-                //    actClimbingTime = 0;
-                //    if (climbDirection == Direction.Left)
-                //    {
-                //        transform.position = new Vector3(climbPos.x + transform.localScale.x / 2, climbPos.y + transform.localScale.y / 2);
-                //    }
-                //    rb.gravityScale = startGravity;
-                //}
+             
                 break;
 
             case CatState.ledgeStruggle:
@@ -402,22 +362,9 @@ public class PaCat : MonoBehaviour
 
 
 
-        try
-        {
-            transform.GetChild(0).transform.GetChild(0).transform.GetComponent<TextMeshProUGUI>().text = catState.ToString();
-        }
-        catch (System.Exception)
-        {
 
 
-        }
-
-
-
-
-
-
-
+        //Force line show
         if (line.enabled == true)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -427,13 +374,24 @@ public class PaCat : MonoBehaviour
             float lineLength = Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
             line.startColor = Color.Lerp(Color.green, Color.red, lineLength / maxForceVectorLength);
             line.endColor = line.startColor;
-            //Debug.Log(lineLength);
+
+            //Maximize the length
+            Vector2 forceVector = transform.position - endPos;
+            if (forceVector.magnitude > maxForceVectorLength)
+            {
+                forceVector.Normalize();
+                forceVector *= maxForceVectorLength;
+                line.SetPosition(0, new Vector2(transform.position.x, transform.position.y) - forceVector);
+            }
+
+
+            
         }
 
+        //Fall down
         if (transform.position.y < -20)
         {
             ResetPosition();
-
         }
 
 
@@ -448,14 +406,15 @@ public class PaCat : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             Fright();
         }
 
-
+        //Follow the cat by cam grid
         UpdateCameraPos();
+
+        //Move the background
         PaBackground pb = FindFirstObjectByType<PaBackground>();
-        if (pb!=null)
+        if (pb != null)
         {
             pb.cameraPosition = camera.transform.position;
             pb.referencePosition = transform.position;
@@ -481,7 +440,6 @@ public class PaCat : MonoBehaviour
 
     void ClearAllAnimator()
     {
-
         animator.SetBool("Sleep", false);
         animator.SetBool("Run", false);
         animator.SetBool("Fall", false);
@@ -491,7 +449,6 @@ public class PaCat : MonoBehaviour
         animator.SetBool("LedgeGrab", false);
         animator.SetBool("LedgeStruggle", false);
         animator.SetBool("LedgeGrab", false);
-
     }
 
 
@@ -515,7 +472,7 @@ public class PaCat : MonoBehaviour
             newY = Mathf.CeilToInt(yFactor) * yStep;
         else
             newY = Mathf.FloorToInt(yFactor) * yStep;
-                
+
         camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
     }
 
@@ -534,7 +491,6 @@ public class PaCat : MonoBehaviour
                 animator.SetBool("WallGrab", true);
                 Debug.Log("ColEnter" + ph.name);
             }
-
         }
 
         PaAnimal pa = collision.transform.GetComponent<PaAnimal>();
@@ -577,8 +533,6 @@ public class PaCat : MonoBehaviour
                 Debug.Log("TrgEnter" + pc.name);
             }
         }
-
-
 
     }
 
