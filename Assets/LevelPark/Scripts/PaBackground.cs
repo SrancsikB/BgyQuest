@@ -18,5 +18,7 @@ public class PaBackground : MonoBehaviour
         trees.transform.position = new Vector2(cameraPosition.x - referencePosition.x / xOffset, yOffset);
         cloudsSmall.transform.position = new Vector2(cameraPosition.x - referencePosition.x / xOffset/2, yOffset);
         mountains.transform.position = new Vector2(cameraPosition.x - referencePosition.x / xOffset / 4, yOffset);
+        cloudsBack1.transform.position = new Vector2(cameraPosition.x - referencePosition.x / xOffset / 10, yOffset);
+        cloudsBack2.transform.position = new Vector2(cameraPosition.x - referencePosition.x / xOffset / 20, yOffset);
     }
 }

@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 public class PaCat : MonoBehaviour
 {
@@ -33,6 +32,7 @@ public class PaCat : MonoBehaviour
     Vector2 climbPos;
 
     bool keepCrouch;
+    bool canSleep;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -92,7 +92,7 @@ public class PaCat : MonoBehaviour
         addForceVector = forceVector * force;
 
         currentEnergy -= forceVector.magnitude;
-              
+
 
     }
 
@@ -199,7 +199,7 @@ public class PaCat : MonoBehaviour
                 {
                     animator.SetBool("LedgeGrab", true);
                 }
-             
+
                 break;
 
             case CatState.ledgeStruggle:
@@ -255,7 +255,7 @@ public class PaCat : MonoBehaviour
 
                 //ResetColldier();
                 //sr.size = new Vector2(1f, 0.5f);
-                boxCollider.size = new Vector2(boxColliderOrigiSize.x, boxColliderOrigiSize.y * 0.7f);
+                boxCollider.size = new Vector2(boxColliderOrigiSize.x, boxColliderOrigiSize.y * 0.4f);
                 animator.SetBool("Sleep", false);
                 animator.SetBool("Crouch", true);
                 if (addForce)
@@ -279,8 +279,9 @@ public class PaCat : MonoBehaviour
                         boxCollider.size = boxColliderOrigiSize;
                         break;
                     }
-                    else if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1)
+                    else if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1 && canSleep == true)
                     {
+                        PaSoundFXManager.Instance.PlayCatSleep(transform);
                         catState = CatState.sleep;
                         break;
                     }
@@ -385,7 +386,7 @@ public class PaCat : MonoBehaviour
             }
 
 
-            
+
         }
 
         //Fall down
@@ -431,6 +432,7 @@ public class PaCat : MonoBehaviour
 
     public void Fright()
     {
+        //PaSoundFXManager.Instance.PlayCatFright(transform);
         rb.gravityScale = startGravity;
         rb.linearVelocity = Vector2.zero;
         ClearAllAnimator();
@@ -458,22 +460,27 @@ public class PaCat : MonoBehaviour
         Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
         Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
         float xStep = upperRight.x - lowerLeft.x;
-        float xFactor = (transform.position.x / (xStep / 2));
-        float newX;
-        if (xFactor < 0)
-            newX = Mathf.CeilToInt(xFactor) * xStep;
-        else
-            newX = Mathf.FloorToInt(xFactor) * xStep;
+        float xPos = transform.position.x;
+        float xFactor = Mathf.RoundToInt(xPos / xStep);
+        float newX = xFactor * xStep;
+
 
         float yStep = upperRight.y - lowerLeft.y;
-        float yFactor = (transform.position.y / (yStep / 2));
-        float newY;
-        if (yFactor < 0)
-            newY = Mathf.CeilToInt(yFactor) * yStep;
-        else
-            newY = Mathf.FloorToInt(yFactor) * yStep;
+        float yPos = transform.position.y;
+        float yFactor = Mathf.RoundToInt(yPos / yStep);
+        float newY = yFactor * yStep;
+
 
         camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
+        //float yStep = upperRight.y - lowerLeft.y;
+        //float yFactor = (transform.position.y / (yStep / 2));
+        //float newY;
+        //if (yFactor < 0)
+        //    newY = Mathf.CeilToInt(yFactor) * yStep;
+        //else
+        //    newY = Mathf.FloorToInt(yFactor) * yStep;
+
+        //camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
     }
 
 
@@ -498,7 +505,10 @@ public class PaCat : MonoBehaviour
         if (pa != null)
         {
             Fright();
+
         }
+
+        Debug.Log("ColEnter" + collision.gameObject.name);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -545,6 +555,13 @@ public class PaCat : MonoBehaviour
         {
             keepCrouch = true;
         }
+
+        PaSleepingPlace psp = collision.transform.GetComponent<PaSleepingPlace>();
+
+        if (psp != null)
+        {
+            canSleep = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -559,8 +576,30 @@ public class PaCat : MonoBehaviour
         {
             keepCrouch = false;
         }
+
+        PaSleepingPlace psp = collision.transform.GetComponent<PaSleepingPlace>();
+
+        if (psp != null)
+        {
+            canSleep = false;
+        }
     }
 
+    private void OnDrawGizmos()
+    {
+        camera = Camera.main;
+        Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
 
+        Gizmos.color = Color.yellow;
+        int size = 5;
+
+
+        for (int i = -size; i < size; i++)
+        {
+            Gizmos.DrawLine(new Vector3(lowerLeft.x * i * 2 + lowerLeft.x, lowerLeft.y), new Vector3(lowerLeft.x * i * 2 + lowerLeft.x, upperRight.y));
+        }
+
+    }
 
 }

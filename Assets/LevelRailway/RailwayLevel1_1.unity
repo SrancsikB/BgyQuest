@@ -4218,7 +4218,6 @@ MonoBehaviour:
     rwBonusCoinLevel: 1
   outOfCoalTrainSprite: {fileID: 21300000, guid: 1819abb4839d0304188f39ec38ddf5dd, type: 3}
   outOfCoalWagonSprite: {fileID: 21300000, guid: 418e5894f3b76904bbe383213d3087d2, type: 3}
-  stations: {fileID: 1307194891}
   canvasUI: {fileID: 1448612608}
   gameOverUI: {fileID: 584568930}
   mapLevel: 1
@@ -5022,6 +5021,7 @@ MonoBehaviour:
   trainStopCoinClip: {fileID: 8300000, guid: ff4b4406e356fb341a6c53d765a7d146, type: 3}
   trainStopEmptyClip: {fileID: 8300000, guid: e23d1a716d62a204fa351ad6070d72ce, type: 3}
   soundFXVolume: 1
+  soundFXVolumeNotSelected: 1
 --- !u!4 &1658390924
 Transform:
   m_ObjectHideFlags: 0

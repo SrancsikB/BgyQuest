@@ -70,6 +70,8 @@ public class PaAnimal : MonoBehaviour
         {
             paCat.Fright();
             animator.SetBool("Action", true);
+            //If dog...
+            PaSoundFXManager.Instance.PlayDogBark(transform);
         }
 
     }
