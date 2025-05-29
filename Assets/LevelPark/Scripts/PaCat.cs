@@ -38,6 +38,7 @@ public class PaCat : MonoBehaviour
     SpriteRenderer sr;
     BoxCollider2D boxCollider;
     Vector2 boxColliderOrigiSize;
+    PaBackground pb;
 
     Animator animator;
 
@@ -60,6 +61,9 @@ public class PaCat : MonoBehaviour
         //Debug.Log( camera.ViewportToWorldPoint(new Vector3(0, 0, 0)));
         //Debug.Log(camera.ViewportToWorldPoint(new Vector3(1, 1, 0)));
         currentEnergy = startEnergy;
+
+        pb = FindFirstObjectByType<PaBackground>();
+        UpdateCameraPos();
     }
 
     private void OnMouseDown()
@@ -345,6 +349,18 @@ public class PaCat : MonoBehaviour
                 break;
             case CatState.die:
                 animator.SetBool("Die", true);
+
+                if (addForceVector.y / force >= 1.9)
+                {
+                    boxCollider.size = boxColliderOrigiSize;
+                    ResetPosition();
+                    catState = CatState.idle;
+                    ClearAllAnimator();
+                    rb.linearVelocity = Vector2.zero;
+                    rb.gravityScale = startGravity;
+                    break;
+                }
+
                 break;
             default:
                 break;
@@ -354,10 +370,7 @@ public class PaCat : MonoBehaviour
 
         if (currentEnergy < 0)
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.gravityScale = startGravity;
-            currentEnergy = 0;
-            catState = CatState.die;
+            Die();
 
         }
 
@@ -390,7 +403,7 @@ public class PaCat : MonoBehaviour
         }
 
         //Fall down
-        if (transform.position.y < -20)
+        if (transform.position.y < -7)
         {
             ResetPosition();
         }
@@ -413,18 +426,22 @@ public class PaCat : MonoBehaviour
         //Follow the cat by cam grid
         UpdateCameraPos();
 
-        //Move the background
-        PaBackground pb = FindFirstObjectByType<PaBackground>();
-        if (pb != null)
-        {
-            pb.cameraPosition = camera.transform.position;
-            pb.referencePosition = transform.position;
-        }
+        
 
+    }
+
+    private void Die()
+    {
+        boxCollider.size = new Vector2(boxColliderOrigiSize.x, boxColliderOrigiSize.y * 0.4f);
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = startGravity;
+        //currentEnergy = 0;
+        catState = CatState.die;
     }
 
     private void ResetPosition()
     {
+        
         rb.gravityScale = startGravity;
         rb.linearVelocity = Vector2.zero;
         transform.position = gameStartPos;
@@ -451,6 +468,7 @@ public class PaCat : MonoBehaviour
         animator.SetBool("LedgeGrab", false);
         animator.SetBool("LedgeStruggle", false);
         animator.SetBool("LedgeGrab", false);
+        animator.SetBool("Die", false);
     }
 
 
@@ -472,15 +490,14 @@ public class PaCat : MonoBehaviour
 
 
         camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
-        //float yStep = upperRight.y - lowerLeft.y;
-        //float yFactor = (transform.position.y / (yStep / 2));
-        //float newY;
-        //if (yFactor < 0)
-        //    newY = Mathf.CeilToInt(yFactor) * yStep;
-        //else
-        //    newY = Mathf.FloorToInt(yFactor) * yStep;
 
-        //camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
+        //Move the background
+        
+        if (pb != null)
+        {
+            pb.cameraPosition = camera.transform.position;
+            pb.referencePosition = transform.position;
+        }
     }
 
 
@@ -505,6 +522,24 @@ public class PaCat : MonoBehaviour
         if (pa != null)
         {
             Fright();
+
+        }
+
+        PaSpike ps = collision.transform.GetComponent<PaSpike>();
+
+        if (ps != null)
+        {
+            Die();
+
+        }
+
+
+        PaMouse mouse = collision.transform.GetComponent<PaMouse>();
+
+        if (mouse != null)
+        {
+            //Feed
+            Destroy(mouse.gameObject);
 
         }
 
@@ -544,6 +579,15 @@ public class PaCat : MonoBehaviour
             }
         }
 
+
+        PaCheckpoint checkPoint = collision.transform.GetComponent<PaCheckpoint>();
+        if (checkPoint != null)
+        {
+            gameStartPos = transform.position;
+            checkPoint.transform.GetChild(0).gameObject.SetActive(false);
+            checkPoint.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -562,6 +606,9 @@ public class PaCat : MonoBehaviour
         {
             canSleep = true;
         }
+
+
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -592,7 +639,7 @@ public class PaCat : MonoBehaviour
         Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
 
         Gizmos.color = Color.yellow;
-        int size = 5;
+        int size = 15;
 
 
         for (int i = -size; i < size; i++)
