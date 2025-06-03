@@ -68,6 +68,30 @@ public class MapIconClick : MonoBehaviour
                         break;
                 }
                 break;
+            case MapFlag.GameGroup.Park:
+                switch (mapIcon)
+                {
+                    case MapIcon.Quiz:
+                        if (lockQuiz == false)
+                        { }
+                            //SceneManager.LoadScene("Quiz");
+                            
+                        break;
+                    case MapIcon.Game:
+                        SceneManager.LoadScene("ParkLevel1");
+                        break;
+                    case MapIcon.Puzzle:
+
+                        //SceneManager.LoadScene("Puzzle");
+                        break;
+                    case MapIcon.Upgrade:
+                        //SceneManager.LoadScene("RailwayUpgrade");
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
 
             default:
                 break;

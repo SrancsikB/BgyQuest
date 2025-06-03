@@ -453,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736119573662927487, guid: dd03eae67ee68eb49a0fd8600612d55f, type: 3}
       propertyPath: flagType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8736119573662927487, guid: dd03eae67ee68eb49a0fd8600612d55f, type: 3}
       propertyPath: gameGroup

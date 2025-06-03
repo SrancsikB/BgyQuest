@@ -17,6 +17,7 @@ public class GameSelect : MonoBehaviour
                 transform.position = new Vector3(5, -4, 0);
                 break;
             case MapFlag.GameGroup.Park:
+                transform.position = new Vector3(2, 0, 0);
                 break;
             default:
                 break;

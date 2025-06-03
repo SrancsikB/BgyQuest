@@ -4,6 +4,8 @@ public class PaMouseGenerator : MonoBehaviour
 {
 
     [SerializeField] PaMouse mouseV1;
+    [SerializeField] PaMouse mouseV2;
+    [SerializeField] PaMouse mouseV3;
     [SerializeField] float minGenTime = 2;
     [SerializeField] float maxGenTime = 10;
     [SerializeField] GameObject leftBush;
@@ -24,10 +26,11 @@ public class PaMouseGenerator : MonoBehaviour
 
     private void Update()
     {
-        float bushSize = 2;
-        if (cat.transform.position.x > leftBush.transform.position.x - bushSize && cat.transform.position.x < rightBush.transform.position.x + bushSize)
+        float bushSize = 3;
+        if (cat.transform.position.x > leftBush.transform.position.x - bushSize && cat.transform.position.x < rightBush.transform.position.x + bushSize
+            && cat.transform.position.y < leftBush.transform.position.y + bushSize)
         {
-            //Cat visible
+            //Cat "visible"
             leftBush.transform.GetChild(0).gameObject.SetActive(false);
             rightBush.transform.GetChild(0).gameObject.SetActive(false);
 
@@ -60,7 +63,23 @@ public class PaMouseGenerator : MonoBehaviour
                     endPos = leftBush.transform.position;
                 }
 
-                PaMouse mouse = Instantiate(mouseV1, startPos, Quaternion.Euler(0, 0, 0));
+                int mouseVersion = Random.Range(1, 4);
+                PaMouse mouse=mouseV1;
+
+                if (mouseVersion == 1)
+                {
+                    mouse = Instantiate(mouseV1, startPos, Quaternion.Euler(0, 0, 0));
+                }
+                else if (mouseVersion == 2)
+                {
+                    mouse = Instantiate(mouseV2, startPos, Quaternion.Euler(0, 0, 0));
+                }
+                else if (mouseVersion == 3)
+                {
+                    mouse = Instantiate(mouseV3, startPos, Quaternion.Euler(0, 0, 0));
+                }
+
+
                 mouse.direction = dir;
                 mouse.endPos = endPos;
 
