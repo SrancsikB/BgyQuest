@@ -1083,7 +1083,7 @@ MonoBehaviour:
 
     DEMO
 
-    v250511.1'
+    v250604.1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88a557c22f4028e4fb5ac96005f07781, type: 2}
   m_sharedMaterial: {fileID: 5649145682449579339, guid: 88a557c22f4028e4fb5ac96005f07781, type: 2}

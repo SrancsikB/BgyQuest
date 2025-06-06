@@ -16,6 +16,8 @@ public class PaCat : MonoBehaviour
     [SerializeField] float hangGravityModifier = 0.0f;
     [SerializeField] float maxForceVectorLength = 4;
     [SerializeField] float startEnergy = 100;
+    [SerializeField] Vector2 camLowerLeft = new Vector2(-11.2f, -7);
+    [SerializeField] Vector2 camUpperRight = new Vector2(11.2f, 7);
     Vector3 gameStartPos;
     Vector3 startPos;
     Vector3 endPos;
@@ -306,7 +308,7 @@ public class PaCat : MonoBehaviour
                     catState = CatState.crouch;
                     animator.SetBool("Sneak", false);
                 }
-                if (rb.linearVelocity.y < -0.5)
+                if (rb.linearVelocity.y < -1)
                 {
                     catState = CatState.fall;
                     boxCollider.size = boxColliderOrigiSize;
@@ -475,20 +477,24 @@ public class PaCat : MonoBehaviour
     void UpdateCameraPos()
     {
         //Move camera like a grid
-        Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
-        float xStep = upperRight.x - lowerLeft.x;
+        //Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        //Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+
+        float xStep = camUpperRight.x - camLowerLeft.x;
         float xPos = transform.position.x;
         float xFactor = Mathf.RoundToInt(xPos / xStep);
         float newX = xFactor * xStep;
 
+        
 
-        float yStep = upperRight.y - lowerLeft.y;
+        float yStep = camUpperRight.y - camLowerLeft.y;
         float yPos = transform.position.y;
         float yFactor = Mathf.RoundToInt(yPos / yStep);
         float newY = yFactor * yStep;
 
-
+        //Overwrite with Cat pos
+        newX = transform.position.x;
+        newY = transform.position.y + 3;
         camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
 
         //Move the background
@@ -634,9 +640,9 @@ public class PaCat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        camera = Camera.main;
-        Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        //camera = Camera.main;
+        //Vector2 lowerLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        //Vector2 upperRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
 
         Gizmos.color = Color.yellow;
         int size = 15;
@@ -644,7 +650,7 @@ public class PaCat : MonoBehaviour
 
         for (int i = -size; i < size; i++)
         {
-            Gizmos.DrawLine(new Vector3(lowerLeft.x * i * 2 + lowerLeft.x, lowerLeft.y), new Vector3(lowerLeft.x * i * 2 + lowerLeft.x, upperRight.y));
+            Gizmos.DrawLine(new Vector3(camLowerLeft.x * i * 2 + camLowerLeft.x, camLowerLeft.y), new Vector3(camLowerLeft.x * i * 2 + camLowerLeft.x, camUpperRight.y));
         }
 
     }
