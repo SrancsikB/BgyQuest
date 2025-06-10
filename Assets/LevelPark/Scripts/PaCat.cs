@@ -447,6 +447,11 @@ public class PaCat : MonoBehaviour
         rb.gravityScale = startGravity;
         rb.linearVelocity = Vector2.zero;
         transform.position = gameStartPos;
+        PaObstacle[] obstacles = FindObjectsByType<PaObstacle>(FindObjectsSortMode.None);
+        foreach (PaObstacle obstacle in obstacles)
+        {
+            obstacle.resetPos();
+        }
     }
 
     public void Fright()
