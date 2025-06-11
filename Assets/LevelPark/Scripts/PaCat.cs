@@ -1,4 +1,7 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class PaCat : MonoBehaviour
 {
     enum CatState
@@ -15,9 +18,11 @@ public class PaCat : MonoBehaviour
     [SerializeField] float force = 100;
     [SerializeField] float hangGravityModifier = 0.0f;
     [SerializeField] float maxForceVectorLength = 4;
-    [SerializeField] float startEnergy = 100;
+
     [SerializeField] Vector2 camLowerLeft = new Vector2(-11.2f, -7);
     [SerializeField] Vector2 camUpperRight = new Vector2(11.2f, 7);
+    [SerializeField] ParticleSystem psLeft;
+    [SerializeField] ParticleSystem psRight;
     Vector3 gameStartPos;
     Vector3 startPos;
     Vector3 endPos;
@@ -25,7 +30,16 @@ public class PaCat : MonoBehaviour
     float startGravity;
     CatState catState;
     CatState catStateLast;
-    float currentEnergy;
+
+    [SerializeField] TextMeshProUGUI txtEnergy;
+    [SerializeField] float startEnergy = 100;
+    public float currentEnergy;
+
+    [SerializeField] TextMeshProUGUI txtHunger;
+    [SerializeField] float startHunger = 100;
+    [SerializeField] float timeToReduceHunger = 5;
+    float timeTillReduceHunger;
+    public float currentHunger;
 
     bool addForce;
     Vector3 addForceVector;
@@ -35,6 +49,7 @@ public class PaCat : MonoBehaviour
 
     bool keepCrouch;
     bool canSleep;
+    bool fallPSEmitable;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -63,6 +78,11 @@ public class PaCat : MonoBehaviour
         //Debug.Log( camera.ViewportToWorldPoint(new Vector3(0, 0, 0)));
         //Debug.Log(camera.ViewportToWorldPoint(new Vector3(1, 1, 0)));
         currentEnergy = startEnergy;
+
+        currentHunger = startHunger;
+        timeTillReduceHunger = timeToReduceHunger;
+
+
 
         pb = FindFirstObjectByType<PaBackground>();
         UpdateCameraPos();
@@ -123,10 +143,15 @@ public class PaCat : MonoBehaviour
 
                     //Flip sprite
                     if (addForceVector.x >= 0)
+                    {
                         sr.flipX = false;
+                        psLeft.Emit(1);
+                    }
                     else
+                    {
                         sr.flipX = true;
-
+                        psRight.Emit(1);
+                    }
 
 
                     if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1)
@@ -148,6 +173,8 @@ public class PaCat : MonoBehaviour
                     catState = CatState.fall;
                 else if (Mathf.Abs(rb.linearVelocity.x) > 0.5)
                     catState = CatState.run;
+
+                fallPSEmitable = true;
 
                 break;
             case CatState.dash:
@@ -171,11 +198,13 @@ public class PaCat : MonoBehaviour
                     catState = CatState.idle;
                     animator.SetBool("Fall", false);
                     animator.SetBool("Run", false);
+
                 }
                 else if (Mathf.Abs(rb.linearVelocity.y) < 0.1) //Only horizontal movement
                 {
                     animator.SetBool("Run", true);
                     animator.SetBool("Fall", false);
+
                 }
                 else
                 {
@@ -183,6 +212,12 @@ public class PaCat : MonoBehaviour
                     animator.SetBool("Fall", true);
                 }
 
+                if (Mathf.Abs(rb.linearVelocity.y) < 0.1 && fallPSEmitable == true)
+                {
+                    psLeft.Emit(1);
+                    psRight.Emit(1);
+                    fallPSEmitable = false;
+                }
 
                 break;
             case CatState.ledgeGrab:
@@ -318,7 +353,7 @@ public class PaCat : MonoBehaviour
             case CatState.sleep:
 
                 animator.SetBool("Sleep", true);
-
+                currentEnergy = startEnergy;
                 if (addForce)
                 {
                     addForce = false;
@@ -370,14 +405,31 @@ public class PaCat : MonoBehaviour
 
 
 
+
+        //Energy
         if (currentEnergy < 0)
         {
             Die();
 
         }
+        txtEnergy.text = Mathf.CeilToInt(currentEnergy).ToString();
 
 
-
+        //Hunger
+        if (catState != CatState.die)
+        {
+            timeTillReduceHunger -= Time.deltaTime;
+            if (timeTillReduceHunger <= 0)
+            {
+                timeTillReduceHunger = timeToReduceHunger;
+                currentHunger -= 1;
+                if (currentHunger <= 0)
+                {
+                    Die();
+                }
+            }
+        }
+        txtHunger.text = Mathf.CeilToInt(currentHunger).ToString();
 
 
         //Force line show
@@ -428,7 +480,7 @@ public class PaCat : MonoBehaviour
         //Follow the cat by cam grid
         UpdateCameraPos();
 
-        
+
 
     }
 
@@ -439,11 +491,21 @@ public class PaCat : MonoBehaviour
         rb.gravityScale = startGravity;
         //currentEnergy = 0;
         catState = CatState.die;
+
+    }
+
+    private void Feed(int food)
+    {
+        currentHunger += food;
+        if (currentHunger > startHunger)
+        {
+            currentHunger = startHunger;
+        }
     }
 
     private void ResetPosition()
     {
-        
+
         rb.gravityScale = startGravity;
         rb.linearVelocity = Vector2.zero;
         transform.position = gameStartPos;
@@ -452,6 +514,10 @@ public class PaCat : MonoBehaviour
         {
             obstacle.resetPos();
         }
+
+        currentEnergy = startEnergy;
+        currentHunger = startHunger;
+        timeTillReduceHunger = timeToReduceHunger;
     }
 
     public void Fright()
@@ -490,7 +556,7 @@ public class PaCat : MonoBehaviour
         float xFactor = Mathf.RoundToInt(xPos / xStep);
         float newX = xFactor * xStep;
 
-        
+
 
         float yStep = camUpperRight.y - camLowerLeft.y;
         float yPos = transform.position.y;
@@ -503,7 +569,7 @@ public class PaCat : MonoBehaviour
         camera.transform.position = new Vector3(newX, newY, camera.transform.position.z);
 
         //Move the background
-        
+
         if (pb != null)
         {
             pb.cameraPosition = camera.transform.position;
@@ -549,7 +615,7 @@ public class PaCat : MonoBehaviour
 
         if (mouse != null)
         {
-            //Feed
+            Feed(10);
             Destroy(mouse.gameObject);
 
         }
@@ -599,6 +665,12 @@ public class PaCat : MonoBehaviour
             checkPoint.GetComponent<BoxCollider2D>().enabled = false;
         }
 
+        PaEndOfLevel endOfLevel = collision.transform.GetComponent<PaEndOfLevel>();
+        if (endOfLevel != null)
+        {
+            SceneManager.LoadScene("Map");
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -619,7 +691,7 @@ public class PaCat : MonoBehaviour
         }
 
 
-       
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
