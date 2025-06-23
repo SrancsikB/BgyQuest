@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9056806371640853793}
   - component: {fileID: 1989019147247871721}
   - component: {fileID: 1621931464198153580}
-  m_Layer: 0
-  m_Name: Shiled
+  m_Layer: 16
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

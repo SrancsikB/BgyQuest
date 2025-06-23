@@ -6,6 +6,8 @@ public class SoEnemyController : MonoBehaviour
     [SerializeField] GameObject field;
     [SerializeField] float generateTime = 10;
     float timeToGenerate;
+    [SerializeField] int maxGenerationNum;
+    int currentGenerationNum;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +23,11 @@ public class SoEnemyController : MonoBehaviour
         if (timeToGenerate >= generateTime)
         {
             timeToGenerate = 0;
-            InstantetEnemy();
+            if (currentGenerationNum < maxGenerationNum)
+            {
+                InstantetEnemy();
+            }
+
         }
     }
 
@@ -30,7 +36,9 @@ public class SoEnemyController : MonoBehaviour
     {
         Vector3 pos = Random.insideUnitCircle;
         pos.Normalize();
-        pos *= (field.transform.localScale.x - 1)/2;
+        pos *= (field.transform.localScale.x - 1) / 2;
         GameObject enemy = Instantiate(enemyPrefab, pos, Quaternion.Euler(0, 0, 0));
+
+        currentGenerationNum += 1;
     }
 }

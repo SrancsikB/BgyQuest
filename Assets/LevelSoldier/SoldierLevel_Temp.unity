@@ -129,7 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 25107856}
   - component: {fileID: 25107857}
-  m_Layer: 0
+  - component: {fileID: 25107858}
+  m_Layer: 15
   m_Name: SoldierSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,6 +207,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &25107858
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25107855}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &781623295
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,8 +253,9 @@ GameObject:
   m_Component:
   - component: {fileID: 781623296}
   - component: {fileID: 781623297}
+  - component: {fileID: 781623298}
   m_Layer: 0
-  m_Name: Soldier
+  m_Name: SolderMidPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,11 +290,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  rotationSpeed: 5
+  rotationSpeed: 2
   projectile: {fileID: 6920594276578312725, guid: 47ce1a21f6929d24f8065f98c485d7e7, type: 3}
   rateOfProjectile: 1
   forceOfProjectile: 2
   lifetimeOfProjectile: 5
+  bonus: {fileID: 3017280679302583411, guid: 9a5f917fe8fa8c849a9192297e0f4112, type: 3}
+  rateOfBonus: 2
+  forceOfBonus: 1
+  lifetimeOfBonus: 4
+  lifetimeOfAcitveBonus: 3
+  blastForce: 1
+--- !u!50 &781623298
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781623295}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &880514195
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5049316890451972059, guid: 0acadb0bf0bd70f4f83e6fd935602d3b, type: 3}
   field: {fileID: 1559794710}
-  generateTime: 10
+  generateTime: 3
+  maxGenerationNum: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

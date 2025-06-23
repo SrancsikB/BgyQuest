@@ -28,6 +28,13 @@ public class PaGameController : MonoBehaviour
                         GameObject go = Instantiate(wallHighEdge, new Vector3(x + 1.2f, y + 1.2f, 0), Quaternion.Euler(0, 0, 0));
                         go.GetComponent<PaClimbable>().climbDirection = PaCat.Direction.Right;
                     }
+                    if (tileBase.name == "Ground_grass_0017_tile")
+                    {
+                        GameObject go = Instantiate(wallHighEdge, new Vector3(x - 0.2f, y + 0.6f, 0), Quaternion.Euler(0, 0, 0));
+                        go.GetComponent<PaClimbable>().climbDirection = PaCat.Direction.Left;
+                        go = Instantiate(wallHighEdge, new Vector3(x + 1.2f, y + 0.6f, 0), Quaternion.Euler(0, 0, 0));
+                        go.GetComponent<PaClimbable>().climbDirection = PaCat.Direction.Right;
+                    }
 
 
                     if (tileBase.name == "Ground_grass_0006_tile")
