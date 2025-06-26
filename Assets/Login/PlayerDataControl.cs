@@ -21,7 +21,8 @@ public class PlayerDataControl : MonoBehaviour
     public int coins;
     public bool lockQuiz; //Lock quiz button after NOK answer, release it after game start
 
-    //Railway
+
+    //-------Railway
     [System.Serializable]
     public struct RailwayProgressData
     {
@@ -66,6 +67,76 @@ public class PlayerDataControl : MonoBehaviour
         rwProgressData = railwayPD;
         SaveRailwayProgressData(rwProgressData);
     }
+
+
+    public async void SaveRailwayProgressData(RailwayProgressData railwayPD)
+    {
+
+        var data = new Dictionary<string, object>
+                {
+                    {"ProgressData_Railway",railwayPD}
+                };
+        await CloudSaveService.Instance.Data.Player.SaveAsync(data);
+
+    }
+
+
+
+    //-------Park
+    [System.Serializable]
+    public struct ParkProgressData
+    {
+        public int paMapLevel; //Level of map/scene
+        
+
+        public ParkProgressData(int paMapLevel)
+        {
+            this.paMapLevel = paMapLevel;
+          
+        }
+    }
+    private List<bool> paPuzzleData = new List<bool>() { true, true, true, true, true, true, true, true, true }; //Collected cards
+    private ParkProgressData paProgressData;
+
+    public List<bool> GetParkPuzzleData()
+    {
+        return paPuzzleData;
+    }
+    public void SetParkPuzzleData(int index, bool aquired)
+    {
+        paPuzzleData[index] = aquired;
+        SavePuzzleData(MapFlag.GameGroup.Park, paPuzzleData);
+    }
+
+    public ParkProgressData GetParkProgressData()
+    {
+        return paProgressData;
+
+    }
+
+    public void SetParkProgressData(ParkProgressData railwayPD)
+    {
+        paProgressData = railwayPD;
+        SaveParkProgressData(paProgressData);
+    }
+
+
+    public async void SaveParkProgressData(ParkProgressData railwayPD)
+    {
+
+        var data = new Dictionary<string, object>
+                {
+                    {"ProgressData_Park",railwayPD}
+                };
+        await CloudSaveService.Instance.Data.Player.SaveAsync(data);
+
+    }
+
+
+
+
+
+
 
 
 
@@ -120,16 +191,7 @@ public class PlayerDataControl : MonoBehaviour
 
 
 
-    public async void SaveRailwayProgressData(RailwayProgressData railwayPD)
-    {
-
-        var data = new Dictionary<string, object>
-                {
-                    {"ProgressData_Railway",railwayPD}
-                };
-        await CloudSaveService.Instance.Data.Player.SaveAsync(data);
-
-    }
+    
 
 
 

@@ -19,20 +19,25 @@ public class SoSoldier : MonoBehaviour
     [SerializeField] float lifetimeOfAcitveBonus;
     float timeToActiveBonus;
     bool activeBonusSpread;
+    bool activeBonusRate;
+    bool activeBonusRing;
+    int counterBonusRing;
 
     [SerializeField] float blastForce = 1;
 
     GameObject goSolder;
+    Animator animator;
 
     void Start()
     {
         goSolder = transform.GetChild(0).gameObject;
         goSolder.transform.position = Vector3.up * radius;
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        animator = goSolder.GetComponent<Animator>();
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         //Move
         if (Input.GetMouseButton(0))
@@ -41,43 +46,71 @@ public class SoSoldier : MonoBehaviour
 
             Vector3 dir = new Vector3(ray.origin.x, ray.origin.y, 0) - transform.position;
             Quaternion rot = Quaternion.LookRotation(Vector3.forward, dir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime * rotationSpeed);
+            animator.SetBool("Move", true);
+        }
+        else
+        {
+            animator.SetBool("Move", false);
         }
 
         //Shoot
-        timeToProjectile += Time.deltaTime;
+        timeToProjectile += Time.fixedDeltaTime;
+        if (activeBonusRate) //Faster proj time by bonus
+        {
+            timeToProjectile += Time.fixedDeltaTime * 2;
+        }
+
         if (timeToProjectile >= rateOfProjectile)
         {
             timeToProjectile = 0;
 
             FireProjectile(0);
-            if (activeBonusSpread)
+            if (activeBonusSpread) //More proj by bonus
             {
                 FireProjectile(10);
                 FireProjectile(-10);
                 FireProjectile(20);
                 FireProjectile(-20);
             }
-          
+
+            animator.SetBool("Push", true);
+        }
+        else if (timeToProjectile >= rateOfProjectile / 4)
+        {
+            animator.SetBool("Push", false);
         }
 
 
         //Bonus
-        timeToBonus += Time.deltaTime;
+        timeToBonus += Time.fixedDeltaTime;
         if (timeToBonus >= rateOfBonus)
         {
             timeToBonus = 0;
 
             GenerateBonus();
         }
+        
 
         //Active bonus
-        timeToActiveBonus += Time.deltaTime;
-        if (timeToActiveBonus>=lifetimeOfAcitveBonus)
+        timeToActiveBonus += Time.fixedDeltaTime;
+        if (timeToActiveBonus >= lifetimeOfAcitveBonus)
         {
             activeBonusSpread = false;
+            activeBonusRate = false;
         }
 
+        //Ring bonus angle increase
+        if (activeBonusRing)
+        {
+            FireProjectile(counterBonusRing);
+            counterBonusRing += 30;
+            if (counterBonusRing >= 360)
+            {
+                activeBonusRing = false;
+                counterBonusRing = 0;
+            }
+        }
 
         //Temp
         if (Input.GetMouseButtonDown(1))
@@ -132,10 +165,18 @@ public class SoSoldier : MonoBehaviour
                     activeBonusSpread = true;
                     timeToActiveBonus = 0;
                     break;
+                case SoBonus.BonusType.Rate:
+                    activeBonusRate = true;
+                    timeToActiveBonus = 0;
+                    break;
+                case SoBonus.BonusType.Ring:
+                    activeBonusRing = true;
+                    counterBonusRing = 0;
+                    break;
                 default:
                     break;
             }
-           
+
         }
     }
 }

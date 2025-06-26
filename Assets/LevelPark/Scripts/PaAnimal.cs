@@ -7,16 +7,16 @@ public class PaAnimal : MonoBehaviour
         idle, sit, action
     }
 
-
+    [SerializeField] bool doFlip = true;
     [SerializeField] float timeToFlip = 3.0f;
     [SerializeField] float timeToSit = 7.0f;
     [SerializeField] float timeOfAction = 3.0f;
     float timerToFlip;
     float timerToSit;
-    float timerOfAction;
+    public float timerOfAction;
 
     BoxCollider2D boxCollider;
-    Animator animator;
+    public Animator animator;
 
     private void Start()
     {
@@ -44,7 +44,7 @@ public class PaAnimal : MonoBehaviour
 
 
             timerToFlip += Time.deltaTime;
-            if (timerToFlip > timeToFlip)
+            if (timerToFlip > timeToFlip && doFlip)
             {
                 //flip
                 transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);

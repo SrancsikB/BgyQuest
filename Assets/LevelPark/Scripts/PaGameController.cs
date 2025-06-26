@@ -7,6 +7,10 @@ public class PaGameController : MonoBehaviour
     [SerializeField] GameObject wallHighEdge;
     [SerializeField] GameObject keepCrouch;
 
+    public int CollectedItems = 0;
+    public int CollectedItems2 = 0;
+    public bool levelFinished;
+
     private void Start()
     {
 

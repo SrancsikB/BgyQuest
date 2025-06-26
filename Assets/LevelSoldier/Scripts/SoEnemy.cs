@@ -26,6 +26,11 @@ public class SoEnemy : MonoBehaviour
             UpdateForce();
         }
 
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetChild(0).localPosition = Vector2.up * (1 - (timeToUpdateForce / forceUpdateTime)) * 0.8f;
+        }
+
     }
 
     private void UpdateForce()

@@ -78,7 +78,7 @@ public class MapIconClick : MonoBehaviour
                             
                         break;
                     case MapIcon.Game:
-                        SceneManager.LoadScene("ParkLevel1");
+                        SceneManager.LoadScene("ParkLevelSelect");
                         break;
                     case MapIcon.Puzzle:
 

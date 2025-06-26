@@ -61,6 +61,8 @@ public class PaCat : MonoBehaviour
 
     Camera camera;
 
+    PaGameController gc;
+
     private void Start()
     {
         catState = CatState.idle;
@@ -86,6 +88,8 @@ public class PaCat : MonoBehaviour
 
         pb = FindFirstObjectByType<PaBackground>();
         UpdateCameraPos();
+
+        gc = FindFirstObjectByType<PaGameController>();
     }
 
     private void OnMouseDown()
@@ -99,6 +103,10 @@ public class PaCat : MonoBehaviour
         line.SetPosition(1, startPos);
         line.enabled = true;
 
+        if (gc.levelFinished == true)
+        {
+            SceneManager.LoadScene("ParkLevelSelect");
+        }
 
     }
 
@@ -598,7 +606,11 @@ public class PaCat : MonoBehaviour
 
         if (pa != null)
         {
-            Fright();
+            if (pa.animator.GetBool("Action") == false)
+            {
+                Fright();
+            }
+
 
         }
 
@@ -660,15 +672,26 @@ public class PaCat : MonoBehaviour
         PaCheckpoint checkPoint = collision.transform.GetComponent<PaCheckpoint>();
         if (checkPoint != null)
         {
-            gameStartPos = transform.position;
+            gameStartPos = transform.position + Vector3.up;
             checkPoint.transform.GetChild(0).gameObject.SetActive(false);
             checkPoint.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+        PaCollectable collectable = collision.transform.GetComponent<PaCollectable>();
+        if (collectable != null)
+        {
+
+            collectable.transform.GetChild(0).gameObject.SetActive(false);
+            collectable.GetComponent<BoxCollider2D>().enabled = false;
+
+            PaGameController gc = FindFirstObjectByType<PaGameController>();
+            gc.CollectedItems += 1;
         }
 
         PaEndOfLevel endOfLevel = collision.transform.GetComponent<PaEndOfLevel>();
         if (endOfLevel != null)
         {
-            SceneManager.LoadScene("Map");
+            SceneManager.LoadScene("ParkLevelSelect");
         }
 
     }

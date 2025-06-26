@@ -4,7 +4,7 @@ public class SoBonus : MonoBehaviour
 {
     public enum BonusType
     {
-        Blast=0,Spread=1
+        Blast=0,Spread=1,Rate=2, Ring=3
 
     }
 
@@ -12,7 +12,7 @@ public class SoBonus : MonoBehaviour
 
     void Start()
     {
-        bonusType = (BonusType)Random.Range(0, 2);
+        bonusType = (BonusType)Random.Range(1, 4);
     }
 
     
