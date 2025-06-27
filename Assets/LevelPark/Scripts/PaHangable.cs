@@ -12,16 +12,16 @@ public class PaHangable : MonoBehaviour
 
     private void OnValidate()
     {
-        if (orientation == Orientation.Left)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            transform.eulerAngles = new Vector3(0, 0, -175);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            transform.eulerAngles = new Vector3(0, 0, -185);
-        }
+        //if (orientation == Orientation.Left)
+        //{
+        //    transform.localScale = new Vector3(-1, 1, 1);
+        //    transform.eulerAngles = new Vector3(0, 0, -175);
+        //}
+        //else
+        //{
+        //    transform.localScale = new Vector3(1, 1, 1);
+        //    transform.eulerAngles = new Vector3(0, 0, -185);
+        //}
     }
 
 }

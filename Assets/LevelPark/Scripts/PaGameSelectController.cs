@@ -18,7 +18,7 @@ public class PaGameSelectController : MonoBehaviour
             PlayerDataControl pDC = PlayerDataControl.Instance;
             coinQuantity = pDC.coins;
             paPD = pDC.GetParkProgressData();
-
+            paPD.paMapLevel = 10; //Temp
 
         }
         catch (System.Exception)

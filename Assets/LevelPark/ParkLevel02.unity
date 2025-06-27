@@ -1071,7 +1071,7 @@ Transform:
   m_GameObject: {fileID: 138466047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 113.99, y: 0.92, z: 0}
+  m_LocalPosition: {x: -30.5, y: -5.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1099,13 +1099,7 @@ MonoBehaviour:
   camUpperRight: {x: 11.2, y: 7}
   psLeft: {fileID: 1419034955}
   psRight: {fileID: 1115918727}
-  txtEnergy: {fileID: 1677400636}
-  startEnergy: 500
-  currentEnergy: 0
-  txtHunger: {fileID: 56692055}
-  startHunger: 100
-  timeToReduceHunger: 5
-  currentHunger: 1
+  collectedItems: []
 --- !u!50 &138466052
 Rigidbody2D:
   serializedVersion: 5
@@ -2509,9 +2503,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff957be6e440f84791d58e311dbf24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doFlip: 1
   timeToFlip: 10
   timeToSit: 7
   timeOfAction: 3
+  timerOfAction: 0
+  animator: {fileID: 0}
 --- !u!50 &266783600
 Rigidbody2D:
   serializedVersion: 5
@@ -3410,6 +3407,9 @@ MonoBehaviour:
   msgBox: {fileID: 1370829717}
   text: {fileID: 212301831}
   reward: {fileID: 0}
+  alternatePos1: {x: 0, y: 0, z: 0}
+  alternatePos2: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
 --- !u!1 &336799750
 GameObject:
   m_ObjectHideFlags: 0
@@ -9372,6 +9372,9 @@ MonoBehaviour:
   msgBox: {fileID: 99180488}
   text: {fileID: 1375079418}
   reward: {fileID: 1412783314}
+  alternatePos1: {x: 0, y: 0, z: 0}
+  alternatePos2: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
 --- !u!50 &465901433
 Rigidbody2D:
   serializedVersion: 5
@@ -10455,6 +10458,10 @@ PrefabInstance:
     - target: {fileID: 5322203177531085630, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966139971634708021, guid: 73578e58268578e4892e369931915b6d, type: 3}
+      propertyPath: index
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7576409578840244902, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_Name
@@ -11811,7 +11818,9 @@ MonoBehaviour:
   tilemap: {fileID: 426650561}
   wallHighEdge: {fileID: 8242439738596351076, guid: 33487dc285b5a5f40a4dd8d8634d94f5, type: 3}
   keepCrouch: {fileID: 4112284120321002034, guid: 3e3406182f815c74db5e0c1593742026, type: 3}
-  CollectedItems: 3
+  CollectedItems: 0
+  CollectedItems2: 0
+  levelFinished: 0
 --- !u!1 &740723390
 GameObject:
   m_ObjectHideFlags: 0
@@ -28641,9 +28650,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff957be6e440f84791d58e311dbf24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doFlip: 1
   timeToFlip: 10
   timeToSit: 7
   timeOfAction: 3
+  timerOfAction: 0
+  animator: {fileID: 0}
 --- !u!50 &1622886276
 Rigidbody2D:
   serializedVersion: 5
@@ -29325,17 +29337,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1677400636 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3290263278913471708, guid: 48ae972840fc7ac469a209a11f4a9234, type: 3}
-  m_PrefabInstance: {fileID: 1512028539}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1682521177
 GameObject:
   m_ObjectHideFlags: 0
@@ -29692,6 +29693,10 @@ PrefabInstance:
     - target: {fileID: 5322203177531085630, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966139971634708021, guid: 73578e58268578e4892e369931915b6d, type: 3}
+      propertyPath: index
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7576409578840244902, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_Name
@@ -33112,6 +33117,10 @@ PrefabInstance:
     - target: {fileID: 5322203177531085630, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966139971634708021, guid: 73578e58268578e4892e369931915b6d, type: 3}
+      propertyPath: index
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7576409578840244902, guid: 73578e58268578e4892e369931915b6d, type: 3}
       propertyPath: m_Name

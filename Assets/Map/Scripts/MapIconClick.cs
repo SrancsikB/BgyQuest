@@ -93,6 +93,31 @@ public class MapIconClick : MonoBehaviour
                 }
                 break;
 
+            case MapFlag.GameGroup.Soldier:
+                switch (mapIcon)
+                {
+                    case MapIcon.Quiz:
+                        if (lockQuiz == false)
+                        { }
+                        //SceneManager.LoadScene("Quiz");
+
+                        break;
+                    case MapIcon.Game:
+                        SceneManager.LoadScene("SoldierLevel");
+                        break;
+                    case MapIcon.Puzzle:
+
+                        //SceneManager.LoadScene("Puzzle");
+                        break;
+                    case MapIcon.Upgrade:
+                        //SceneManager.LoadScene("RailwayUpgrade");
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
             default:
                 break;
         }

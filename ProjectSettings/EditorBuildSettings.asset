@@ -55,10 +55,13 @@ EditorBuildSettings:
     guid: 89b67b0698b2bca42a33e77d9a3418f0
   - enabled: 1
     path: Assets/LevelPark/ParkLevel03.unity
-    guid: 880d42f46c3b0854dbc8628152aca1d5
+    guid: 1ccbc8dd84f507444bfbff7ef9235c21
   - enabled: 1
     path: Assets/LevelPark/ParkLevel04.unity
-    guid: 1ccbc8dd84f507444bfbff7ef9235c21
+    guid: 880d42f46c3b0854dbc8628152aca1d5
+  - enabled: 1
+    path: Assets/LevelSoldier/SoldierLevel.unity
+    guid: 09342b5c0d555ac4bb1d94a0fe3bb1a2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

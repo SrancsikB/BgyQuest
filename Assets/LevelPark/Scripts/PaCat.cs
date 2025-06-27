@@ -1,7 +1,6 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class PaCat : MonoBehaviour
 {
     enum CatState
@@ -23,6 +22,7 @@ public class PaCat : MonoBehaviour
     [SerializeField] Vector2 camUpperRight = new Vector2(11.2f, 7);
     [SerializeField] ParticleSystem psLeft;
     [SerializeField] ParticleSystem psRight;
+    [SerializeField] Image[] collectedItems;
     Vector3 gameStartPos;
     Vector3 startPos;
     Vector3 endPos;
@@ -30,16 +30,6 @@ public class PaCat : MonoBehaviour
     float startGravity;
     CatState catState;
     CatState catStateLast;
-
-    [SerializeField] TextMeshProUGUI txtEnergy;
-    [SerializeField] float startEnergy = 100;
-    public float currentEnergy;
-
-    [SerializeField] TextMeshProUGUI txtHunger;
-    [SerializeField] float startHunger = 100;
-    [SerializeField] float timeToReduceHunger = 5;
-    float timeTillReduceHunger;
-    public float currentHunger;
 
     bool addForce;
     Vector3 addForceVector;
@@ -77,19 +67,17 @@ public class PaCat : MonoBehaviour
 
         animator = GetComponent<Animator>();
         camera = Camera.main;
-        //Debug.Log( camera.ViewportToWorldPoint(new Vector3(0, 0, 0)));
-        //Debug.Log(camera.ViewportToWorldPoint(new Vector3(1, 1, 0)));
-        currentEnergy = startEnergy;
-
-        currentHunger = startHunger;
-        timeTillReduceHunger = timeToReduceHunger;
-
 
 
         pb = FindFirstObjectByType<PaBackground>();
         UpdateCameraPos();
 
         gc = FindFirstObjectByType<PaGameController>();
+
+        foreach (Image image in collectedItems)
+        {
+            image.enabled = false;
+        }
     }
 
     private void OnMouseDown()
@@ -125,8 +113,6 @@ public class PaCat : MonoBehaviour
         addForce = true;
         addForceVector = forceVector * force;
 
-        currentEnergy -= forceVector.magnitude;
-
 
     }
 
@@ -147,7 +133,7 @@ public class PaCat : MonoBehaviour
                 {
                     addForce = false;
 
-                    animator.SetBool("WallGrab", false);
+
 
                     //Flip sprite
                     if (addForceVector.x >= 0)
@@ -162,7 +148,7 @@ public class PaCat : MonoBehaviour
                     }
 
 
-                    if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1)
+                    if (addForceVector.y / force < -1 && Mathf.Abs(addForceVector.x / force) < 1 && animator.GetBool("WallGrab") == false)
                     {
                         catState = CatState.crouch;
                         break;
@@ -172,6 +158,8 @@ public class PaCat : MonoBehaviour
                         rb.AddForce(addForceVector, ForceMode2D.Force);
                         addForce = false;
                     }
+
+                    animator.SetBool("WallGrab", false);
                 }
 
 
@@ -361,7 +349,7 @@ public class PaCat : MonoBehaviour
             case CatState.sleep:
 
                 animator.SetBool("Sleep", true);
-                currentEnergy = startEnergy;
+
                 if (addForce)
                 {
                     addForce = false;
@@ -394,17 +382,22 @@ public class PaCat : MonoBehaviour
                 break;
             case CatState.die:
                 animator.SetBool("Die", true);
-
-                if (addForceVector.y / force >= 1.9)
+                if (addForce)
                 {
-                    boxCollider.size = boxColliderOrigiSize;
-                    ResetPosition();
-                    catState = CatState.idle;
-                    ClearAllAnimator();
-                    rb.linearVelocity = Vector2.zero;
-                    rb.gravityScale = startGravity;
-                    break;
+                    addForce = false;
+                    if (addForceVector.y / force >= 1.9)
+                    {
+                        boxCollider.size = boxColliderOrigiSize;
+                        ResetPosition();
+                        catState = CatState.idle;
+                        ClearAllAnimator();
+                        rb.linearVelocity = Vector2.zero;
+                        rb.gravityScale = startGravity;
+
+                    }
+
                 }
+
 
                 break;
             default:
@@ -413,31 +406,6 @@ public class PaCat : MonoBehaviour
 
 
 
-
-        //Energy
-        if (currentEnergy < 0)
-        {
-            Die();
-
-        }
-        txtEnergy.text = Mathf.CeilToInt(currentEnergy).ToString();
-
-
-        //Hunger
-        if (catState != CatState.die)
-        {
-            timeTillReduceHunger -= Time.deltaTime;
-            if (timeTillReduceHunger <= 0)
-            {
-                timeTillReduceHunger = timeToReduceHunger;
-                currentHunger -= 1;
-                if (currentHunger <= 0)
-                {
-                    Die();
-                }
-            }
-        }
-        txtHunger.text = Mathf.CeilToInt(currentHunger).ToString();
 
 
         //Force line show
@@ -502,14 +470,6 @@ public class PaCat : MonoBehaviour
 
     }
 
-    private void Feed(int food)
-    {
-        currentHunger += food;
-        if (currentHunger > startHunger)
-        {
-            currentHunger = startHunger;
-        }
-    }
 
     private void ResetPosition()
     {
@@ -523,9 +483,6 @@ public class PaCat : MonoBehaviour
             obstacle.resetPos();
         }
 
-        currentEnergy = startEnergy;
-        currentHunger = startHunger;
-        timeTillReduceHunger = timeToReduceHunger;
     }
 
     public void Fright()
@@ -535,7 +492,7 @@ public class PaCat : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         ClearAllAnimator();
         catState = CatState.fright;
-        currentEnergy -= 20;
+
     }
 
     void ClearAllAnimator()
@@ -627,7 +584,7 @@ public class PaCat : MonoBehaviour
 
         if (mouse != null)
         {
-            Feed(10);
+
             Destroy(mouse.gameObject);
 
         }
@@ -681,8 +638,10 @@ public class PaCat : MonoBehaviour
         if (collectable != null)
         {
 
-            collectable.transform.GetChild(0).gameObject.SetActive(false);
-            collectable.GetComponent<BoxCollider2D>().enabled = false;
+            collectable.transform.gameObject.SetActive(false);
+            collectedItems[collectable.index].enabled = true;
+            collectedItems[collectable.index].sprite = collectable.GetComponent<SpriteRenderer>().sprite;
+
 
             PaGameController gc = FindFirstObjectByType<PaGameController>();
             gc.CollectedItems += 1;

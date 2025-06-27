@@ -686,9 +686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3378000513960316469, guid: fb06b45c3eca6064f89c89b3a4f1b611, type: 3}
       propertyPath: m_text
-      value: 'Gang
-
-'
+      value: Big Cat
       objectReference: {fileID: 0}
     - target: {fileID: 3869732184200991178, guid: fb06b45c3eca6064f89c89b3a4f1b611, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1402,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3378000513960316469, guid: fb06b45c3eca6064f89c89b3a4f1b611, type: 3}
       propertyPath: m_text
-      value: 'Big Cat
+      value: 'The Gang
 
 '
       objectReference: {fileID: 0}

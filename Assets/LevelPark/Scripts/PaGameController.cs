@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
 public class PaGameController : MonoBehaviour
 {
     [SerializeField] Tilemap tilemap;
     [SerializeField] GameObject wallHighEdge;
     [SerializeField] GameObject keepCrouch;
+  
 
     public int CollectedItems = 0;
     public int CollectedItems2 = 0;
@@ -13,6 +15,7 @@ public class PaGameController : MonoBehaviour
 
     private void Start()
     {
+
 
         for (int x = tilemap.cellBounds.xMin; x < tilemap.cellBounds.xMax; x++)
         {

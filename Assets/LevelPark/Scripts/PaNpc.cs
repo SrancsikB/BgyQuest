@@ -45,19 +45,19 @@ public class PaNpc : MonoBehaviour
                         text.text = "Hi Bobo! I'm the old Lion. My job is to guard the Park...";
                         break;
                     case 2:
-                        text.text = "Unfortunately I felt asleep too early and some strange things happend in the Park...";
+                        text.text = "Unfortunately I felt asleep too early and a strange thing happend...";
                         break;
                     case 3:
                         text.text = "Some letters has been stolen from the Museum's sign...";
                         break;
                     case 4:
-                        text.text = "Some of the Stations has been moved...";
+                        text.text = "Bobo, please help me to solve these mystery...";
                         break;
                     case 5:
-                        text.text = "Bobo, please help me to solve these mysteries...";
+                        text.text = "Thanks Bobo! Here is a puzzle piece!";
                         break;
                     case 6:
-                        text.text = "Find the letters and place the Stations!";
+                        text.text = "Thanks Bobo for your help!";
                         break;
                     default:
                         break;
@@ -170,9 +170,19 @@ public class PaNpc : MonoBehaviour
             switch (npcType)
             {
                 case NpcType.Lion:
-                    if (msgIndex > 6)
+                    if (gc.CollectedItems < 5)
                     {
-                        msgIndex = 5;
+                        if (msgIndex > 4)
+                        {
+                            msgIndex = 3;
+                        }
+                    }
+                    else
+                    {
+                        if (msgIndex > 6)
+                        {
+                            msgIndex = 6;
+                        }
                     }
                     break;
                 case NpcType.Crow:
@@ -296,6 +306,15 @@ public class PaNpc : MonoBehaviour
             msgBox.SetActive(true);
             switch (npcType)
             {
+                case NpcType.Lion:
+                    if (gc.CollectedItems >= 5 && msgIndex < 6)
+                    {
+                        msgIndex = 5;
+                        reward.GetComponent<QuizAnimReward>().StartFlipAnim();
+                        gc.levelFinished = true;
+                    }
+
+                    break;
                 case NpcType.Crow:
                     if (gc.CollectedItems >= 3 && msgIndex < 5)
                     {
