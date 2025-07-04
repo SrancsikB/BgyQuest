@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GeneralTable_hu
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: hu
+  m_SharedData: {fileID: 11400000, guid: 0b69a265657576f47a23b40cf1e1fc8c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 39193055232
+    m_Localized: "\xDCdv\xF6z\xF6l a BGY Quest!\n\nK\xE9szel \xE1llsz felfedezni
+      Balassagyarmatot?\nK\xE9sz\xFClj fel!\n\nV\xE1laszolj helyesen a feladv\xE1nyokra
+      \xE9s j\xE1tsz k\xFCl\xF6nb\xF6z\u0151 minij\xE1t\xE9kokkal a jutalmak megszerz\xE9s\xE9\xE9rt.\n\nJ\xE1tsz
+      \"Vend\xE9g\"-k\xE9nt, ha csak bele szeretn\xE9l n\xE9zni a j\xE1t\xE9kba\nvagy
+      regisztr\xE1lj, hogy t\xF6bb tartalomhoz is hozz\xE1f\xE9rj \xE9s a j\xE1t\xE9kmeneted
+      is mentve maradjon.\n\nDEMO\nv250704.1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9144611803136
+    m_Localized: "Vend\xE9g"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9202006659072
+    m_Localized: "Felhaszn\xE1l\xF3n\xE9v..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9429728006144
+    m_Localized: "Jelsz\xF3...."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9533427978240
+    m_Localized: "L\xE9trehoz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9612251533312
+    m_Localized: "Bel\xE9p"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

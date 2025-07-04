@@ -3,6 +3,7 @@ using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
 public class Authentication : MonoBehaviour
@@ -15,7 +16,7 @@ public class Authentication : MonoBehaviour
     string UserNameText = "User";
     string PasswordText = "User1234!";
 
-   
+
 
     async void Start()
     {
@@ -78,11 +79,11 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
         }
         catch (RequestFailedException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
         }
         finally
         {
@@ -103,11 +104,11 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
         }
         catch (RequestFailedException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
         }
         finally
         {
@@ -128,12 +129,12 @@ public class Authentication : MonoBehaviour
         }
         catch (AuthenticationException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
 
         }
         catch (RequestFailedException ex)
         {
-            ShowErrorMessage(ex.ErrorCode + ": " + ex.Message);
+            ShowErrorMessage(ex.ErrorCode, ex.Message);
         }
         finally
         {
@@ -144,10 +145,31 @@ public class Authentication : MonoBehaviour
 
 
 
-    public void ShowErrorMessage(string message)
+    public void ShowErrorMessage(int errorCode, string message)
     {
         ErrorMessage.color = Color.red;
-        ErrorMessage.text = message;
+        ErrorMessage.text = errorCode.ToString();
+        if (LocalizationSettings.SelectedLocale.Identifier == "hu")
+        {
+            if (errorCode == 10002)
+                ErrorMessage.text += ": Felhasználónév és/vagy Jelszó formátuma nem megfelelõ";
+            else if (errorCode == 10003)
+                ErrorMessage.text += ": Felhasználónév már létezik";
+            else if (message.Contains("Password does not match requirements"))
+                ErrorMessage.text += ": Jelszó nem megfelelõ. Legalább tartalmaznia kell egy kisbetût, egy nagybetût, egy számot és egy szimbólumot. Minimum 8, maximum 30 karakter hosszú lehet.";//Password does not match requirements. Insert at least 1 uppercase, 1 lowercase, 1 digit and 1 symbol. With minimum 8 characters and a maximum of 30
+            else if (message.Contains("Username does not match requirements"))
+                ErrorMessage.text += ": Felhasználónév nem megfelelõ. Csak betût, számot és az alábbi szimbólumokat tartalmazhatja: {., -, _, @}. Minimum 3, maximum 20 karakter hosszú lehet.";//Username does not match requirements. Insert only letters, digits and symbols among {., -, _, @}. With a minimum of 3 characters and a maximum of 20
+            else if (message.Contains("Invalid username or password"))
+                ErrorMessage.text += ": Felhasználónév vagy jelszó nem megfelelõ";
+        }
+        else
+        {
+            //Keep english as it
+            ErrorMessage.text += ": " + message;
+        }
+
+
+
     }
 
     public void ShowSuccessMessage(string message)
